@@ -60,7 +60,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-background-dark">
       {/* Top Navigation */}
-      <nav className="sticky top-0 z-50 glass border-b border-primary/10 px-8 py-5 flex items-center justify-between">
+      <nav className="sticky top-0 z-50 glass border-b border-primary/10 px-6 md:px-12 py-5 flex items-center justify-between">
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -70,11 +70,30 @@ export default function App() {
           <div className="bg-primary text-slate-900 p-2.5 rounded-2xl flex items-center justify-center shadow-xl shadow-primary/20">
             <BarChart2 size={22} />
           </div>
-          <span className="font-bold tracking-tighter text-2xl font-mono italic">
+          <span className="font-bold tracking-tighter text-xl md:text-2xl font-mono italic">
             FAZLUR RAHMAN
           </span>
         </motion.div>
-        <button className="p-3 hover:bg-primary/10 rounded-2xl transition-colors text-slate-600 dark:text-slate-300">
+
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
+            <button
+              key={`desktop-${item.id}`}
+              onClick={() => setActivePage(item.id)}
+              className={`text-sm font-bold uppercase tracking-widest transition-colors ${
+                activePage === item.id
+                  ? "text-primary"
+                  : "text-slate-500 hover:text-primary/70"
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Mobile Hamburger Menu (Visually hidden on desktop) */}
+        <button className="md:hidden p-3 hover:bg-primary/10 rounded-2xl transition-colors text-slate-600 dark:text-slate-300">
           <Menu size={24} />
         </button>
       </nav>
@@ -94,9 +113,9 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* Bottom Navigation Bar */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 glass border-t border-primary/10 pb-10 pt-5">
-        <div className="flex max-w-xl mx-auto px-10 justify-between items-center">
+      {/* Bottom Navigation Bar (Mobile Only) */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 glass border-t border-primary/10 pb-8 pt-4">
+        <div className="flex px-6 justify-between items-center">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -113,7 +132,7 @@ export default function App() {
               >
                 {item.icon}
               </motion.div>
-              <p className="text-[9px] font-bold tracking-[0.2em] uppercase">
+              <p className="text-xs font-bold tracking-widest uppercase">
                 {item.label}
               </p>
               {activePage === item.id && (

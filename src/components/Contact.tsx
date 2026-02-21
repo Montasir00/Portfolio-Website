@@ -59,7 +59,7 @@ export const Contact = () => {
                 <Mail size={24} />
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">
                   Email
                 </p>
                 <p className="font-bold text-slate-900 dark:text-slate-200">
@@ -73,7 +73,7 @@ export const Contact = () => {
                 <Phone size={24} />
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">
                   Phone
                 </p>
                 <p className="font-bold text-slate-900 dark:text-slate-200">
@@ -111,63 +111,33 @@ export const Contact = () => {
           </div>
         </motion.div>
 
-        {/* Contact Form */}
+        {/* Contact CTA */}
         <motion.div
           variants={itemVariants}
-          className="bg-white dark:bg-card-dark p-10 rounded-[2.5rem] border border-slate-200 dark:border-white/5 shadow-2xl"
+          className="bg-primary/5 p-10 rounded-[2.5rem] border border-primary/20 shadow-2xl flex flex-col justify-center items-center text-center space-y-8"
         >
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="John Doe"
-                  className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/5 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  placeholder="john@example.com"
-                  className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/5 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all"
-                />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">
-                Subject
-              </label>
-              <input
-                type="text"
-                placeholder="Project Inquiry"
-                className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/5 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">
-                Message
-              </label>
-              <textarea
-                rows={5}
-                placeholder="Tell me about your project..."
-                className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-white/5 rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all resize-none"
-              ></textarea>
-            </div>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full py-5 bg-primary hover:bg-primary-dark text-slate-900 font-bold rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center gap-3 transition-all"
-            >
-              <Send size={20} />
-              Send Message
-            </motion.button>
-          </form>
+          <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-2">
+            <Mail size={32} />
+          </div>
+          <div className="space-y-4">
+            <h3 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+              Start a Conversation
+            </h3>
+            <p className="text-slate-500 max-w-sm mx-auto leading-relaxed">
+              Skip the forms. Send me an email directly and I'll get back to you
+              as soon as possible.
+            </p>
+          </div>
+
+          <motion.a
+            href="mailto:fazlurrahaman365@gmail.com"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="w-full sm:w-auto px-12 py-5 bg-primary hover:bg-primary-dark text-slate-900 font-bold text-lg rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center gap-3 transition-all"
+          >
+            <Send size={20} />
+            Email Me
+          </motion.a>
         </motion.div>
       </div>
     </motion.div>

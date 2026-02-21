@@ -122,7 +122,7 @@ export const ProjectDetail = ({ onBack }: ProjectDetailProps) => {
           variants={itemVariants}
           className="space-y-6 border-l-4 border-primary/30 pl-10"
         >
-          <h2 className="text-primary font-bold uppercase tracking-[0.3em] text-[10px]">
+          <h2 className="text-primary font-bold uppercase tracking-widest text-xs">
             Overview
           </h2>
           <div className="space-y-8 text-2xl leading-relaxed text-slate-600 dark:text-slate-300 font-medium tracking-tight">
@@ -170,11 +170,14 @@ export const ProjectDetail = ({ onBack }: ProjectDetailProps) => {
         {/* Methodology */}
         <motion.section variants={itemVariants} className="space-y-10">
           <div className="space-y-4">
-            <h2 className="text-primary font-bold uppercase tracking-[0.3em] text-[10px]">
+            <h2 className="text-primary font-bold uppercase tracking-widest text-xs">
               Methodology
             </h2>
-            <h3 className="text-4xl font-bold tracking-tight">
-              Pipeline & Architecture
+            <h3 className="text-4xl font-bold tracking-tight flex items-center gap-4">
+              Dashboard Mockup
+              <span className="px-3 py-1 bg-amber-500/10 text-amber-500 text-xs font-bold rounded-full uppercase tracking-widest border border-amber-500/20 flex items-center gap-2">
+                Static Preview
+              </span>
             </h3>
           </div>
 
@@ -196,7 +199,7 @@ export const ProjectDetail = ({ onBack }: ProjectDetailProps) => {
                 />
               ))}
             </div>
-            <div className="mt-10 flex items-center justify-between text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em]">
+            <div className="mt-10 flex items-center justify-between text-xs font-bold text-slate-500 uppercase tracking-widest">
               <span>0.00ms</span>
               <span>Weekly Throughput Optimization Trend</span>
               <span>100.00ms</span>
@@ -237,7 +240,7 @@ export const ProjectDetail = ({ onBack }: ProjectDetailProps) => {
 
         {/* Key Findings */}
         <motion.section variants={itemVariants} className="space-y-10">
-          <h2 className="text-primary font-bold uppercase tracking-[0.3em] text-[10px]">
+          <h2 className="text-primary font-bold uppercase tracking-widest text-xs">
             Key Findings
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -384,50 +387,7 @@ export const ProjectDetail = ({ onBack }: ProjectDetailProps) => {
         </motion.footer>
       </div>
 
-      {/* Floating Actions */}
-      <motion.div
-        initial={{ y: 100 }}
-        animate={{ y: 0 }}
-        className="fixed bottom-10 left-1/2 -translate-x-1/2 flex items-center bg-slate-800/90 backdrop-blur-3xl border border-white/10 rounded-full px-10 py-5 shadow-[0_20px_60px_rgba(0,0,0,0.6)] gap-12 z-50"
-      >
-        <button className="flex flex-col items-center gap-1.5 text-primary group">
-          <BarChart
-            size={22}
-            className="group-hover:scale-110 transition-transform"
-          />
-          <span className="text-[9px] font-bold uppercase tracking-[0.2em]">
-            Story
-          </span>
-        </button>
-        <button className="flex flex-col items-center gap-1.5 text-slate-400 hover:text-primary transition-colors group">
-          <Activity
-            size={22}
-            className="group-hover:scale-110 transition-transform"
-          />
-          <span className="text-[9px] font-bold uppercase tracking-[0.2em]">
-            Data
-          </span>
-        </button>
-        <button className="flex flex-col items-center gap-1.5 text-slate-400 hover:text-primary transition-colors group">
-          <CodeIcon
-            size={22}
-            className="group-hover:scale-110 transition-transform"
-          />
-          <span className="text-[9px] font-bold uppercase tracking-[0.2em]">
-            Code
-          </span>
-        </button>
-        <div className="h-10 w-[1px] bg-white/10"></div>
-        <button className="flex flex-col items-center gap-1.5 text-slate-400 hover:text-primary transition-colors group">
-          <Bookmark
-            size={22}
-            className="group-hover:scale-110 transition-transform"
-          />
-          <span className="text-[9px] font-bold uppercase tracking-[0.2em]">
-            Save
-          </span>
-        </button>
-      </motion.div>
+
     </motion.div>
   );
 };
