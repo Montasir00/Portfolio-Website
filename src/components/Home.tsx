@@ -71,18 +71,16 @@ export const Home = ({ onNavigate }: HeroProps) => {
             className="text-5xl md:text-7xl font-bold leading-[0.9] text-white tracking-tighter"
           >
             BSc in Data Analysis | <br />
-            <span className="text-primary text-glow">
-              Extracting Value from Data
-            </span>
+            <span className="text-primary text-glow">Making Sense of Data</span>
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
             className="text-slate-400 max-w-xl mx-auto text-lg leading-relaxed font-medium"
           >
-            Hi, I'm Fazlur Rahman. I'm a Data Analysis student at the University
-            of Messina, specializing in environmental data analysis, IoT
-            pipelines, and secure transaction systems.
+            I’m a Data Analysis student at the University of Messina. I enjoy
+            working with environmental data and building small data pipelines to
+            solve interesting problems.
           </motion.p>
 
           <motion.div
@@ -113,10 +111,10 @@ export const Home = ({ onNavigate }: HeroProps) => {
       <section className="space-y-8">
         <div className="flex items-center justify-between border-b border-primary/10 pb-4">
           <h2 className="text-2xl font-bold tracking-tight font-mono uppercase italic text-primary">
-            Technical Toolkit
+            Tools I Use
           </h2>
           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">
-            Core Expertise
+            Core Tools
           </span>
         </div>
 
@@ -198,12 +196,12 @@ export const Home = ({ onNavigate }: HeroProps) => {
 
           <div className="p-10 space-y-6">
             <h3 className="text-3xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors tracking-tight">
-              Weather Forecast Research
+              Exploring Weather Data
             </h3>
             <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
-              Analysing environmental data from Copernicus Climate Data Store
-              for Milan air quality. Performing correlation analysis between
-              temperature and pollutants using Python.
+              I looked at environmental data from the Copernicus Climate Data
+              Store to understand air quality in Milan. I used Python to see how
+              temperature changes might relate to pollutant levels.
             </p>
 
             <div className="pt-8 flex items-center justify-between border-t border-slate-100 dark:border-white/5">
