@@ -1,126 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Camera, Plane, Cpu, Book, Gamepad2, Globe, X, ChevronRight, BookOpen, MapPin, Sparkles, ArrowRight } from "lucide-react";
-import { GoogleGenAI } from "@google/genai";
+// No AI features initialized
 
-// Initialize Gemini for the "nano banana" effect
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
 
-const BananaSlider = ({ originalSrc, alt }: { originalSrc: string; alt: string }) => {
-  const [sliderPos, setSliderPos] = useState(50);
-  const [bananaSrc, setBananaSrc] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const generateBananaImage = async () => {
-      if (!process.env.GEMINI_API_KEY) return;
-      setLoading(true);
-      try {
-        // Fetch the original image to send to Gemini
-        const response = await fetch(originalSrc);
-        const blob = await response.blob();
-        const reader = new FileReader();
-        reader.readAsDataURL(blob);
-        reader.onloadend = async () => {
-          const base64Data = (reader.result as string).split(",")[1];
-          
-          const genResponse = await ai.models.generateContent({
-            model: "gemini-2.5-flash-image",
-            contents: {
-              parts: [
-                {
-                  inlineData: {
-                    data: base64Data,
-                    mimeType: "image/jpeg",
-                  },
-                },
-                {
-                  text: "Reimagine this travel photo in a vibrant, artistic, 'nano banana' aesthetic. Use a palette dominated by electric yellows, deep blacks, and neon accents. Make it look like a futuristic, stylized version of the same place.",
-                },
-              ],
-            },
-          });
-
-          for (const part of genResponse.candidates[0].content.parts) {
-            if (part.inlineData) {
-              setBananaSrc(`data:image/png;base64,${part.inlineData.data}`);
-              break;
-            }
-          }
-          setLoading(false);
-        };
-      } catch (error) {
-        console.error("Error generating banana image:", error);
-        setLoading(false);
-      }
-    };
-
-    generateBananaImage();
-  }, [originalSrc]);
-
-  const handleMove = (e: React.MouseEvent | React.TouchEvent) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    const position = ((x - rect.left) / rect.width) * 100;
-    setSliderPos(Math.min(Math.max(position, 0), 100));
-  };
-
-  return (
-    <div 
-      ref={containerRef}
-      className="relative w-full aspect-video rounded-2xl overflow-hidden cursor-ew-resize select-none group"
-      onMouseMove={handleMove}
-      onTouchMove={handleMove}
-    >
-      {/* Original Image */}
-      <img src={originalSrc} alt={alt} className="absolute inset-0 w-full h-full object-cover" />
-      
-      {/* Banana Image (Revealed by slider) */}
-      <div 
-        className="absolute inset-0 w-full h-full overflow-hidden"
-        style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
-      >
-        {bananaSrc ? (
-          <img src={bananaSrc} alt={`${alt} banana version`} className="absolute inset-0 w-full h-full object-cover" />
-        ) : (
-          <div className="absolute inset-0 w-full h-full bg-primary/20 flex items-center justify-center backdrop-blur-sm">
-            {loading ? (
-              <div className="flex flex-col items-center gap-2">
-                <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-                <span className="text-[10px] font-bold text-primary uppercase tracking-widest">Generating Effect...</span>
-              </div>
-            ) : (
-              <Sparkles className="text-primary animate-pulse" size={32} />
-            )}
-          </div>
-        )}
-      </div>
-
-      {/* Slider Handle */}
-      <div 
-        className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_15px_rgba(255,255,255,0.8)] z-30"
-        style={{ left: `${sliderPos}%` }}
-      >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full shadow-xl flex items-center justify-center">
-          <div className="flex gap-0.5">
-            <div className="w-0.5 h-4 bg-slate-300 rounded-full" />
-            <div className="w-0.5 h-4 bg-slate-300 rounded-full" />
-          </div>
-        </div>
-      </div>
-
-      {/* Labels */}
-      <div className="absolute bottom-4 left-4 z-40 bg-black/50 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold text-white uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-        Original
-      </div>
-      <div className="absolute bottom-4 right-4 z-40 bg-primary/80 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold text-slate-900 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-        Nano Banana
-      </div>
-    </div>
-  );
-};
 
 interface InterestsProps {
   onNavigate: (page: string) => void;
@@ -263,8 +146,10 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
               variants={itemVariants}
               className="group bg-white dark:bg-card-dark rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-xl transition-all"
             >
-              <BananaSlider originalSrc={place.img} alt={place.name} />
-              <div 
+              <div className="w-full aspect-video rounded-t-2xl overflow-hidden relative group">
+                <img src={place.img} alt={place.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              </div>
+              <div
                 className="p-8 space-y-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-white/5 transition-colors"
                 onClick={() => setSelectedTravel(place)}
               >
@@ -358,7 +243,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
       <AnimatePresence>
         {selectedTravel && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/80 backdrop-blur-xl">
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -366,7 +251,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
             >
               <div className="relative h-64">
                 <img src={selectedTravel.img} alt={selectedTravel.name} className="w-full h-full object-cover" />
-                <button 
+                <button
                   onClick={() => setSelectedTravel(null)}
                   className="absolute top-6 right-6 p-3 bg-black/50 backdrop-blur-md text-white rounded-2xl hover:bg-black transition-colors"
                 >
@@ -394,7 +279,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
 
         {selectedBook && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/80 backdrop-blur-xl">
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
@@ -404,7 +289,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
                 <div className="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500">
                   <BookOpen size={32} />
                 </div>
-                <button 
+                <button
                   onClick={() => setSelectedBook(null)}
                   className="p-3 hover:bg-slate-100 dark:hover:bg-white/5 rounded-2xl transition-colors"
                 >
@@ -433,7 +318,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
       </AnimatePresence>
 
       {/* Featured Interest Section */}
-      <motion.section 
+      <motion.section
         variants={itemVariants}
         className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 border border-primary/20 p-12 md:p-16 text-center shadow-2xl"
       >
