@@ -5,7 +5,15 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Home as HomeIcon, Grid, User, Mail, Menu, BarChart2, Compass } from "lucide-react";
+import {
+  Home as HomeIcon,
+  Grid,
+  User,
+  Mail,
+  Menu,
+  BarChart2,
+  Compass,
+} from "lucide-react";
 import { Home } from "./components/Home";
 import { Projects } from "./components/Projects";
 import { ProjectDetail } from "./components/ProjectDetail";
@@ -53,16 +61,18 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-background-dark">
       {/* Top Navigation */}
       <nav className="sticky top-0 z-50 glass border-b border-primary/10 px-8 py-5 flex items-center justify-between">
-        <motion.div 
+        <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-4 cursor-pointer" 
-          onClick={() => setActivePage('home')}
+          className="flex items-center gap-4 cursor-pointer"
+          onClick={() => setActivePage("home")}
         >
           <div className="bg-primary text-slate-900 p-2.5 rounded-2xl flex items-center justify-center shadow-xl shadow-primary/20">
             <BarChart2 size={22} />
           </div>
-          <span className="font-bold tracking-tighter text-2xl font-mono italic">FAZLUR RAHMAN</span>
+          <span className="font-bold tracking-tighter text-2xl font-mono italic">
+            FAZLUR RAHMAN
+          </span>
         </motion.div>
         <button className="p-3 hover:bg-primary/10 rounded-2xl transition-colors text-slate-600 dark:text-slate-300">
           <Menu size={24} />
@@ -92,20 +102,22 @@ export default function App() {
               key={item.id}
               onClick={() => setActivePage(item.id)}
               className={`flex flex-col items-center gap-1.5 transition-all relative ${
-                activePage === item.id 
-                  ? "text-primary" 
+                activePage === item.id
+                  ? "text-primary"
                   : "text-slate-400 hover:text-primary/70"
               }`}
             >
-              <motion.div 
+              <motion.div
                 animate={activePage === item.id ? { y: -4 } : { y: 0 }}
                 className="flex h-8 items-center justify-center"
               >
                 {item.icon}
               </motion.div>
-              <p className="text-[9px] font-bold tracking-[0.2em] uppercase">{item.label}</p>
+              <p className="text-[9px] font-bold tracking-[0.2em] uppercase">
+                {item.label}
+              </p>
               {activePage === item.id && (
-                <motion.div 
+                <motion.div
                   layoutId="nav-indicator"
                   className="absolute -bottom-2 w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_10px_rgba(17,180,212,0.8)]"
                 />

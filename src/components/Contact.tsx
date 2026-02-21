@@ -1,5 +1,13 @@
 import { motion } from "motion/react";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
 
 export const Contact = () => {
   const containerVariants = {
@@ -7,14 +15,14 @@ export const Contact = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
+    visible: { y: 0, opacity: 1 },
   };
 
   return (
@@ -27,16 +35,21 @@ export const Contact = () => {
     >
       <div className="space-y-4 border-l-4 border-primary pl-6">
         <h2 className="text-4xl font-bold tracking-tight">Get In Touch</h2>
-        <p className="text-slate-500 text-lg">Have a project in mind or just want to say hi? Feel free to reach out!</p>
+        <p className="text-slate-500 text-lg">
+          Have a project in mind or just want to say hi? Feel free to reach out!
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Contact Info */}
         <motion.div variants={itemVariants} className="space-y-8">
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold tracking-tight">Contact Information</h3>
+            <h3 className="text-2xl font-bold tracking-tight">
+              Contact Information
+            </h3>
             <p className="text-slate-500 leading-relaxed">
-              I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+              I'm always open to discussing new projects, creative ideas or
+              opportunities to be part of your visions.
             </p>
           </div>
 
@@ -46,8 +59,12 @@ export const Contact = () => {
                 <Mail size={24} />
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Email</p>
-                <p className="font-bold text-slate-900 dark:text-slate-200">fazlurrahaman365@gmail.com</p>
+                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                  Email
+                </p>
+                <p className="font-bold text-slate-900 dark:text-slate-200">
+                  fazlurrahaman365@gmail.com
+                </p>
               </div>
             </div>
 
@@ -56,17 +73,26 @@ export const Contact = () => {
                 <Phone size={24} />
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Phone</p>
-                <p className="font-bold text-slate-900 dark:text-slate-200">+39 351-361-7425</p>
+                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+                  Phone
+                </p>
+                <p className="font-bold text-slate-900 dark:text-slate-200">
+                  +39 351-361-7425
+                </p>
               </div>
             </div>
           </div>
 
           <div className="space-y-6">
-            <h4 className="text-sm font-bold text-slate-500 uppercase tracking-[0.2em]">Social Profiles</h4>
+            <h4 className="text-sm font-bold text-slate-500 uppercase tracking-[0.2em]">
+              Social Profiles
+            </h4>
             <div className="flex gap-4">
               {[
-                { icon: <Github size={20} />, link: "https://github.com/Montasir00" },
+                {
+                  icon: <Github size={20} />,
+                  link: "https://github.com/Montasir00",
+                },
                 { icon: <Linkedin size={20} />, link: "#" },
                 { icon: <Twitter size={20} />, link: "#" },
               ].map((social, i) => (
@@ -86,11 +112,16 @@ export const Contact = () => {
         </motion.div>
 
         {/* Contact Form */}
-        <motion.div variants={itemVariants} className="bg-white dark:bg-card-dark p-10 rounded-[2.5rem] border border-slate-200 dark:border-white/5 shadow-2xl">
+        <motion.div
+          variants={itemVariants}
+          className="bg-white dark:bg-card-dark p-10 rounded-[2.5rem] border border-slate-200 dark:border-white/5 shadow-2xl"
+        >
           <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">Full Name</label>
+                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">
+                  Full Name
+                </label>
                 <input
                   type="text"
                   placeholder="John Doe"
@@ -98,7 +129,9 @@ export const Contact = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">Email Address</label>
+                <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">
+                  Email Address
+                </label>
                 <input
                   type="email"
                   placeholder="john@example.com"
@@ -107,7 +140,9 @@ export const Contact = () => {
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">Subject</label>
+              <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">
+                Subject
+              </label>
               <input
                 type="text"
                 placeholder="Project Inquiry"
@@ -115,7 +150,9 @@ export const Contact = () => {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">Message</label>
+              <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest ml-2">
+                Message
+              </label>
               <textarea
                 rows={5}
                 placeholder="Tell me about your project..."
