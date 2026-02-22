@@ -13,6 +13,7 @@ import {
   Menu,
   BarChart2,
   Compass,
+  Briefcase,
 } from "lucide-react";
 import { Home } from "./components/Home";
 import { Projects } from "./components/Projects";
@@ -22,6 +23,7 @@ import { Interests } from "./components/Interests";
 import { Contact } from "./components/Contact";
 import { TravelPage } from "./components/TravelPage";
 import { BooksPage } from "./components/BooksPage";
+import { Experience } from "./components/Experience";
 
 export default function App() {
   const [activePage, setActivePage] = useState("home");
@@ -40,6 +42,8 @@ export default function App() {
         return <TravelPage onBack={() => setActivePage("interests")} />;
       case "books-all":
         return <BooksPage onBack={() => setActivePage("interests")} />;
+      case "experience":
+        return <Experience onBack={() => setActivePage("home")} />;
       case "about":
         return <About onBack={() => setActivePage("home")} />;
       case "contact":
@@ -52,6 +56,7 @@ export default function App() {
   const navItems = [
     { id: "home", label: "Home", icon: <HomeIcon size={22} /> },
     { id: "projects", label: "Projects", icon: <Grid size={22} /> },
+    { id: "experience", label: "Experience", icon: <Briefcase size={22} /> },
     { id: "interests", label: "Interests", icon: <Compass size={22} /> },
     { id: "about", label: "About", icon: <User size={22} /> },
     { id: "contact", label: "Contact", icon: <Mail size={22} /> },
@@ -81,11 +86,10 @@ export default function App() {
             <button
               key={`desktop-${item.id}`}
               onClick={() => setActivePage(item.id)}
-              className={`text-sm font-bold uppercase tracking-widest transition-colors ${
-                activePage === item.id
+              className={`text-sm font-bold uppercase tracking-widest transition-colors ${activePage === item.id
                   ? "text-primary"
                   : "text-slate-500 hover:text-primary/70"
-              }`}
+                }`}
             >
               {item.label}
             </button>
@@ -120,11 +124,10 @@ export default function App() {
             <button
               key={item.id}
               onClick={() => setActivePage(item.id)}
-              className={`flex flex-col items-center gap-1.5 transition-all relative ${
-                activePage === item.id
+              className={`flex flex-col items-center gap-1.5 transition-all relative ${activePage === item.id
                   ? "text-primary"
                   : "text-slate-400 hover:text-primary/70"
-              }`}
+                }`}
             >
               <motion.div
                 animate={activePage === item.id ? { y: -4 } : { y: 0 }}

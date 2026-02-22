@@ -1,28 +1,65 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect } from "react";
 import {
   Code,
   Database,
   BarChart3,
+  Box,
   ArrowRight,
   Download,
   Mail,
   ExternalLink,
-  PieChart,
-  Activity,
+  ChevronLeft,
+  ChevronRight,
+  GitBranch,
+  Layers,
+  FlaskConical,
 } from "lucide-react";
 
 interface HeroProps {
   onNavigate: (page: string) => void;
 }
 
+const featuredProjects = [
+  {
+    id: "energy",
+    title: "Energy Management System",
+    desc: "A real-time IoT data pipeline using Docker Compose and Python. Automated data ingestion, preprocessing, and anomaly detection for continuous sensor analytics.",
+    tags: ["Python", "Docker", "MySQL"],
+    metric: "40% reduction in manual data tasks",
+    img: "https://picsum.photos/seed/energy/1200/800",
+    color: "from-cyan-500/20 to-blue-500/10",
+  },
+  {
+    id: "blockchain",
+    title: "Blockchain Transaction System",
+    desc: "A crypto trading platform supporting on-chain ETH transactions via the Ganache test network, using PHP, Web3.php, and multi-factor authentication.",
+    tags: ["PHP", "Ethereum", "Web3.php"],
+    metric: "Secure on-chain transactions with MFA",
+    img: "https://picsum.photos/seed/blockchain/1200/800",
+    color: "from-purple-500/20 to-indigo-500/10",
+  },
+  {
+    id: "weather",
+    title: "Weather & Air Quality Analysis",
+    desc: "Analysed environmental time-series data from the Copernicus Climate Data Store for Milan, correlating temperature changes with pollutant concentration levels.",
+    tags: ["Python", "Pandas", "Matplotlib"],
+    metric: "94% accuracy on pollution trend forecasting",
+    img: "https://picsum.photos/seed/weather/1200/800",
+    color: "from-emerald-500/20 to-teal-500/10",
+  },
+];
+
 export const Home = ({ onNavigate }: HeroProps) => {
+  const [activeProject, setActiveProject] = useState(0);
+
   const toolkit = [
-    { name: "Python", icon: <Code size={28} />, label: "Data Analysis" },
-    { name: "SQL", icon: <Database size={28} />, label: "Database Management" },
+    { name: "Python", icon: <Code size={28} />, label: "ML & Data Pipelines" },
+    { name: "SQL", icon: <Database size={28} />, label: "Querying & Analytics" },
     {
       name: "Docker",
-      icon: <BarChart3 size={28} />,
-      label: "Containerization",
+      icon: <Box size={28} />,
+      label: "Containerization & DevOps",
     },
   ];
 
@@ -41,6 +78,23 @@ export const Home = ({ onNavigate }: HeroProps) => {
     visible: { y: 0, opacity: 1 },
   };
 
+  // Auto-rotate carousel every 4 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveProject((prev) => (prev + 1) % featuredProjects.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const goNext = () =>
+    setActiveProject((prev) => (prev + 1) % featuredProjects.length);
+  const goPrev = () =>
+    setActiveProject(
+      (prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length,
+    );
+
+  const project = featuredProjects[activeProject];
+
   return (
     <motion.div
       variants={containerVariants}
@@ -50,7 +104,7 @@ export const Home = ({ onNavigate }: HeroProps) => {
       className="space-y-16 pb-32"
     >
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 border border-primary/20 p-10 md:p-16 text-center shadow-2xl">
+      <section className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 border border-primary/20 p-8 md:p-16 text-center shadow-2xl">
         <div className="absolute inset-0 opacity-10 pointer-events-none data-grid-bg"></div>
         <div className="absolute top-0 left-0 w-full scanner-line opacity-20"></div>
 
@@ -68,36 +122,39 @@ export const Home = ({ onNavigate }: HeroProps) => {
 
           <motion.h1
             variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold leading-[0.9] text-white tracking-tighter"
+            className="text-4xl md:text-7xl font-bold leading-[0.9] text-white tracking-tighter"
           >
-            BSc in Data Analysis | <br />
-            <span className="text-primary text-glow">Making Sense of Data</span>
+            BSc in Data Analysis <br />
+            <span className="text-primary text-glow">Learning how data explains the world</span>
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="text-slate-400 max-w-xl mx-auto text-lg leading-relaxed font-medium"
+            className="text-slate-400 max-w-xl mx-auto text-base md:text-lg leading-relaxed font-medium"
           >
-            I’m a Data Analysis student at the University of Messina. I enjoy
-            working with environmental data and building small data pipelines to
-            solve interesting problems.
+            I’m studying Data Analysis at the University of Messina.
+            This site is a collection of projects where I explore data,
+            test ideas, and learn along the way.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center pt-6"
           >
-            <motion.button
+            <motion.a
+              href="/resume.pdf"
+              download="Fazlur_Rahman_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-primary hover:bg-primary-dark text-slate-900 font-bold py-5 px-10 rounded-2xl transition-all shadow-xl shadow-primary/20 text-sm flex items-center justify-center gap-3"
             >
               <Download size={20} />
               Download Resume
-            </motion.button>
+            </motion.a>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => onNavigate("contact")}
               className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-primary/50 text-white font-bold py-5 px-10 rounded-2xl transition-all text-sm flex items-center justify-center gap-3"
             >
               <Mail size={20} />
@@ -107,19 +164,51 @@ export const Home = ({ onNavigate }: HeroProps) => {
         </div>
       </section>
 
+      {/* Metrics Callout */}
+      <motion.section
+        variants={itemVariants}
+        className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center"
+      >
+        {[
+          { value: "14", label: "Projects", icon: <Layers size={18} /> },
+          { value: "4+", label: "Languages", icon: <Code size={18} /> },
+          {
+            value: "2",
+            label: "Internships",
+            icon: <GitBranch size={18} />,
+          },
+          {
+            value: "MSc",
+            label: "Next Goal",
+            icon: <FlaskConical size={18} />,
+          },
+        ].map((stat, i) => (
+          <div
+            key={i}
+            className="bg-white dark:bg-card-dark rounded-2xl p-5 border border-slate-200 dark:border-white/5 shadow-lg flex flex-col items-center gap-2"
+          >
+            <div className="text-primary">{stat.icon}</div>
+            <p className="text-2xl font-bold tracking-tight">{stat.value}</p>
+            <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">
+              {stat.label}
+            </p>
+          </div>
+        ))}
+      </motion.section>
+
       {/* Technical Toolkit */}
       <section className="space-y-8">
         <div className="flex items-center justify-between border-b border-primary/10 pb-4">
           <h2 className="text-2xl font-bold tracking-tight font-mono uppercase italic text-primary">
             Tools I Use
           </h2>
-          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">
+          <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
             Core Tools
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          {toolkit.map((item, idx) => (
+          {toolkit.map((item) => (
             <motion.div
               key={item.name}
               variants={itemVariants}
@@ -132,7 +221,7 @@ export const Home = ({ onNavigate }: HeroProps) => {
               <span className="font-bold text-xl text-slate-900 dark:text-slate-200">
                 {item.name}
               </span>
-              <span className="text-[10px] text-slate-500 uppercase tracking-[0.3em] mt-2 font-bold">
+              <span className="text-xs text-slate-500 uppercase tracking-widest mt-2 font-bold">
                 {item.label}
               </span>
             </motion.div>
@@ -140,11 +229,11 @@ export const Home = ({ onNavigate }: HeroProps) => {
         </div>
       </section>
 
-      {/* Featured Project Preview */}
+      {/* Featured Projects Carousel */}
       <section className="space-y-8">
         <div className="flex items-center justify-between border-b border-primary/10 pb-4">
           <h2 className="text-2xl font-bold tracking-tight font-mono uppercase italic text-primary">
-            Featured Project
+            Featured Projects
           </h2>
           <button
             onClick={() => onNavigate("projects")}
@@ -158,70 +247,94 @@ export const Home = ({ onNavigate }: HeroProps) => {
           </button>
         </div>
 
-        <motion.div
-          variants={itemVariants}
-          whileHover={{ scale: 1.01 }}
-          className="group relative overflow-hidden bg-white dark:bg-card-dark rounded-[2.5rem] border border-slate-200 dark:border-white/5 shadow-2xl transition-all"
-        >
-          <div className="h-80 w-full bg-slate-900 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10"></div>
-            <div className="absolute inset-0 flex items-center justify-center p-16 opacity-20">
-              <div className="w-full h-full flex items-end gap-4">
-                {[50, 75, 100, 33, 66].map((h, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ height: 0 }}
-                    animate={{ height: `${h}%` }}
-                    transition={{ delay: 0.5 + i * 0.1, duration: 1 }}
-                    className="flex-1 bg-primary rounded-t-lg"
-                  />
-                ))}
-              </div>
-            </div>
-            <img
-              className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60 group-hover:scale-110 transition-transform duration-1000"
-              src="https://picsum.photos/seed/data1/1200/800"
-              alt="Data visualization dashboard"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute bottom-8 left-8 z-20 flex gap-4">
-              <span className="px-4 py-1.5 bg-slate-900/80 backdrop-blur-md border border-white/10 text-primary text-[10px] font-bold rounded-xl uppercase tracking-widest">
-                Python
-              </span>
-              <span className="px-4 py-1.5 bg-slate-900/80 backdrop-blur-md border border-white/10 text-primary text-[10px] font-bold rounded-xl uppercase tracking-widest">
-                Data Analysis
-              </span>
-            </div>
-          </div>
-
-          <div className="p-10 space-y-6">
-            <h3 className="text-3xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors tracking-tight">
-              Exploring Weather Data
-            </h3>
-            <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed">
-              I looked at environmental data from the Copernicus Climate Data
-              Store to understand air quality in Milan. I used Python to see how
-              temperature changes might relate to pollutant levels.
-            </p>
-
-            <div className="pt-8 flex items-center justify-between border-t border-slate-100 dark:border-white/5">
-              <div className="flex -space-x-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 border-4 border-white dark:border-card-dark flex items-center justify-center">
-                  <Activity size={20} className="text-primary" />
-                </div>
-                <div className="w-12 h-12 rounded-full bg-primary/10 border-4 border-white dark:border-card-dark flex items-center justify-center">
-                  <PieChart size={20} className="text-primary" />
+        <div className="relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative overflow-hidden bg-white dark:bg-card-dark rounded-[2.5rem] border border-slate-200 dark:border-white/5 shadow-2xl"
+            >
+              <div className="h-64 md:h-80 w-full bg-slate-900 relative overflow-hidden">
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${project.color} z-10`}
+                ></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10"></div>
+                <img
+                  className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60 group-hover:scale-110 transition-transform duration-1000"
+                  src={project.img}
+                  alt={project.title}
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute bottom-8 left-8 z-20 flex flex-wrap gap-3">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-4 py-1.5 bg-slate-900/80 backdrop-blur-md border border-white/10 text-primary text-[10px] font-bold rounded-xl uppercase tracking-widest"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-              <button
-                onClick={() => onNavigate("project-detail")}
-                className="text-primary font-bold text-sm hover:underline flex items-center gap-3 uppercase tracking-[0.2em]"
-              >
-                Case Study <ExternalLink size={18} />
-              </button>
+
+              <div className="p-8 md:p-10 space-y-4">
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors tracking-tight">
+                  {project.title}
+                </h3>
+                <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg leading-relaxed">
+                  {project.desc}
+                </p>
+                <div className="flex items-center gap-3 pt-2 text-sm font-bold text-emerald-500">
+                  <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                  {project.metric}
+                </div>
+
+                <div className="pt-6 flex items-center justify-between border-t border-slate-100 dark:border-white/5">
+                  <span className="text-xs text-slate-400 font-bold uppercase tracking-widest">
+                    {activeProject + 1} / {featuredProjects.length}
+                  </span>
+                  <button
+                    onClick={() => onNavigate("project-detail")}
+                    className="text-primary font-bold text-sm hover:underline flex items-center gap-3 uppercase tracking-widest"
+                  >
+                    Case Study <ExternalLink size={18} />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Carousel Controls */}
+          <div className="flex items-center justify-center gap-6 mt-8">
+            <button
+              onClick={goPrev}
+              className="p-3 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-white/5 text-slate-500 hover:text-primary hover:border-primary/40 transition-all shadow-lg"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <div className="flex gap-2">
+              {featuredProjects.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveProject(i)}
+                  className={`rounded-full transition-all duration-300 ${i === activeProject
+                    ? "bg-primary w-6 h-2"
+                    : "bg-slate-300 dark:bg-slate-700 w-2 h-2"
+                    }`}
+                />
+              ))}
             </div>
+            <button
+              onClick={goNext}
+              className="p-3 rounded-2xl bg-white dark:bg-card-dark border border-slate-200 dark:border-white/5 text-slate-500 hover:text-primary hover:border-primary/40 transition-all shadow-lg"
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
-        </motion.div>
+        </div>
       </section>
     </motion.div>
   );

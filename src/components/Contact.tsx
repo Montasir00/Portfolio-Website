@@ -6,7 +6,7 @@ import {
   Send,
   Github,
   Linkedin,
-  Twitter,
+  Instagram,
 } from "lucide-react";
 
 export const Contact = () => {
@@ -93,8 +93,8 @@ export const Contact = () => {
                   icon: <Github size={20} />,
                   link: "https://github.com/Montasir00",
                 },
-                { icon: <Linkedin size={20} />, link: "#" },
-                { icon: <Twitter size={20} />, link: "#" },
+                { icon: <Linkedin size={20} />, link: "https://www.linkedin.com/in/fazlur-rahman007/" },
+                { icon: <Instagram size={20} />, link: "https://www.instagram.com/_f.r.montasir_?igsh=MWswMDlzb3JvMGk4eA==" },
               ].map((social, i) => (
                 <motion.a
                   key={i}
