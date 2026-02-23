@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useScroll, useSpring } from "motion/react";
 import {
   ArrowLeft,
   Download,
@@ -19,6 +20,18 @@ interface AboutProps {
 }
 
 export const About = ({ onBack }: AboutProps) => {
+  const journeyRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: journeyRef,
+    offset: ["start center", "end center"]
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   const skillCategories = [
     {
       label: "Data & Analysis",
@@ -151,7 +164,7 @@ export const About = ({ onBack }: AboutProps) => {
         <div className="relative">
           <div className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-primary/20 p-1.5 shadow-2xl">
             <img
-              src="https://picsum.photos/seed/fazlur/400/400"
+              src="https://picsum.photos/seed/professional-analyst/400/400"
               alt="Fazlur Rahman"
               className="w-full h-full rounded-full object-cover"
               referrerPolicy="no-referrer"
@@ -207,35 +220,46 @@ export const About = ({ onBack }: AboutProps) => {
 
       {/* Journey Timeline */}
       <motion.section variants={itemVariants} className="space-y-8">
-        <h3 className="text-3xl font-bold tracking-tight">My Journey</h3>
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-primary/20 ml-px hidden sm:block" />
+        <h3 className="text-2xl md:text-3xl font-bold tracking-tight">My Journey</h3>
+        <div ref={journeyRef} className="relative">
+          {/* Vertical line (Background) */}
+          <div className="absolute left-6 top-4 bottom-4 w-px bg-slate-200 dark:bg-white/5 ml-px hidden sm:block" />
+
+          {/* Glowing Progress Line */}
+          <motion.div
+            style={{
+              scaleY,
+              originY: 0
+            }}
+            className="absolute left-6 top-4 bottom-4 w-px bg-gradient-to-b from-primary/40 via-primary to-primary/40 shadow-[0_0_20px_rgba(17,180,212,0.4)] hidden sm:block z-0 opacity-60 ml-px"
+          />
 
           <div className="space-y-6">
             {timeline.map((item, i) => (
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="flex gap-6 items-start"
+                className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start group relative z-10"
               >
-                {/* Icon */}
-                <div
-                  className={`hidden sm:flex relative z-10 w-12 h-12 rounded-2xl flex-shrink-0 items-center justify-center border ${item.color} shadow-lg`}
-                >
-                  {item.icon}
+                {/* Icon (Desktop Only) */}
+                <div className="hidden sm:block relative z-10 bg-slate-50 dark:bg-background-dark rounded-2xl">
+                  <div
+                    className={`flex w-12 h-12 rounded-2xl flex-shrink-0 items-center justify-center border ${item.color} shadow-lg transition-transform group-hover:scale-110`}
+                  >
+                    {item.icon}
+                  </div>
                 </div>
 
                 {/* Content */}
                 <div
-                  className={`flex-1 p-6 rounded-2xl border ${item.current ? "bg-primary/5 border-primary/20" : "bg-white dark:bg-card-dark border-slate-200 dark:border-white/5"} shadow-lg`}
+                  className={`w-full flex-1 p-5 md:p-6 rounded-2xl border ${item.current ? "bg-primary/5 border-primary/20" : "bg-white dark:bg-card-dark border-slate-200 dark:border-white/5"} shadow-lg`}
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-                    <h4 className="font-bold text-xl tracking-tight">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                    <h4 className="font-bold text-lg md:text-xl tracking-tight">
                       {item.title}
                     </h4>
                     <span
-                      className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border ${item.color}`}
+                      className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border ${item.color}`}
                     >
                       {item.year}
                     </span>
@@ -320,9 +344,9 @@ export const About = ({ onBack }: AboutProps) => {
       {/* Education */}
       <motion.section
         variants={itemVariants}
-        className="bg-slate-900 border border-white/5 rounded-[2.5rem] p-12 space-y-8 shadow-2xl"
+        className="bg-slate-900 border border-white/5 rounded-[2.5rem] p-8 md:p-12 space-y-8 shadow-2xl"
       >
-        <h3 className="text-3xl font-bold flex items-center gap-4 text-white tracking-tight">
+        <h3 className="text-2xl md:text-3xl font-bold flex items-center gap-4 text-white tracking-tight">
           <GraduationCap className="text-primary" />
           Education
         </h3>
@@ -357,19 +381,27 @@ export const About = ({ onBack }: AboutProps) => {
             <motion.div
               key={i}
               whileHover={{ x: 8 }}
-              className={`flex items-start gap-5 p-6 rounded-2xl border transition-colors ${edu.current
+              className={`flex flex-col sm:flex-row items-start gap-4 sm:gap-5 p-5 md:p-6 rounded-2xl border transition-colors ${edu.current
                 ? "bg-primary/10 border-primary/30"
                 : "bg-slate-800/50 border-white/5 hover:border-primary/20"
                 }`}
             >
-              <div className={`flex-shrink-0 p-2.5 rounded-xl border ${edu.current ? "bg-primary/20 text-primary border-primary/30" : "bg-white/5 text-slate-400 border-white/10"}`}>
-                {edu.icon}
+              <div className="flex w-full items-start justify-between sm:justify-start gap-4">
+                <div className={`flex-shrink-0 p-2.5 rounded-xl border ${edu.current ? "bg-primary/20 text-primary border-primary/30" : "bg-white/5 text-slate-400 border-white/10"}`}>
+                  {edu.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white font-bold text-base md:text-lg tracking-tight">{edu.degree}</p>
+                  <p className="text-slate-400 text-xs md:text-sm mt-0.5">{edu.school}</p>
+                </div>
+                <span className={`text-[9px] md:text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full flex-shrink-0 sm:hidden ${edu.current
+                  ? "bg-primary/20 text-primary border border-primary/30"
+                  : "bg-white/5 text-slate-400 border border-white/10"
+                  }`}>
+                  {edu.period}
+                </span>
               </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-white font-bold text-lg tracking-tight">{edu.degree}</p>
-                <p className="text-slate-400 text-sm mt-0.5">{edu.school}</p>
-              </div>
-              <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full flex-shrink-0 ${edu.current
+              <span className={`hidden sm:inline-block text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full flex-shrink-0 ${edu.current
                 ? "bg-primary/20 text-primary border border-primary/30"
                 : "bg-white/5 text-slate-400 border border-white/10"
                 }`}>

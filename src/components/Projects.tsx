@@ -18,7 +18,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Multi-source environmental data pipeline collecting air quality and weather data for Milan from the Copernicus Climate Change Service API. Includes time-series analysis and trend visualisation with Pandas and Matplotlib.",
       tags: ["PYTHON", "PANDAS", "MATPLOTLIB", "COPERNICUS API"],
       category: "Data Science",
-      img: "https://picsum.photos/seed/weather2/800/450",
+      img: "https://picsum.photos/seed/weather-forecast/800/450",
       github: "https://github.com/Montasir00/Multi-Input-Data-Collection-for-Weather-Forecast-Predictions",
     },
     {
@@ -27,7 +27,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Full-stack e-commerce site built with PHP, MySQL, and Nginx, containerised with Docker Compose. Features multi-factor authentication via Telegram Bot API OTP, CSRF protection, product management, and an admin dashboard.",
       tags: ["PHP", "MYSQL", "DOCKER", "NGINX", "TELEGRAM API"],
       category: "Web Dev",
-      img: "https://picsum.photos/seed/ecommerce2/800/450",
+      img: "https://picsum.photos/seed/ecommerce-shop/800/450",
       github: "https://github.com/Montasir00/web_development",
     },
     {
@@ -36,7 +36,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "End-to-end machine learning pipeline covering EDA, feature engineering, statistical testing (Chi-Square, T-tests), and a tuned Random Forest classifier. Visualisations include correlation heatmaps, boxplots, and ROC curves.",
       tags: ["PYTHON", "SCIKIT-LEARN", "PANDAS", "RANDOM FOREST"],
       category: "ML",
-      img: "https://picsum.photos/seed/mlproject/800/450",
+      img: "https://picsum.photos/seed/machine-learning/800/450",
       github: "https://github.com/Montasir00/Ml_final_project",
     },
     {
@@ -45,7 +45,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Interactive Python game demonstrating all four OOP pillars — abstraction, inheritance, encapsulation, and polymorphism — in a clean, playable game environment. Built to explore software design patterns through game architecture.",
       tags: ["PYTHON", "OOP", "GAME DEV"],
       category: "Game",
-      img: "https://picsum.photos/seed/dunegame/800/450",
+      img: "https://picsum.photos/seed/retro-game/800/450",
       github: "https://github.com/Montasir00/Dune_Ball_Game",
     },
     {
@@ -54,7 +54,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Multi-database IoT pipeline that ingests real-time sensor data via HiveMQ MQTT broker and persists it across MySQL, MongoDB, and Neo4j — all orchestrated in Docker. Designed to compare relational, document, and graph data models on the same dataset.",
       tags: ["DOCKER", "MYSQL", "MONGODB", "NEO4J", "MQTT"],
       category: "Database",
-      img: "https://picsum.photos/seed/iotdb/800/450",
+      img: "https://picsum.photos/seed/iot-sensors/800/450",
       github: "https://github.com/Montasir00/database_project",
     },
     {
@@ -63,7 +63,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Crypto trading platform supporting live ETH transactions on the Ganache test network via Web3.php. Features a multi-factor login system, transaction history, and a clean PHP/MySQL backend.",
       tags: ["PHP", "ETHEREUM", "WEB3.PHP", "MYSQL", "MFA"],
       category: "Web Dev",
-      img: "https://picsum.photos/seed/blockchain2/800/450",
+      img: "https://picsum.photos/seed/crypto-blockchain/800/450",
       github: "https://github.com/Montasir00/Blockchain-Transaction-System-with-Multi-Factor-Login",
     },
     {
@@ -72,7 +72,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Real-time hand gesture classifier using a webcam feed. A CNN model trained with Google's Teachable Machine is loaded via Keras, and OpenCV handles live frame capture and classification overlays.",
       tags: ["PYTHON", "OPENCV", "KERAS", "TENSORFLOW", "CNN"],
       category: "ML",
-      img: "https://picsum.photos/seed/gesture/800/450",
+      img: "https://picsum.photos/seed/computer-vision/800/450",
       github: "https://github.com/Montasir00/hand-gesture-recognition",
     },
     {
@@ -81,7 +81,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Real-time IoT data pipeline built with Python, Docker Compose, and MQTT for continuous sensor data ingestion and analytics. Includes automated anomaly detection and persistent storage in MySQL.",
       tags: ["PYTHON", "DOCKER", "MQTT", "MYSQL"],
       category: "Data Science",
-      img: "https://picsum.photos/seed/energy2/800/450",
+      img: "https://picsum.photos/seed/smart-energy/800/450",
       github: "https://github.com/Montasir00/energy_management_system",
     },
     {
@@ -90,7 +90,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Django-based web app where users can create, edit, browse, and search encyclopedia entries written in Markdown. Includes random page navigation and full Markdown-to-HTML rendering.",
       tags: ["DJANGO", "PYTHON", "MARKDOWN", "HTML"],
       category: "Web Dev",
-      img: "https://picsum.photos/seed/wiki/800/450",
+      img: "https://picsum.photos/seed/encyclopedia/800/450",
       github: "https://github.com/Montasir00/Wiki-Encyclopedia",
     },
     {
@@ -99,7 +99,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Python simulation of the Ad-hoc On-Demand Distance Vector (AODV) routing protocol using NetworkX. Visualises dynamic route discovery, routing tables, and network topology changes in real time.",
       tags: ["PYTHON", "NETWORKX", "GRAPH ALGORITHMS", "NETWORKING"],
       category: "Data Science",
-      img: "https://picsum.photos/seed/network/800/450",
+      img: "https://picsum.photos/seed/network-topology/800/450",
       github: "https://github.com/Montasir00/AODV-Ad-hoc-On-Demand-Distance-Vector-routing-simulation",
     },
     {
@@ -108,7 +108,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Collection of Jupyter notebooks covering core data science topics: data cleaning, EDA, statistical analysis, and visualisation. Used as a personal learning and reference repository.",
       tags: ["PYTHON", "JUPYTER", "PANDAS", "MATPLOTLIB"],
       category: "Data Science",
-      img: "https://picsum.photos/seed/notebook/800/450",
+      img: "https://picsum.photos/seed/data-notebook/800/450",
       github: "https://github.com/Montasir00/datascience-notebook",
     },
     {
@@ -117,7 +117,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Pixel-perfect recreation of the Google Search, Image Search, and Advanced Search interfaces, built as a CS50W assignment. Demonstrates semantic HTML, CSS specificity, and form handling.",
       tags: ["HTML", "CSS", "JAVASCRIPT"],
       category: "Web Dev",
-      img: "https://picsum.photos/seed/search/800/450",
+      img: "https://picsum.photos/seed/web-search/800/450",
       github: "https://github.com/Montasir00/Echo_Search",
     },
     {
@@ -126,7 +126,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Structured SQL project exploring query optimisation, joins, aggregations, subqueries, and indexing strategies on a relational dataset. Focus on analytical query patterns and performance.",
       tags: ["SQL", "DATABASE", "ANALYTICS"],
       category: "Database",
-      img: "https://picsum.photos/seed/sqlproject/800/450",
+      img: "https://picsum.photos/seed/sql-database/800/450",
       github: "https://github.com/Montasir00/sql_project",
     },
     {
@@ -135,7 +135,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       desc: "Python exploration project. A personal experimental repository used to prototype ideas and test concepts outside of structured coursework.",
       tags: ["PYTHON"],
       category: "Data Science",
-      img: "https://picsum.photos/seed/mindhack/800/450",
+      img: "https://picsum.photos/seed/cyber-mind/800/450",
       github: "https://github.com/Montasir00/MindHack",
     },
   ];
@@ -166,9 +166,9 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
       exit="hidden"
       className="space-y-16 pb-32"
     >
-      <div className="space-y-4 border-l-4 border-primary pl-6">
-        <h2 className="text-4xl font-bold tracking-tight">Project Gallery</h2>
-        <p className="text-slate-500 text-lg">
+      <div className="space-y-4 border-l-4 border-primary pl-4 md:pl-6">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Project Gallery</h2>
+        <p className="text-slate-500 text-base md:text-lg">
           14 projects — everything I've built, researched, and shipped.
         </p>
       </div>
@@ -187,14 +187,14 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
           />
         </div>
 
-        <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
+        <div className="flex gap-3 md:gap-4 overflow-x-auto pb-4 no-scrollbar">
           {filters.map((filter) => (
             <motion.button
               key={filter}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveFilter(filter)}
-              className={`px-8 py-3 rounded-2xl text-xs font-bold transition-all whitespace-nowrap uppercase tracking-widest ${activeFilter === filter
+              className={`px-6 md:px-8 py-2.5 md:py-3 rounded-2xl text-[10px] md:text-xs font-bold transition-all whitespace-nowrap uppercase tracking-widest ${activeFilter === filter
                 ? "bg-primary text-slate-900 shadow-xl shadow-primary/30"
                 : "bg-white dark:bg-card-dark border border-slate-200 dark:border-white/5 text-slate-500 hover:border-primary/50"
                 }`}
@@ -231,19 +231,19 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
                   {project.category}
                 </div>
               </div>
-              <div className="p-8 space-y-4">
-                <h3 className="text-2xl font-bold group-hover:text-primary transition-colors tracking-tight">
+              <div className="p-6 md:p-8 space-y-4">
+                <h3 className="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors tracking-tight">
                   {project.title}
                 </h3>
-                <p className="text-slate-500 dark:text-slate-400 text-base line-clamp-2 leading-relaxed">
+                <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base line-clamp-2 leading-relaxed">
                   {project.desc}
                 </p>
-                <div className="flex items-center justify-between pt-4">
-                  <div className="flex flex-wrap gap-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4">
+                  <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-lg tracking-widest"
+                        className="px-2.5 py-1 bg-primary/10 text-primary text-[9px] font-bold rounded-lg tracking-widest"
                       >
                         {tag}
                       </span>
@@ -255,7 +255,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
                       target="_blank"
                       rel="noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="flex-shrink-0 ml-4 flex items-center gap-1.5 text-[10px] font-bold text-slate-400 hover:text-primary transition-colors uppercase tracking-widest"
+                      className="flex-shrink-0 flex items-center gap-1.5 text-[10px] font-bold text-slate-400 hover:text-primary transition-colors uppercase tracking-widest"
                     >
                       <ExternalLink size={12} />
                       GitHub

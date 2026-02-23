@@ -33,7 +33,7 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
       desc: "A cornerstone of software engineering wisdom. This book taught me that being a programmer is about more than just code; it's about craftsmanship, responsibility, and continuous learning.",
       quote:
         "Don't live with broken windows. Fix each one as soon as it is discovered.",
-      img: "https://picsum.photos/seed/pragmatic/400/600",
+      img: "https://picsum.photos/seed/programming-book/400/600",
     },
     {
       title: "Clean Code",
@@ -41,9 +41,9 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
       category: "Technical",
       rating: 5,
       status: "Completed",
-      desc: "Focuses on the art of writing code that is readable, maintainable, and elegant. It provides a set of principles and practices for producing high-quality software.",
+      desc: "Focuses on the art of writing code that is readable, maintainable, and elegant. It provides a set of practices for producing high-quality software.",
       quote: "The only way to go fast, is to go well.",
-      img: "https://picsum.photos/seed/cleancode/400/600",
+      img: "https://picsum.photos/seed/clean-code-book/400/600",
     },
     {
       title: "Deep Work",
@@ -54,7 +54,7 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
       desc: "Transformed how I approach my work day, emphasizing the importance of long periods of uninterrupted focus for complex tasks in an increasingly distracted world.",
       quote:
         "Who you are, what you think, feel, and do, what you love—is the sum of what you focus on.",
-      img: "https://picsum.photos/seed/deepwork/400/600",
+      img: "https://picsum.photos/seed/focus-book/400/600",
     },
     {
       title: "Atomic Habits",
@@ -65,7 +65,7 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
       desc: "Provided a practical framework for making small, incremental changes that lead to remarkable results over time. It's about systems, not just goals.",
       quote:
         "You do not rise to the level of your goals. You fall to the level of your systems.",
-      img: "https://picsum.photos/seed/habits/400/600",
+      img: "https://picsum.photos/seed/habits-book/400/600",
     },
     {
       title: "The Mythical Man-Month",
@@ -75,7 +75,7 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
       status: "Reading",
       desc: "Classic essays on software engineering and project management. Even decades later, the insights into team dynamics and complexity remain incredibly relevant.",
       quote: "Adding manpower to a late software project makes it later.",
-      img: "https://picsum.photos/seed/mythical/400/600",
+      img: "https://picsum.photos/seed/software-management/400/600",
     },
     {
       title: "Meditations",
@@ -86,7 +86,7 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
       desc: "A series of personal writings by the Roman Emperor, offering stoic philosophy on how to live a virtuous and meaningful life.",
       quote:
         "The happiness of your life depends upon the quality of your thoughts.",
-      img: "https://picsum.photos/seed/meditations/400/600",
+      img: "https://picsum.photos/seed/stoic-philosophy/400/600",
     },
   ];
 
@@ -161,11 +161,10 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`px-8 py-3 rounded-2xl text-xs font-bold transition-all whitespace-nowrap uppercase tracking-widest ${
-              cat === "All"
+            className={`px-8 py-3 rounded-2xl text-xs font-bold transition-all whitespace-nowrap uppercase tracking-widest ${cat === "All"
                 ? "bg-amber-500 text-white shadow-xl shadow-amber-500/30"
                 : "bg-white dark:bg-card-dark border border-slate-200 dark:border-white/5 text-slate-500 hover:border-amber-500/50"
-            }`}
+              }`}
           >
             {cat}
           </button>
@@ -189,11 +188,10 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
               />
               <div className="absolute top-4 left-4">
                 <span
-                  className={`px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest ${
-                    book.status === "Completed"
+                  className={`px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest ${book.status === "Completed"
                       ? "bg-emerald-500 text-white"
                       : "bg-amber-500 text-white"
-                  }`}
+                    }`}
                 >
                   {book.status}
                 </span>

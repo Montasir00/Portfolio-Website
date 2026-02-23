@@ -32,9 +32,9 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
       color: "border-cyan-500",
       badgeColor: "bg-cyan-500/10 text-cyan-500 border-cyan-500/20",
       places: [
-        { name: "Dhaka", img: "https://picsum.photos/seed/dhaka/800/600", imgWide: "https://picsum.photos/seed/dhaka/1200/800", desc: "The capital — chaotic, energetic, and unmistakably alive.", details: "Dhaka is one of the densest cities on Earth. The contrast between its chaos and its warmth is something that stays with you." },
-        { name: "Chittagong", img: "https://picsum.photos/seed/chittagong/800/600", imgWide: "https://picsum.photos/seed/chittagong/1200/800", desc: "Bangladesh's second city. A port city between hills and sea.", details: "Patenga beach at sunset and the rolling hills of Sitakunda make Chittagong feel completely different from the capital." },
-        { name: "Sylhet", img: "https://picsum.photos/seed/sylhet/800/600", imgWide: "https://picsum.photos/seed/sylhet/1200/800", desc: "The land of tea gardens and rolling green hills in the northeast.", details: "Sylhet is defined by its endless tea estates, the Sari River, and a pace of life that feels genuinely unhurried." },
+        { name: "Dhaka", img: "https://picsum.photos/seed/dhaka-city/800/600", imgWide: "https://picsum.photos/seed/dhaka-skyline/1200/800", desc: "The capital — chaotic, energetic, and unmistakably alive.", details: "Dhaka is one of the densest cities on Earth. The contrast between its chaos and its warmth is something that stays with you." },
+        { name: "Chittagong", img: "https://picsum.photos/seed/chittagong-port/800/600", imgWide: "https://picsum.photos/seed/chittagong-hills/1200/800", desc: "Bangladesh's second city. A port city between hills and sea.", details: "Patenga beach at sunset and the rolling hills of Sitakunda make Chittagong feel completely different from the capital." },
+        { name: "Sylhet", img: "https://picsum.photos/seed/sylhet-tea/800/600", imgWide: "https://picsum.photos/seed/sylhet-nature/1200/800", desc: "The land of tea gardens and rolling green hills in the northeast.", details: "Sylhet is defined by its endless tea estates, the Sari River, and a pace of life that feels genuinely unhurried." },
       ],
     },
     {
@@ -45,13 +45,13 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
       color: "border-emerald-500",
       badgeColor: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
       places: [
-        { name: "Messina", img: "https://picsum.photos/seed/messina/800/600", imgWide: "https://picsum.photos/seed/messina/1200/800", desc: "My home city. Famous for its giant astronomical clock and the Strait of Messina.", details: "The 12th-century cathedral and daily clock performance are unmissable. The city's waterfront at sunset is something else entirely." },
-        { name: "Taormina", img: "https://picsum.photos/seed/taormina/800/600", imgWide: "https://picsum.photos/seed/taormina/1200/800", desc: "Clifftop perfection. Ancient Greek theater overlooking Etna and the Ionian Sea.", details: "Wandering the narrow Via Teatro Greco at dusk, with Etna glowing in the background, is one of those moments you just stop trying to photograph." },
-        { name: "Palermo", img: "https://picsum.photos/seed/palermo/800/600", imgWide: "https://picsum.photos/seed/palermo/1200/800", desc: "Sicily's capital — chaotic, loud, beautiful, and full of street food.", details: "The Ballarò market at 8am is pure sensory overload. The Norman Palace's Palatine Chapel is one of the most beautiful rooms I've ever entered." },
-        { name: "Mount Etna", img: "https://picsum.photos/seed/etna/800/600", imgWide: "https://picsum.photos/seed/etna/1200/800", desc: "Europe's highest and most active volcano. Hiking on lava feels surreal.", details: "The Silvestri Craters at 1900m look like the surface of another planet. Black ash, sulfur vents, and complete silence." },
-        { name: "Milo", img: "https://picsum.photos/seed/milo-etna/800/600", imgWide: "https://picsum.photos/seed/milo-etna/1200/800", desc: "A tiny village on the slopes of Etna, known for its wine and sweeping sea views.", details: "Milo is the kind of place you stumble upon and never want to leave. The Etna DOC wines here are genuinely exceptional." },
-        { name: "Catania", img: "https://picsum.photos/seed/catania/800/600", imgWide: "https://picsum.photos/seed/catania/1200/800", desc: "A gritty, energetic city rebuilt entirely from volcanic lava stone after the 1693 earthquake.", details: "The fish market by the port is unlike anything else. La Pescheria at dawn is equal parts beautiful and overwhelming." },
-        { name: "Syracuse", img: "https://picsum.photos/seed/siracusa/800/600", imgWide: "https://picsum.photos/seed/siracusa/1200/800", desc: "One of the greatest cities of antiquity. The Greek Theatre still hosts performances today.", details: "Walking through the Archaeological Park of Neapolis connects you to 2,500 years of history. Ortigia island at night is magical." },
+        { name: "Messina", img: "https://picsum.photos/seed/messina-italy/800/600", imgWide: "https://picsum.photos/seed/messina-harbor/1200/800", desc: "My home city. Famous for its giant astronomical clock and the Strait of Messina.", details: "The 12th-century cathedral and daily clock performance are unmissable. The city's waterfront at sunset is something else entirely." },
+        { name: "Taormina", img: "https://picsum.photos/seed/taormina-view/800/600", imgWide: "https://picsum.photos/seed/taormina-theater/1200/800", desc: "Clifftop perfection. Ancient Greek theater overlooking Etna and the Ionian Sea.", details: "Wandering the narrow Via Teatro Greco at dusk, with Etna glowing in the background, is one of those moments you just stop trying to photograph." },
+        { name: "Palermo", img: "https://picsum.photos/seed/palermo-streets/800/600", imgWide: "https://picsum.photos/seed/palermo-cathedral/1200/800", desc: "Sicily's capital — chaotic, loud, beautiful, and full of street food.", details: "The Ballarò market at 8am is pure sensory overload. The Norman Palace's Palatine Chapel is one of the most beautiful rooms I've ever entered." },
+        { name: "Mount Etna", img: "https://picsum.photos/seed/etna-volcano/800/600", imgWide: "https://picsum.photos/seed/etna-crater/1200/800", desc: "Europe's highest and most active volcano. Hiking on lava feels surreal.", details: "The Silvestri Craters at 1900m look like the surface of another planet. Black ash, sulfur vents, and complete silence." },
+        { name: "Milo", img: "https://picsum.photos/seed/milo-sicily/800/600", imgWide: "https://picsum.photos/seed/milo-vineyard/1200/800", desc: "A tiny village on the slopes of Etna, known for its wine and sweeping sea views.", details: "Milo is the kind of place you stumble upon and never want to leave. The Etna DOC wines here are genuinely exceptional." },
+        { name: "Catania", img: "https://picsum.photos/seed/catania-city/800/600", imgWide: "https://picsum.photos/seed/catania-square/1200/800", desc: "A gritty, energetic city rebuilt entirely from volcanic lava stone after the 1693 earthquake.", details: "The fish market by the port is unlike anything else. La Pescheria at dawn is equal parts beautiful and overwhelming." },
+        { name: "Syracuse", img: "https://picsum.photos/seed/siracusa-ortigia/800/600", imgWide: "https://picsum.photos/seed/siracusa-ancient/1200/800", desc: "One of the greatest cities of antiquity. The Greek Theatre still hosts performances today.", details: "Walking through the Archaeological Park of Neapolis connects you to 2,500 years of history. Ortigia island at night is magical." },
       ],
     },
     {
@@ -62,12 +62,12 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
       color: "border-blue-500",
       badgeColor: "bg-blue-500/10 text-blue-500 border-blue-500/20",
       places: [
-        { name: "Calabria", img: "https://picsum.photos/seed/calabria/800/600", imgWide: "https://picsum.photos/seed/calabria/1200/800", desc: "Just across the Strait of Messina — rugged, wild, and underrated.", details: "The Aspromonte national park and the crystal-clear Ionian coast make Calabria one of Italy's best-kept secrets." },
-        { name: "Siena", img: "https://picsum.photos/seed/siena/800/600", imgWide: "https://picsum.photos/seed/siena/1200/800", desc: "Medieval Tuscany at its finest. The Piazza del Campo is one of the greatest public squares in the world.", details: "Siena is one of the few Italian cities where cars feel completely out of place. The Duomo's striped marble is stunning up close." },
-        { name: "Bologna", img: "https://picsum.photos/seed/bologna/800/600", imgWide: "https://picsum.photos/seed/bologna/1200/800", desc: "La Grassa (The Fat One). Europe's oldest university city and home to the best food in Italy.", details: "The 40km of porticoes, the Two Towers, and the impossible depth of tagliatelle al ragù — Bologna is a city that rewards slow exploration." },
-        { name: "Venice", img: "https://picsum.photos/seed/venice/800/600", imgWide: "https://picsum.photos/seed/venice/1200/800", desc: "Impossible, impractical, and unforgettable. There's nothing else like it.", details: "Getting deliberately lost in the back canals away from San Marco is the only way to experience Venice honestly." },
-        { name: "Milan", img: "https://picsum.photos/seed/milan/800/600", imgWide: "https://picsum.photos/seed/milan/1200/800", desc: "Italy's capital of design, finance, and fashion. The Duomo alone is worth the trip.", details: "Milan sits at the crossroads of Italian ambition and European modernity. Home to Bicocca — one of the universities on my MSc shortlist." },
-        { name: "Turin", img: "https://picsum.photos/seed/turin/800/600", imgWide: "https://picsum.photos/seed/turin/1200/800", desc: "Elegant, underrated, and home to Politecnico di Torino — one of Europe's top engineering universities.", details: "Turin feels like a city that rewards those who look closely: baroque arcades, great coffee culture, and the Alps visible on clear days. PoliTo is a serious option for my MSc in Data Science." },
+        { name: "Calabria", img: "https://picsum.photos/seed/calabria-coast/800/600", imgWide: "https://picsum.photos/seed/calabria-mountains/1200/800", desc: "Just across the Strait of Messina — rugged, wild, and underrated.", details: "The Aspromonte national park and the crystal-clear Ionian coast make Calabria one of Italy's best-kept secrets." },
+        { name: "Siena", img: "https://picsum.photos/seed/siena-tuscany/800/600", imgWide: "https://picsum.photos/seed/siena-piazza/1200/800", desc: "Medieval Tuscany at its finest. The Piazza del Campo is one of the greatest public squares in the world.", details: "Siena is one of the few Italian cities where cars feel completely out of place. The Duomo's striped marble is stunning up close." },
+        { name: "Bologna", img: "https://picsum.photos/seed/bologna-food/800/600", imgWide: "https://picsum.photos/seed/bologna-towers/1200/800", desc: "La Grassa (The Fat One). Europe's oldest university city and home to the best food in Italy.", details: "The 40km of porticoes, the Two Towers, and the impossible depth of tagliatelle al ragù — Bologna is a city that rewards slow exploration." },
+        { name: "Venice", img: "https://picsum.photos/seed/venice-canal/800/600", imgWide: "https://picsum.photos/seed/venice-gondola/1200/800", desc: "Impossible, impractical, and unforgettable. There's nothing else like it.", details: "Getting deliberately lost in the back canals away from San Marco is the only way to experience Venice honestly." },
+        { name: "Milan", img: "https://picsum.photos/seed/milan-duomo/800/600", imgWide: "https://picsum.photos/seed/milan-modern/1200/800", desc: "Italy's capital of design, finance, and fashion. The Duomo alone is worth the trip.", details: "Milan sits at the crossroads of Italian ambition and European modernity. Home to Bicocca — one of the universities on my MSc shortlist." },
+        { name: "Turin", img: "https://picsum.photos/seed/turin-alps/800/600", imgWide: "https://picsum.photos/seed/turin-architecture/1200/800", desc: "Elegant, underrated, and home to Politecnico di Torino — one of Europe's top engineering universities.", details: "Turin feels like a city that rewards those who look closely: baroque arcades, great coffee culture, and the Alps visible on clear days. PoliTo is a serious option for my MSc in Data Science." },
       ],
     },
     {
@@ -78,7 +78,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
       color: "border-yellow-500",
       badgeColor: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20",
       places: [
-        { name: "Germany", img: "https://picsum.photos/seed/germany-city/800/600", imgWide: "https://picsum.photos/seed/germany-city/1200/800", desc: "First trip outside Italy. A completely different pace — efficient, orderly, and fascinating.", details: "The contrast with Sicily couldn't be sharper: infrastructure that just works, forests, rivers, and a culture that takes engineering seriously." },
+        { name: "Germany", img: "https://picsum.photos/seed/berlin-wall/800/600", imgWide: "https://picsum.photos/seed/germany-forest/1200/800", desc: "First trip outside Italy. A completely different pace — efficient, orderly, and fascinating.", details: "The contrast with Sicily couldn't be sharper: infrastructure that just works, forests, rivers, and a culture that takes engineering seriously." },
       ],
     },
     {
@@ -89,7 +89,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
       color: "border-orange-500",
       badgeColor: "bg-orange-500/10 text-orange-500 border-orange-500/20",
       places: [
-        { name: "Saudi Arabia", img: "https://picsum.photos/seed/riyadh/800/600", imgWide: "https://picsum.photos/seed/riyadh/1200/800", desc: "First trip outside Europe — a family visit to the Arabian Peninsula.", details: "A journey that connected me back to roots, culture, and a scale of landscape and architecture unlike anything in Europe." },
+        { name: "Saudi Arabia", img: "https://picsum.photos/seed/mecca/800/600", imgWide: "https://picsum.photos/seed/saudi-desert/1200/800", desc: "First trip outside Europe — a family visit to the Arabian Peninsula.", details: "A journey that connected me back to roots, culture, and a scale of landscape and architecture unlike anything in Europe." },
       ],
     },
   ];
@@ -288,46 +288,77 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-slate-950/90 backdrop-blur-xl"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 lg:p-20 bg-black/40 backdrop-blur-xl"
             onClick={() => setLightboxImg(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white dark:bg-card-dark w-full max-w-3xl rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10"
+              initial={{ scale: 0.9, opacity: 0, y: 40 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 40 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="bg-white/90 dark:bg-slate-900/80 backdrop-blur-3xl w-full max-w-6xl max-h-[85vh] md:max-h-[80vh] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.3)] border border-white/20 dark:border-white/10 flex flex-col md:flex-row relative"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative">
+              {/* Close Button (Desktop - Floating) */}
+              <button
+                onClick={() => setLightboxImg(null)}
+                className="hidden md:flex absolute top-8 right-8 z-50 p-4 bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 backdrop-blur-xl text-slate-800 dark:text-white rounded-full transition-all hover:rotate-90 border border-black/5 dark:border-white/10"
+              >
+                <X size={24} />
+              </button>
+
+              {/* Image Section */}
+              <div className="relative w-full md:w-1/2 lg:w-3/5 h-[35vh] md:h-auto overflow-hidden">
                 <img
                   src={lightboxImg.imgWide}
                   alt={lightboxImg.name}
-                  className="w-full h-64 md:h-80 object-cover"
+                  className="w-full h-full object-cover"
                 />
+                {/* Mobile Close Button */}
                 <button
                   onClick={() => setLightboxImg(null)}
-                  className="absolute top-5 right-5 p-3 bg-black/50 backdrop-blur-md text-white rounded-2xl hover:bg-black transition-colors"
+                  className="md:hidden absolute top-6 right-6 p-3 bg-black/50 backdrop-blur-md text-white rounded-2xl"
                 >
                   <X size={20} />
                 </button>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
               </div>
-              <div className="p-8 md:p-10 space-y-5">
-                <div className="flex items-center gap-3 text-primary">
-                  <MapPin size={20} />
-                  <span className="text-xs font-bold uppercase tracking-widest">
-                    {lightboxImg.name}
-                  </span>
-                </div>
-                <h3 className="text-3xl font-bold tracking-tighter">
-                  {lightboxImg.name}
-                </h3>
-                <p className="text-xl text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-                  {lightboxImg.desc}
-                </p>
-                <div className="p-6 bg-slate-50 dark:bg-white/5 rounded-2xl border border-slate-100 dark:border-white/5">
-                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed">
-                    {lightboxImg.details}
+
+              {/* Content Section */}
+              <div className="flex-1 p-8 md:p-12 lg:p-16 overflow-y-auto no-scrollbar flex flex-col justify-center">
+                <div className="space-y-8">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-primary">
+                      <MapPin size={20} className="animate-bounce" />
+                      <span className="text-xs font-bold uppercase tracking-[0.4em]">
+                        {lightboxImg.name}
+                      </span>
+                    </div>
+                    <h3 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter leading-[0.85] text-slate-900 dark:text-white">
+                      {lightboxImg.name}
+                    </h3>
+                  </div>
+
+                  <p className="text-lg md:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 leading-tight font-medium tracking-tight">
+                    {lightboxImg.desc}
                   </p>
+
+                  <div className="h-px bg-slate-200 dark:bg-white/10 w-24" />
+
+                  <div className="space-y-6">
+                    <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-base md:text-lg">
+                      {lightboxImg.details}
+                    </p>
+                  </div>
+
+                  <div className="pt-6">
+                    <button
+                      onClick={() => setLightboxImg(null)}
+                      className="w-full md:w-auto px-10 py-5 bg-primary text-slate-900 font-bold rounded-2xl hover:scale-105 transition-transform shadow-2xl shadow-primary/30 uppercase tracking-[0.2em] text-[10px]"
+                    >
+                      Return to Gallery
+                    </button>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -407,12 +438,13 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
       {/* Book Modal */}
       <AnimatePresence>
         {selectedBook && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/80 backdrop-blur-xl">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/40 backdrop-blur-xl" onClick={() => setSelectedBook(null)}>
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white dark:bg-card-dark w-full max-w-lg rounded-[2.5rem] p-10 shadow-2xl border border-white/10 space-y-8"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-white/90 dark:bg-slate-900/80 backdrop-blur-3xl w-full max-w-lg rounded-[2.5rem] p-10 shadow-2xl border border-white/20 dark:border-white/10 space-y-8"
+              onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-start">
                 <div className="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500">
@@ -420,18 +452,18 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
                 </div>
                 <button
                   onClick={() => setSelectedBook(null)}
-                  className="p-3 hover:bg-slate-100 dark:hover:bg-white/5 rounded-2xl transition-colors"
+                  className="p-3 hover:bg-black/5 dark:hover:bg-white/5 rounded-2xl transition-colors text-slate-500 dark:text-slate-400"
                 >
                   <X size={20} />
                 </button>
               </div>
               <div className="space-y-4">
-                <h3 className="text-3xl font-bold tracking-tight">
+                <h3 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
                   {selectedBook.title}
                 </h3>
-                <div className="flex items-center gap-4 text-slate-400 text-sm font-bold uppercase tracking-widest">
+                <div className="flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-widest">
                   <span>{selectedBook.author}</span>
-                  <div className="w-1 h-1 bg-slate-600 rounded-full" />
+                  <div className="w-1 h-1 bg-slate-300 dark:bg-slate-600 rounded-full" />
                   <span>{selectedBook.year}</span>
                 </div>
               </div>

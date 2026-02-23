@@ -18,7 +18,7 @@ export const TravelPage = ({ onBack }: TravelPageProps) => {
     {
       name: "Messina, Italy",
       date: "Current Residence",
-      img: "https://picsum.photos/seed/messina/1200/600",
+      img: "https://picsum.photos/seed/messina-harbor/1200/600",
       desc: "The gateway to Sicily, known for its sickle-shaped harbor and the world's largest astronomical clock.",
       highlights: [
         "Piazza del Duomo",
@@ -31,7 +31,7 @@ export const TravelPage = ({ onBack }: TravelPageProps) => {
     {
       name: "Taormina, Italy",
       date: "Visited June 2024",
-      img: "https://picsum.photos/seed/taormina/1200/600",
+      img: "https://picsum.photos/seed/taormina-theater/1200/600",
       desc: "A stunning hilltop town on the east coast of Sicily, sitting near Mount Etna.",
       highlights: ["Teatro Antico di Taormina", "Isola Bella", "Corso Umberto"],
       story:
@@ -40,7 +40,7 @@ export const TravelPage = ({ onBack }: TravelPageProps) => {
     {
       name: "Mount Etna, Italy",
       date: "Visited August 2024",
-      img: "https://picsum.photos/seed/etna/1200/600",
+      img: "https://picsum.photos/seed/etna-crater/1200/600",
       desc: "One of the world's most active volcanoes and the highest peak in Italy south of the Alps.",
       highlights: ["Silvestri Craters", "Lava Tunnels", "Rifugio Sapienza"],
       story:
@@ -49,7 +49,7 @@ export const TravelPage = ({ onBack }: TravelPageProps) => {
     {
       name: "Palermo, Italy",
       date: "Visited October 2024",
-      img: "https://picsum.photos/seed/palermo/1200/600",
+      img: "https://picsum.photos/seed/palermo-cathedral/1200/600",
       desc: "The vibrant capital of Sicily, famous for its architecture, culture, and street food.",
       highlights: ["Palermo Cathedral", "Teatro Massimo", "Ballarò Market"],
       story:

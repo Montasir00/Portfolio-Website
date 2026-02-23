@@ -1,71 +1,89 @@
-import { motion } from "motion/react";
-import { Briefcase, Award, ExternalLink, Plus, MapPin, Calendar } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useSpring } from "motion/react";
+import { ArrowLeft, Briefcase, Calendar, MapPin, ExternalLink, ChevronRight, Building2, FlaskConical, Code2, Database } from "lucide-react";
 
 interface ExperienceProps {
     onBack: () => void;
 }
 
 export const Experience = ({ onBack }: ExperienceProps) => {
-    const internships = [
+    const containerRef = useRef<HTMLDivElement>(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start center", "end center"]
+    });
+
+    const scaleY = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    const experiences = [
+        {
+            company: "University of Messina",
+            role: "Research Intern — Data Analyst",
+            period: "Jun 2025 — Present",
+            location: "Messina, Italy",
+            type: "Internship",
+            icon: <FlaskConical size={24} />,
+            color: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
+            desc: "Working under the supervision of a professor to extract and analyze environmental data.",
+            tasks: [
+                "Extracted 6 years of Copernicus climate data for the city of Milan.",
+                "Performed correlation analysis between temperature variations and pollutant concentrations.",
+                "Analyzed the impact of COVID-19 lockdowns on urban air quality trends.",
+                "Developed automated data cleaning pipelines using Python and Pandas."
+            ],
+            skills: ["Python", "Pandas", "Matplotlib", "Data Analysis", "Copernicus API"]
+        },
         {
             company: "Circular Protocol",
             role: "Web Developer Intern",
-            period: "Oct 2024 — Present",
-            type: "Startup · Remote",
-            color: "border-purple-500",
-            badgeColor: "bg-purple-500/10 text-purple-500 border-purple-500/20",
-            accentColor: "text-purple-400",
-            bullets: [
-                "Built GeNFT — an NFT minting and trading platform integrated with the CRIX coin ecosystem",
-                "Implemented IPFS-based decentralised storage for NFT metadata and assets",
-                "Developed wallet integration enabling users to connect crypto wallets and sign on-chain transactions",
-                "Designed and built REST APIs for NFT creation, listing, and transaction history",
-                "Owned end-to-end UI/UX design and front-end implementation of the platform",
+            period: "Oct 2024 — Dec 2024",
+            location: "Remote / Messina, Italy",
+            type: "Internship",
+            icon: <Code2 size={24} />,
+            color: "bg-purple-500/10 text-purple-500 border-purple-500/20",
+            desc: "Contributed to the development of decentralized applications and NFT platforms.",
+            tasks: [
+                "Developed GeNFT, a platform for minting NFTs with IPFS storage integration.",
+                "Implemented wallet connectivity and CRIX coin transaction handling.",
+                "Built responsive front-end components using modern web technologies.",
+                "Collaborated on blockchain-backed transaction systems using PHP and Web3.php."
             ],
-            tags: ["WEB3", "IPFS", "NFT", "API", "UI/UX"],
+            skills: ["PHP", "Web3.php", "JavaScript", "IPFS", "Blockchain"]
         },
         {
-            company: "University of Messina — Research Lab",
-            role: "Data Analyst Intern",
-            period: "Jun 2025 — Jul 2025",
-            type: "Academic Research · Messina, Italy",
-            color: "border-emerald-500",
-            badgeColor: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
-            accentColor: "text-emerald-400",
-            bullets: [
-                "Extracted multi-year temperature and pollutant datasets (PM2.5, NO₂, O₃, CO, SO₂) from the Copernicus Climate Data Store for Milan (2018–2024)",
-                "Conducted time-series analysis to quantify the statistical relationship between temperature variability and pollutant concentrations",
-                "Identified and modelled the impact of COVID-19 lockdowns on air quality trends using pre/post-lockdown comparisons",
-                "Produced data visualisations and a written report summarising findings for the supervising professor",
-            ],
-            tags: ["PYTHON", "PANDAS", "COPERNICUS API", "TIME-SERIES", "EDA"],
-        },
-    ];
-
-    const certificates = [
-        {
-            title: "IBM Data Science Professional Certificate",
-            issuer: "IBM / Coursera",
-            year: "2024",
-            desc: "10-course program covering data science methodology, Python, SQL, data visualisation, machine learning, and applied capstone projects.",
-            link: "https://www.coursera.org/professional-certificates/ibm-data-science",
+            company: "University Projects",
+            role: "Data Pipeline Architect",
+            period: "2023 — 2024",
+            location: "Messina, Italy",
+            type: "Academic",
+            icon: <Database size={24} />,
             color: "bg-blue-500/10 text-blue-500 border-blue-500/20",
-            badge: "🎖️",
-        },
-        // TODO: Add certificate 2
-        // TODO: Add certificate 3
-        // TODO: Add certificate 4
-        // TODO: Add certificate 5
+            desc: "Designed and implemented various data-centric systems as part of the BSc curriculum.",
+            tasks: [
+                "Built an IoT Energy Management System using Docker Compose and Python.",
+                "Designed a multi-database sensor collection system (MySQL, MongoDB, Neo4j).",
+                "Implemented real-time anomaly detection for industrial sensor streams.",
+                "Simulated AODV routing protocols using NetworkX for graph analysis."
+            ],
+            skills: ["Docker", "MySQL", "MongoDB", "Neo4j", "MQTT", "NetworkX"]
+        }
     ];
 
     const containerVariants = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 }
+        }
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
+        hidden: { y: 20, opacity: 0 },
+        visible: { y: 0, opacity: 1 }
     };
 
     return (
@@ -73,140 +91,145 @@ export const Experience = ({ onBack }: ExperienceProps) => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-16 pb-32"
+            exit="hidden"
+            className="space-y-16 pb-40"
         >
             {/* Header */}
-            <motion.div variants={itemVariants} className="space-y-4 border-l-4 border-primary pl-6">
-                <h2 className="text-4xl font-bold tracking-tight">Experience</h2>
-                <p className="text-slate-500 text-lg">
-                    Internships and certifications — proof of work beyond the classroom.
-                </p>
-            </motion.div>
+            <header className="space-y-8">
+                <motion.button
+                    whileHover={{ scale: 1.05, x: -5 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={onBack}
+                    className="flex items-center gap-2 text-slate-500 hover:text-primary font-bold uppercase tracking-widest text-xs transition-colors"
+                >
+                    <ArrowLeft size={16} /> Back to Home
+                </motion.button>
 
-            {/* Internships */}
-            <motion.section variants={itemVariants} className="space-y-8">
-                <div className="flex items-center gap-3 border-b border-primary/10 pb-4">
-                    <Briefcase className="text-primary" size={24} />
-                    <h3 className="text-2xl font-bold tracking-tight font-mono uppercase italic text-primary">
-                        Internships
-                    </h3>
-                    <span className="ml-auto text-xs font-bold text-slate-500 uppercase tracking-widest">
-                        {internships.length} positions
-                    </span>
+                <div className="space-y-4 border-l-4 border-primary pl-6">
+                    <h1 className="text-5xl md:text-7xl font-bold tracking-tighter">Professional Experience</h1>
+                    <p className="text-slate-500 text-xl max-w-2xl leading-relaxed">
+                        A timeline of my internships, academic research, and technical roles in the field of data analysis and web development.
+                    </p>
                 </div>
+            </header>
 
-                <div className="space-y-8">
-                    {internships.map((intern, i) => (
-                        <motion.div
-                            key={i}
-                            variants={itemVariants}
-                            className={`bg-white dark:bg-card-dark rounded-[2rem] border border-slate-200 dark:border-white/5 border-l-4 ${intern.color} shadow-xl p-8 space-y-6`}
-                        >
-                            {/* Header row */}
-                            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                                <div className="space-y-1">
-                                    <h4 className="text-xl font-bold tracking-tight">{intern.role}</h4>
-                                    <p className={`text-sm font-bold ${intern.accentColor}`}>{intern.company}</p>
-                                    <div className="flex items-center gap-4 text-xs text-slate-400 mt-2">
-                                        <span className="flex items-center gap-1.5">
-                                            <Calendar size={11} />
-                                            {intern.period}
-                                        </span>
-                                        <span className="flex items-center gap-1.5">
-                                            <MapPin size={11} />
-                                            {intern.type}
+            {/* Experience Timeline */}
+            <div ref={containerRef} className="relative space-y-12">
+                {/* Continuous Vertical Line (Desktop) */}
+                <div className="absolute left-8 top-8 bottom-8 w-px bg-slate-200 dark:bg-white/5 hidden md:block" />
+
+                {/* Glowing Progress Line (Desktop) */}
+                <motion.div
+                    style={{
+                        scaleY,
+                        originY: 0
+                    }}
+                    className="absolute left-8 top-8 bottom-8 w-px bg-gradient-to-b from-primary/40 via-primary to-primary/40 shadow-[0_0_20px_rgba(17,180,212,0.4)] hidden md:block z-0 opacity-60"
+                />
+
+                {experiences.map((exp, i) => (
+                    <motion.div
+                        key={i}
+                        variants={itemVariants}
+                        className="group relative z-10"
+                    >
+                        <div className="flex flex-col md:flex-row gap-8">
+                            {/* Icon & Type */}
+                            <div className="flex-shrink-0 flex flex-row md:flex-col items-center gap-4">
+                                <div className="relative z-10 bg-slate-50 dark:bg-background-dark rounded-2xl">
+                                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border shadow-lg transition-transform group-hover:scale-110 ${exp.color}`}>
+                                        {exp.icon}
+                                    </div>
+                                </div>
+                                <div className="md:hidden flex flex-col">
+                                    <h3 className="text-xl font-bold tracking-tight">{exp.company}</h3>
+                                    <p className="text-primary text-sm font-bold">{exp.role}</p>
+                                </div>
+                            </div>
+
+                            {/* Content Card */}
+                            <div className="flex-1 bg-white dark:bg-card-dark rounded-[2.5rem] p-8 md:p-10 border border-slate-200 dark:border-white/5 shadow-xl group-hover:border-primary/30 transition-all">
+                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                                    <div className="hidden md:block space-y-1">
+                                        <h3 className="text-3xl font-bold tracking-tight group-hover:text-primary transition-colors">{exp.company}</h3>
+                                        <p className="text-primary text-lg font-bold">{exp.role}</p>
+                                    </div>
+
+                                    <div className="flex flex-col md:items-end gap-2">
+                                        <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-widest">
+                                            <Calendar size={14} />
+                                            {exp.period}
+                                        </div>
+                                        <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase tracking-widest">
+                                            <MapPin size={14} />
+                                            {exp.location}
+                                        </div>
+                                        <span className={`inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest mt-2 ${exp.color}`}>
+                                            {exp.type}
                                         </span>
                                     </div>
                                 </div>
-                                <span className={`text-[10px] font-bold px-3 py-1 rounded-full border ${intern.badgeColor} uppercase tracking-widest self-start flex-shrink-0`}>
-                                    {intern.period.includes("Present") ? "Current" : "Completed"}
-                                </span>
-                            </div>
 
-                            {/* Bullets */}
-                            <ul className="space-y-3">
-                                {intern.bullets.map((b, j) => (
-                                    <li key={j} className="flex items-start gap-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                                        <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${intern.accentColor.replace("text-", "bg-")}`} />
-                                        {b}
-                                    </li>
-                                ))}
-                            </ul>
+                                <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-8 font-medium">
+                                    {exp.desc}
+                                </p>
 
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-2 pt-2">
-                                {intern.tags.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-lg tracking-widest"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </motion.section>
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                    <div className="space-y-4">
+                                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                                            <ChevronRight size={14} className="text-primary" />
+                                            Key Responsibilities
+                                        </h4>
+                                        <ul className="space-y-3">
+                                            {exp.tasks.map((task, j) => (
+                                                <li key={j} className="flex items-start gap-3 text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                                                    <div className="w-1.5 h-1.5 rounded-full bg-primary/40 mt-1.5 flex-shrink-0" />
+                                                    {task}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
 
-            {/* Certificates */}
-            <motion.section variants={itemVariants} className="space-y-8">
-                <div className="flex items-center gap-3 border-b border-primary/10 pb-4">
-                    <Award className="text-primary" size={24} />
-                    <h3 className="text-2xl font-bold tracking-tight font-mono uppercase italic text-primary">
-                        Certificates
-                    </h3>
-                    <span className="ml-auto text-xs font-bold text-slate-500 uppercase tracking-widest">
-                        {certificates.length} earned · more in progress
-                    </span>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {certificates.map((cert, i) => (
-                        <motion.a
-                            key={i}
-                            href={cert.link}
-                            target="_blank"
-                            rel="noreferrer"
-                            variants={itemVariants}
-                            whileHover={{ y: -6, borderColor: "rgba(17,180,212,0.4)" }}
-                            className="group flex flex-col gap-5 p-8 bg-white dark:bg-card-dark rounded-[2rem] border border-slate-200 dark:border-white/5 shadow-xl transition-all cursor-pointer"
-                        >
-                            <div className="flex items-start justify-between gap-4">
-                                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl border ${cert.color} flex-shrink-0`}>
-                                    {cert.badge}
-                                </div>
-                                <ExternalLink size={16} className="text-slate-300 group-hover:text-primary transition-colors mt-1 flex-shrink-0" />
-                            </div>
-                            <div className="space-y-2">
-                                <h4 className="text-lg font-bold tracking-tight group-hover:text-primary transition-colors leading-snug">
-                                    {cert.title}
-                                </h4>
-                                <div className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-widest">
-                                    <span>{cert.issuer}</span>
-                                    <span className="w-1 h-1 bg-slate-400 rounded-full" />
-                                    <span>{cert.year}</span>
+                                    <div className="space-y-4">
+                                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                                            <ChevronRight size={14} className="text-primary" />
+                                            Technologies Used
+                                        </h4>
+                                        <div className="flex flex-wrap gap-2">
+                                            {exp.skills.map((skill, j) => (
+                                                <span key={j} className="px-3 py-1.5 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-xl text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+                                                    {skill}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{cert.desc}</p>
-                            <div className={`self-start px-4 py-1.5 rounded-full text-xs font-bold border ${cert.color} uppercase tracking-widest`}>
-                                View Certificate →
-                            </div>
-                        </motion.a>
-                    ))}
-
-                    {/* Placeholder slots for upcoming certs */}
-                    {[...Array(4)].map((_, i) => (
-                        <div
-                            key={`placeholder-${i}`}
-                            className="flex flex-col items-center justify-center gap-3 p-8 rounded-[2rem] border-2 border-dashed border-slate-200 dark:border-white/10 text-slate-400 min-h-[180px]"
-                        >
-                            <Plus size={24} className="opacity-30" />
-                            <p className="text-xs font-bold uppercase tracking-widest text-center opacity-50">
-                                Certificate in progress
-                            </p>
                         </div>
-                    ))}
+                    </motion.div>
+                ))}
+            </div>
+
+            {/* Featured Achievement */}
+            <motion.section
+                variants={itemVariants}
+                className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 border border-primary/20 p-12 md:p-16 text-center shadow-2xl"
+            >
+                <div className="absolute inset-0 opacity-10 pointer-events-none data-grid-bg"></div>
+                <div className="relative z-10 space-y-6">
+                    <div className="inline-flex items-center gap-2 p-1.5 px-4 bg-primary/10 border border-primary/20 text-primary rounded-full text-[10px] font-bold tracking-[0.3em] uppercase">
+                        <Building2 size={14} />
+                        Academic Excellence
+                    </div>
+                    <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tighter">BSc in Data Analysis</h3>
+                    <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                        Currently maintaining a strong academic record at the University of Messina, focusing on statistical modeling, database management, and machine learning. Expected graduation: July 2026.
+                    </p>
+                    <div className="pt-6">
+                        <button className="px-10 py-4 bg-primary text-slate-900 font-bold rounded-2xl hover:scale-105 transition-transform flex items-center gap-3 mx-auto">
+                            View Academic Transcript <ExternalLink size={18} />
+                        </button>
+                    </div>
                 </div>
             </motion.section>
         </motion.div>

@@ -3,7 +3,7 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  
+
   --color-primary: #11b4d4;
   --color-primary-dark: #0891b2;
   --color-background-dark: #0a1118;
@@ -22,7 +22,16 @@
   .glass {
     @apply bg-white/80 backdrop-blur-md dark:bg-card-dark/80 border border-white/10;
   }
-  
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   .data-grid-bg {
     background-image: radial-gradient(circle at 1px 1px, var(--color-primary) 1px, transparent 0);
     background-size: 24px 24px;
@@ -34,8 +43,13 @@
 }
 
 @keyframes scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
 }
 
 .scanner-line {

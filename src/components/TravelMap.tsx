@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { Plane } from "lucide-react";
 
 interface Chapter {
     name: string;
@@ -62,6 +63,24 @@ export const TravelMap = () => {
     const [paths, setPaths] = useState<string[]>([]);
     const [hovered, setHovered] = useState<Chapter | null>(null);
 
+    // Calculate flight paths
+    const flightPaths = useMemo(() => {
+        const results = [];
+        for (let i = 0; i < CHAPTERS.length - 1; i++) {
+            const p1 = project(CHAPTERS[i].lon, CHAPTERS[i].lat);
+            const p2 = project(CHAPTERS[i + 1].lon, CHAPTERS[i + 1].lat);
+            const dx = p2[0] - p1[0];
+            const dy = p2[1] - p1[1];
+            const dr = Math.sqrt(dx * dx + dy * dy) * 1.2; // Curve intensity
+            results.push({
+                id: `path-${i}`,
+                d: `M ${p1[0]} ${p1[1]} A ${dr} ${dr} 0 0 1 ${p2[0]} ${p2[1]}`,
+                color: CHAPTERS[i + 1].color
+            });
+        }
+        return results;
+    }, []);
+
     useEffect(() => {
         fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
             .then(r => r.json())
@@ -111,6 +130,55 @@ export const TravelMap = () => {
                     {/* Countries */}
                     {paths.map((d, i) => (
                         <path key={i} d={d} fill="#1a2740" stroke="#253450" strokeWidth={0.3} />
+                    ))}
+
+                    {/* Flight Paths */}
+                    {flightPaths.map((path, i) => (
+                        <g key={path.id}>
+                            <motion.path
+                                d={path.d}
+                                fill="none"
+                                stroke={path.color}
+                                strokeWidth="0.5"
+                                strokeDasharray="2,2"
+                                initial={{ pathLength: 0, opacity: 0 }}
+                                animate={{ pathLength: 1, opacity: 0.4 }}
+                                transition={{
+                                    duration: 2,
+                                    delay: i * 2,
+                                    ease: "easeInOut"
+                                }}
+                            />
+                            {/* Plane Icon Animation */}
+                            <motion.g
+                                initial={{ opacity: 0 }}
+                                animate={{
+                                    opacity: [0, 1, 1, 0]
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    delay: i * 2,
+                                    repeat: Infinity,
+                                    repeatDelay: (CHAPTERS.length - 1) * 2 - 2,
+                                    ease: "easeInOut"
+                                }}
+                            >
+                                <motion.path
+                                    d="M -1.5,-1 L 1.5,0 L -1.5,1 L -1,0 Z" // Simple plane/arrow shape
+                                    fill={path.color}
+                                    stroke="white"
+                                    strokeWidth="0.2"
+                                >
+                                    <animateMotion
+                                        path={path.d}
+                                        dur="2s"
+                                        begin={`${i * 2}s`}
+                                        repeatCount="indefinite"
+                                        rotate="auto"
+                                    />
+                                </motion.path>
+                            </motion.g>
+                        </g>
                     ))}
 
                     {/* Pins — no emojis, subtle glow */}

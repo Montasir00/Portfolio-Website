@@ -27,7 +27,7 @@ const featuredProjects = [
     desc: "A real-time IoT data pipeline using Docker Compose and Python. Automated data ingestion, preprocessing, and anomaly detection for continuous sensor analytics.",
     tags: ["Python", "Docker", "MySQL"],
     metric: "40% reduction in manual data tasks",
-    img: "https://picsum.photos/seed/energy/1200/800",
+    img: "https://picsum.photos/seed/smart-energy/1200/800",
     color: "from-cyan-500/20 to-blue-500/10",
   },
   {
@@ -36,7 +36,7 @@ const featuredProjects = [
     desc: "A crypto trading platform supporting on-chain ETH transactions via the Ganache test network, using PHP, Web3.php, and multi-factor authentication.",
     tags: ["PHP", "Ethereum", "Web3.php"],
     metric: "Secure on-chain transactions with MFA",
-    img: "https://picsum.photos/seed/blockchain/1200/800",
+    img: "https://picsum.photos/seed/crypto-blockchain/1200/800",
     color: "from-purple-500/20 to-indigo-500/10",
   },
   {
@@ -45,10 +45,36 @@ const featuredProjects = [
     desc: "Analysed environmental time-series data from the Copernicus Climate Data Store for Milan, correlating temperature changes with pollutant concentration levels.",
     tags: ["Python", "Pandas", "Matplotlib"],
     metric: "94% accuracy on pollution trend forecasting",
-    img: "https://picsum.photos/seed/weather/1200/800",
+    img: "https://picsum.photos/seed/weather-forecast/1200/800",
     color: "from-emerald-500/20 to-teal-500/10",
   },
 ];
+
+const Typewriter = ({ text, delay = 100 }: { text: string; delay?: number }) => {
+  const [displayText, setDisplayText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentIndex < text.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText((prev) => prev + text[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }, delay);
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, delay, text]);
+
+  return (
+    <span className="relative">
+      {displayText}
+      <motion.span
+        animate={{ opacity: [1, 0] }}
+        transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+        className="inline-block w-[2px] h-[0.8em] bg-primary ml-1 align-middle"
+      />
+    </span>
+  );
+};
 
 export const Home = ({ onNavigate }: HeroProps) => {
   const [activeProject, setActiveProject] = useState(0);
@@ -104,14 +130,14 @@ export const Home = ({ onNavigate }: HeroProps) => {
       className="space-y-16 pb-32"
     >
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 border border-primary/20 p-8 md:p-16 text-center shadow-2xl">
+      <section className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 border border-primary/20 p-6 md:p-16 text-center shadow-2xl">
         <div className="absolute inset-0 opacity-10 pointer-events-none data-grid-bg"></div>
         <div className="absolute top-0 left-0 w-full scanner-line opacity-20"></div>
 
-        <div className="relative z-10 space-y-8">
+        <div className="relative z-10 space-y-6 md:space-y-8">
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 p-1.5 px-4 bg-primary/10 border border-primary/20 text-primary rounded-full text-[10px] font-bold tracking-[0.3em] uppercase"
+            className="inline-flex items-center gap-2 p-1.5 px-4 bg-primary/10 border border-primary/20 text-primary rounded-full text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -122,10 +148,12 @@ export const Home = ({ onNavigate }: HeroProps) => {
 
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-7xl font-bold leading-[0.9] text-white tracking-tighter"
+            className="text-3xl md:text-7xl font-bold leading-[1.1] md:leading-[0.9] text-white tracking-tighter"
           >
-            BSc in Data Analysis <br />
-            <span className="text-primary text-glow">Learning how data explains the world</span>
+            BSc in Data Analysis <br className="hidden md:block" />
+            <span className="text-primary text-glow block md:inline mt-2 md:mt-0">
+              <Typewriter text="Learning how data explains the world" delay={70} />
+            </span>
           </motion.h1>
 
           <motion.p
@@ -139,25 +167,25 @@ export const Home = ({ onNavigate }: HeroProps) => {
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center pt-6"
+            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center pt-4 md:pt-6"
           >
             <motion.a
               href="/resume.pdf"
               download="Fazlur_Rahman_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-primary hover:bg-primary-dark text-slate-900 font-bold py-5 px-10 rounded-2xl transition-all shadow-xl shadow-primary/20 text-sm flex items-center justify-center gap-3"
+              className="bg-primary hover:bg-primary-dark text-slate-900 font-bold py-4 md:py-5 px-8 md:px-10 rounded-2xl transition-all shadow-xl shadow-primary/20 text-xs md:text-sm flex items-center justify-center gap-3"
             >
-              <Download size={20} />
+              <Download size={18} className="md:w-5 md:h-5" />
               Download Resume
             </motion.a>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => onNavigate("contact")}
-              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-primary/50 text-white font-bold py-5 px-10 rounded-2xl transition-all text-sm flex items-center justify-center gap-3"
+              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-primary/50 text-white font-bold py-4 md:py-5 px-8 md:px-10 rounded-2xl transition-all text-xs md:text-sm flex items-center justify-center gap-3"
             >
-              <Mail size={20} />
+              <Mail size={18} className="md:w-5 md:h-5" />
               Let's Connect
             </motion.button>
           </motion.div>
