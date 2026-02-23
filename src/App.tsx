@@ -28,20 +28,31 @@ import { Experience } from "./components/Experience";
 
 export default function App() {
   const [activePage, setActivePage] = useState("home");
+  const [selectedProjectId, setSelectedProjectId] = useState<number | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [activePage]);
 
+  const handleProjectSelect = (projectId: number) => {
+    setSelectedProjectId(projectId);
+    setActivePage("project-detail");
+  };
+
   const renderPage = () => {
     switch (activePage) {
       case "home":
         return <Home onNavigate={setActivePage} />;
       case "projects":
-        return <Projects onNavigate={setActivePage} />;
+        return <Projects onNavigate={setActivePage} onProjectSelect={handleProjectSelect} />;
       case "project-detail":
-        return <ProjectDetail onBack={() => setActivePage("projects")} />;
+        return (
+          <ProjectDetail
+            projectId={selectedProjectId}
+            onBack={() => setActivePage("projects")}
+          />
+        );
       case "interests":
         return <Interests onNavigate={setActivePage} />;
       case "travel-all":

@@ -4,9 +4,10 @@ import { useState } from "react";
 
 interface ProjectsProps {
   onNavigate: (page: string) => void;
+  onProjectSelect: (projectId: number) => void;
 }
 
-export const Projects = ({ onNavigate }: ProjectsProps) => {
+export const Projects = ({ onNavigate, onProjectSelect }: ProjectsProps) => {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filters = ["All", "Data Science", "Web Dev", "ML", "Database", "Game"];
@@ -217,7 +218,7 @@ export const Projects = ({ onNavigate }: ProjectsProps) => {
               animate="visible"
               exit="hidden"
               whileHover={{ y: -10 }}
-              onClick={() => onNavigate("project-detail")}
+              onClick={() => onProjectSelect(project.id)}
               className="group cursor-pointer bg-white dark:bg-card-dark rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-2xl transition-all"
             >
               <div className="relative aspect-video overflow-hidden">
