@@ -23,7 +23,7 @@ interface HeroProps {
 
 const featuredProjects = [
   {
-    id: 8,
+    id: 10,
     title: "Energy Management System",
     desc: "A real-time IoT data pipeline using Docker Compose and Python. Automated data ingestion, preprocessing, and anomaly detection for continuous sensor analytics.",
     tags: ["Python", "Docker", "MySQL"],
@@ -32,7 +32,7 @@ const featuredProjects = [
     color: "from-cyan-500/20 to-blue-500/10",
   },
   {
-    id: 6,
+    id: 9,
     title: "Blockchain Transaction System",
     desc: "A crypto trading platform supporting on-chain ETH transactions via the Ganache test network, using PHP, Web3.php, and multi-factor authentication.",
     tags: ["PHP", "Ethereum", "Web3.php"],
@@ -41,7 +41,7 @@ const featuredProjects = [
     color: "from-purple-500/20 to-indigo-500/10",
   },
   {
-    id: 1,
+    id: 3,
     title: "Weather & Air Quality Analysis",
     desc: "Analysed environmental time-series data from the Copernicus Climate Data Store for Milan, correlating temperature changes with pollutant concentration levels.",
     tags: ["Python", "Pandas", "Matplotlib"],
@@ -153,7 +153,7 @@ export const Home = ({ onNavigate }: HeroProps) => {
           >
             BSc in Data Analysis <br className="hidden md:block" />
             <span className="text-primary text-glow block md:inline mt-2 md:mt-0">
-              <Typewriter text="Learning how data explains the world" delay={70} />
+              Learning how data explains the world
             </span>
           </motion.h1>
 
@@ -171,7 +171,7 @@ export const Home = ({ onNavigate }: HeroProps) => {
             className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center pt-4 md:pt-6"
           >
             <motion.a
-              href="/resume.pdf"
+              href="/assets/resume.pdf"
               download="Fazlur_Rahman_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

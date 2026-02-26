@@ -14,120 +14,17 @@ import {
   ArrowRight,
   ZoomIn,
 } from "lucide-react";
-
+import { BOOKS_DATA, Book as BookType } from "../constants/books";
+import { travelChapters } from "../constants/travel";
 interface InterestsProps {
   onNavigate: (page: string) => void;
 }
 
 export const Interests = ({ onNavigate }: InterestsProps) => {
   const [lightboxImg, setLightboxImg] = useState<null | { name: string; img: string; imgWide: string; desc: string; details: string }>(null);
-  const [selectedBook, setSelectedBook] = useState<null | (typeof books)[0]>(null);
+  const [selectedBook, setSelectedBook] = useState<null | BookType>(null);
 
-  const travelChapters = [
-    {
-      chapter: "Bangladesh",
-      year: "My Home Country",
-      emoji: "🇧🇩",
-      intro: "Where I was born and raised. The place that shaped everything before Italy.",
-      color: "border-cyan-500",
-      badgeColor: "bg-cyan-500/10 text-cyan-500 border-cyan-500/20",
-      places: [
-        { name: "Dhaka", img: "https://picsum.photos/seed/dhaka-city/800/600", imgWide: "https://picsum.photos/seed/dhaka-skyline/1200/800", desc: "The capital — chaotic, energetic, and unmistakably alive.", details: "Dhaka is one of the densest cities on Earth. The contrast between its chaos and its warmth is something that stays with you." },
-        { name: "Chittagong", img: "https://picsum.photos/seed/chittagong-port/800/600", imgWide: "https://picsum.photos/seed/chittagong-hills/1200/800", desc: "Bangladesh's second city. A port city between hills and sea.", details: "Patenga beach at sunset and the rolling hills of Sitakunda make Chittagong feel completely different from the capital." },
-        { name: "Sylhet", img: "https://picsum.photos/seed/sylhet-tea/800/600", imgWide: "https://picsum.photos/seed/sylhet-nature/1200/800", desc: "The land of tea gardens and rolling green hills in the northeast.", details: "Sylhet is defined by its endless tea estates, the Sari River, and a pace of life that feels genuinely unhurried." },
-      ],
-    },
-    {
-      chapter: "Sicily, Italy",
-      year: "2022 — Present",
-      emoji: "🌋",
-      intro: "Home base. The island that started everything — volcanic, historic, and endlessly surprising.",
-      color: "border-emerald-500",
-      badgeColor: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
-      places: [
-        { name: "Messina", img: "https://picsum.photos/seed/messina-italy/800/600", imgWide: "https://picsum.photos/seed/messina-harbor/1200/800", desc: "My home city. Famous for its giant astronomical clock and the Strait of Messina.", details: "The 12th-century cathedral and daily clock performance are unmissable. The city's waterfront at sunset is something else entirely." },
-        { name: "Taormina", img: "https://picsum.photos/seed/taormina-view/800/600", imgWide: "https://picsum.photos/seed/taormina-theater/1200/800", desc: "Clifftop perfection. Ancient Greek theater overlooking Etna and the Ionian Sea.", details: "Wandering the narrow Via Teatro Greco at dusk, with Etna glowing in the background, is one of those moments you just stop trying to photograph." },
-        { name: "Palermo", img: "https://picsum.photos/seed/palermo-streets/800/600", imgWide: "https://picsum.photos/seed/palermo-cathedral/1200/800", desc: "Sicily's capital — chaotic, loud, beautiful, and full of street food.", details: "The Ballarò market at 8am is pure sensory overload. The Norman Palace's Palatine Chapel is one of the most beautiful rooms I've ever entered." },
-        { name: "Mount Etna", img: "https://picsum.photos/seed/etna-volcano/800/600", imgWide: "https://picsum.photos/seed/etna-crater/1200/800", desc: "Europe's highest and most active volcano. Hiking on lava feels surreal.", details: "The Silvestri Craters at 1900m look like the surface of another planet. Black ash, sulfur vents, and complete silence." },
-        { name: "Milo", img: "https://picsum.photos/seed/milo-sicily/800/600", imgWide: "https://picsum.photos/seed/milo-vineyard/1200/800", desc: "A tiny village on the slopes of Etna, known for its wine and sweeping sea views.", details: "Milo is the kind of place you stumble upon and never want to leave. The Etna DOC wines here are genuinely exceptional." },
-        { name: "Catania", img: "https://picsum.photos/seed/catania-city/800/600", imgWide: "https://picsum.photos/seed/catania-square/1200/800", desc: "A gritty, energetic city rebuilt entirely from volcanic lava stone after the 1693 earthquake.", details: "The fish market by the port is unlike anything else. La Pescheria at dawn is equal parts beautiful and overwhelming." },
-        { name: "Syracuse", img: "https://picsum.photos/seed/siracusa-ortigia/800/600", imgWide: "https://picsum.photos/seed/siracusa-ancient/1200/800", desc: "One of the greatest cities of antiquity. The Greek Theatre still hosts performances today.", details: "Walking through the Archaeological Park of Neapolis connects you to 2,500 years of history. Ortigia island at night is magical." },
-      ],
-    },
-    {
-      chapter: "Mainland Italy",
-      year: "2023 — Present",
-      emoji: "🇮🇹",
-      intro: "Venturing beyond Sicily — from the deep south all the way to the industrial north.",
-      color: "border-blue-500",
-      badgeColor: "bg-blue-500/10 text-blue-500 border-blue-500/20",
-      places: [
-        { name: "Calabria", img: "https://picsum.photos/seed/calabria-coast/800/600", imgWide: "https://picsum.photos/seed/calabria-mountains/1200/800", desc: "Just across the Strait of Messina — rugged, wild, and underrated.", details: "The Aspromonte national park and the crystal-clear Ionian coast make Calabria one of Italy's best-kept secrets." },
-        { name: "Siena", img: "https://picsum.photos/seed/siena-tuscany/800/600", imgWide: "https://picsum.photos/seed/siena-piazza/1200/800", desc: "Medieval Tuscany at its finest. The Piazza del Campo is one of the greatest public squares in the world.", details: "Siena is one of the few Italian cities where cars feel completely out of place. The Duomo's striped marble is stunning up close." },
-        { name: "Bologna", img: "https://picsum.photos/seed/bologna-food/800/600", imgWide: "https://picsum.photos/seed/bologna-towers/1200/800", desc: "La Grassa (The Fat One). Europe's oldest university city and home to the best food in Italy.", details: "The 40km of porticoes, the Two Towers, and the impossible depth of tagliatelle al ragù — Bologna is a city that rewards slow exploration." },
-        { name: "Venice", img: "https://picsum.photos/seed/venice-canal/800/600", imgWide: "https://picsum.photos/seed/venice-gondola/1200/800", desc: "Impossible, impractical, and unforgettable. There's nothing else like it.", details: "Getting deliberately lost in the back canals away from San Marco is the only way to experience Venice honestly." },
-        { name: "Milan", img: "https://picsum.photos/seed/milan-duomo/800/600", imgWide: "https://picsum.photos/seed/milan-modern/1200/800", desc: "Italy's capital of design, finance, and fashion. The Duomo alone is worth the trip.", details: "Milan sits at the crossroads of Italian ambition and European modernity. Home to Bicocca — one of the universities on my MSc shortlist." },
-        { name: "Turin", img: "https://picsum.photos/seed/turin-alps/800/600", imgWide: "https://picsum.photos/seed/turin-architecture/1200/800", desc: "Elegant, underrated, and home to Politecnico di Torino — one of Europe's top engineering universities.", details: "Turin feels like a city that rewards those who look closely: baroque arcades, great coffee culture, and the Alps visible on clear days. PoliTo is a serious option for my MSc in Data Science." },
-      ],
-    },
-    {
-      chapter: "Germany",
-      year: "2024",
-      emoji: "🇩🇪",
-      intro: "First trip outside Italy — a complete change of pace, scale, and culture.",
-      color: "border-yellow-500",
-      badgeColor: "bg-yellow-500/10 text-yellow-500 border-yellow-500/20",
-      places: [
-        { name: "Germany", img: "https://picsum.photos/seed/berlin-wall/800/600", imgWide: "https://picsum.photos/seed/germany-forest/1200/800", desc: "First trip outside Italy. A completely different pace — efficient, orderly, and fascinating.", details: "The contrast with Sicily couldn't be sharper: infrastructure that just works, forests, rivers, and a culture that takes engineering seriously." },
-      ],
-    },
-    {
-      chapter: "Saudi Arabia",
-      year: "2024",
-      emoji: "🕌",
-      intro: "First trip outside Europe — a family journey to the Arabian Peninsula.",
-      color: "border-orange-500",
-      badgeColor: "bg-orange-500/10 text-orange-500 border-orange-500/20",
-      places: [
-        { name: "Saudi Arabia", img: "https://picsum.photos/seed/mecca/800/600", imgWide: "https://picsum.photos/seed/saudi-desert/1200/800", desc: "First trip outside Europe — a family visit to the Arabian Peninsula.", details: "A journey that connected me back to roots, culture, and a scale of landscape and architecture unlike anything in Europe." },
-      ],
-    },
-  ];
-
-  const books = [
-    {
-      title: "The Pragmatic Programmer",
-      author: "Andrew Hunt & David Thomas",
-      year: "2023",
-      desc: "A cornerstone of software engineering wisdom.",
-      details:
-        "This book taught me that being a programmer is about more than just code; it's about craftsmanship, responsibility, and continuous learning.",
-    },
-    {
-      title: "Clean Code",
-      author: "Robert C. Martin",
-      year: "2022",
-      desc: "The handbook for writing code that lasts.",
-      details:
-        "Focuses on the art of writing code that is readable, maintainable, and elegant. A must-read for any serious developer.",
-    },
-    {
-      title: "Deep Work",
-      author: "Cal Newport",
-      year: "2023",
-      desc: "Rules for focused success in a distracted world.",
-      details:
-        "Transformed how I approach my work day, emphasizing the importance of long periods of uninterrupted focus for complex tasks.",
-    },
-    {
-      title: "Atomic Habits",
-      author: "James Clear",
-      year: "2022",
-      desc: "An easy way to build good habits and break bad ones.",
-      details:
-        "Provided a practical framework for making small, incremental changes that lead to remarkable results over time.",
-    },
-  ];
+  const books = BOOKS_DATA.slice(0, 4);
 
   const otherInterests = [
     {
@@ -219,11 +116,18 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
         </div>
 
         {/* World Map */}
-        <TravelMap />
+        <TravelMap onLocationClick={(locationName) => {
+          const id = `chapter-${locationName.replace(/\s+/g, '-')}`;
+          const el = document.getElementById(id);
+          if (el) {
+            const y = el.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }} />
 
         <div className="space-y-12">
           {travelChapters.map((chapter) => (
-            <div key={chapter.chapter} className="space-y-5">
+            <div key={chapter.chapter} id={`chapter-${chapter.chapter.replace(/\s+/g, '-')}`} className="space-y-5">
               {/* Chapter Header */}
               <div className={`flex items-center gap-4 pb-4 border-b-2 ${chapter.color}`}>
                 <span className="text-2xl">{chapter.emoji}</span>
@@ -413,22 +317,25 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
               variants={itemVariants}
               whileHover={{ y: -5, scale: 1.02 }}
               onClick={() => setSelectedBook(book)}
-              className="p-8 bg-white dark:bg-card-dark rounded-3xl border border-slate-200 dark:border-white/5 shadow-lg cursor-pointer group hover:border-primary/50 transition-all flex flex-col justify-between"
+              className="group bg-white dark:bg-card-dark rounded-3xl overflow-hidden border border-slate-200 dark:border-white/5 shadow-lg flex flex-col cursor-pointer transition-all hover:border-primary/50"
             >
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-all">
-                  <BookOpen size={24} />
+              <div className="h-48 w-full overflow-hidden relative">
+                <img src={book.img} alt={book.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
+                <div className="absolute top-4 left-4">
+                  <span className={`px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest ${book.status === "Reading" ? "bg-amber-500 text-white" : "bg-emerald-500 text-white"}`}>
+                    {book.status}
+                  </span>
                 </div>
-                <h4 className="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">
-                  {book.title}
-                </h4>
-                <p className="text-xs text-slate-400 font-medium uppercase tracking-widest">
-                  {book.author}
-                </p>
               </div>
-              <div className="mt-6 flex items-center justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
-                <span>{book.year}</span>
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div className="space-y-2">
+                  <h4 className="text-xl font-bold tracking-tight group-hover:text-primary transition-colors line-clamp-2">
+                    {book.title}
+                  </h4>
+                  <p className="text-xs text-slate-400 font-medium uppercase tracking-widest">
+                    {book.author}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -447,8 +354,8 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-start">
-                <div className="w-16 h-16 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500">
-                  <BookOpen size={32} />
+                <div className="w-16 h-16 rounded-2xl overflow-hidden bg-slate-100 flex items-center justify-center text-amber-500">
+                  <img src={selectedBook.img} alt={selectedBook.title} className="w-full h-full object-cover" />
                 </div>
                 <button
                   onClick={() => setSelectedBook(null)}
@@ -464,15 +371,13 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
                 <div className="flex items-center gap-4 text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-widest">
                   <span>{selectedBook.author}</span>
                   <div className="w-1 h-1 bg-slate-300 dark:bg-slate-600 rounded-full" />
-                  <span>{selectedBook.year}</span>
+                  <span>{selectedBook.status}</span>
                 </div>
               </div>
-              <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
-                {selectedBook.desc}
-              </p>
-              <div className="p-6 bg-amber-500/5 rounded-2xl border border-amber-500/10">
-                <p className="text-slate-500 dark:text-slate-400 leading-relaxed italic">
-                  "{selectedBook.details}"
+
+              <div className="p-6 bg-amber-500/5 rounded-2xl border border-amber-500/10 max-h-48 overflow-y-auto no-scrollbar">
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed italic text-sm md:text-base">
+                  "{selectedBook.desc}"
                 </p>
               </div>
             </motion.div>

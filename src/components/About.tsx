@@ -196,7 +196,7 @@ export const About = ({ onBack }: AboutProps) => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <motion.a
-              href="/resume.pdf"
+              href="/assets/resume.pdf"
               download="Fazlur_Rahman_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -225,7 +225,7 @@ export const About = ({ onBack }: AboutProps) => {
         <h3 className="text-2xl md:text-3xl font-bold tracking-tight">My Journey</h3>
         <div ref={journeyRef} className="relative">
           {/* Vertical line (Background) */}
-          <div className="absolute left-6 top-4 bottom-4 w-px bg-slate-200 dark:bg-white/5 ml-px hidden sm:block" />
+          <div className="absolute left-6 md:left-8 top-4 bottom-4 w-px bg-slate-200 dark:bg-white/5 ml-px" />
 
           {/* Glowing Progress Line */}
           <motion.div
@@ -233,22 +233,23 @@ export const About = ({ onBack }: AboutProps) => {
               scaleY,
               originY: 0
             }}
-            className="absolute left-6 top-4 bottom-4 w-px bg-gradient-to-b from-primary/40 via-primary to-primary/40 shadow-[0_0_20px_rgba(17,180,212,0.4)] hidden sm:block z-0 opacity-60 ml-px"
+            className="absolute left-6 md:left-8 top-4 bottom-4 w-px bg-gradient-to-b from-primary/40 via-primary to-primary/40 shadow-[0_0_20px_rgba(17,180,212,0.4)] z-0 opacity-60 ml-px"
           />
 
-          <div className="space-y-6">
+          <div className="space-y-8 md:space-y-6">
             {timeline.map((item, i) => (
               <motion.div
                 key={i}
                 variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start group relative z-10"
+                className="flex items-start gap-4 md:gap-6 group relative z-10"
               >
-                {/* Icon (Desktop Only) */}
-                <div className="hidden sm:block relative z-10 bg-slate-50 dark:bg-background-dark rounded-2xl">
+                {/* Icon (Always visible) */}
+                <div className="relative z-10 bg-slate-50 dark:bg-background-dark rounded-xl md:rounded-2xl mt-1 md:mt-0 flex-shrink-0">
                   <div
-                    className={`flex w-12 h-12 rounded-2xl flex-shrink-0 items-center justify-center border ${item.color} shadow-lg transition-transform group-hover:scale-110`}
+                    className={`flex w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl items-center justify-center border ${item.color} shadow-lg transition-transform group-hover:scale-110`}
                   >
-                    {item.icon}
+                    {/* Scale down the SVG slightly on mobile */}
+                    <div className="scale-75 md:scale-100 flex items-center justify-center">{item.icon}</div>
                   </div>
                 </div>
 

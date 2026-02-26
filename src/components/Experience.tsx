@@ -114,32 +114,31 @@ export const Experience = ({ onBack }: ExperienceProps) => {
             </header>
 
             {/* Experience Timeline */}
-            <div ref={containerRef} className="relative space-y-12">
-                {/* Continuous Vertical Line (Desktop) */}
-                <div className="absolute left-8 top-8 bottom-8 w-px bg-slate-200 dark:bg-white/5 hidden md:block" />
+            <div ref={containerRef} className="relative space-y-12 md:space-y-16 mt-12 md:mt-20">
+                {/* Continuous Vertical Line */}
+                <div className="absolute left-6 md:left-8 top-8 bottom-8 w-px bg-slate-200 dark:bg-white/5 ml-px" />
 
-                {/* Glowing Progress Line (Desktop) */}
+                {/* Glowing Progress Line */}
                 <motion.div
                     style={{
                         scaleY,
                         originY: 0
                     }}
-                    className="absolute left-8 top-8 bottom-8 w-px bg-gradient-to-b from-primary/40 via-primary to-primary/40 shadow-[0_0_20px_rgba(17,180,212,0.4)] hidden md:block z-0 opacity-60"
+                    className="absolute left-6 md:left-8 top-8 bottom-8 w-px bg-gradient-to-b from-primary/40 via-primary to-primary/40 shadow-[0_0_20px_rgba(17,180,212,0.4)] z-0 opacity-60 ml-px"
                 />
 
-                {experiences.map((exp, i) => (
-                    <motion.div
-                        key={i}
-                        variants={itemVariants}
-                        className="group relative z-10"
-                    >
-                        <div className="flex flex-col md:flex-row gap-8">
+                <div className="space-y-12">
+                    {experiences.map((exp, i) => (
+                        <motion.div
+                            key={i}
+                            variants={itemVariants}
+                            className="flex items-start gap-4 md:gap-8 group relative z-10"
+                        >
                             {/* Icon & Type */}
-                            <div className="flex-shrink-0 flex items-center md:items-start">
-                                <div className="relative z-10 bg-slate-50 dark:bg-background-dark rounded-2xl">
-                                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border shadow-lg transition-transform group-hover:scale-110 ${exp.color}`}>
-                                        {exp.icon}
-                                    </div>
+                            <div className="flex-shrink-0 relative z-10 bg-slate-50 dark:bg-background-dark rounded-xl md:rounded-2xl mt-1 md:mt-0">
+                                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center border shadow-lg transition-transform group-hover:scale-110 ${exp.color}`}>
+                                    {/* Scale down the SVG slightly on mobile */}
+                                    <div className="scale-75 md:scale-100 flex items-center justify-center">{exp.icon}</div>
                                 </div>
                             </div>
 
@@ -201,9 +200,9 @@ export const Experience = ({ onBack }: ExperienceProps) => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </motion.div>
-                ))}
+                        </motion.div>
+                    ))}
+                </div>
             </div>
 
             {/* Certificates Section */}

@@ -59,7 +59,7 @@ const CHAPTERS: Chapter[] = [
     },
 ];
 
-export const TravelMap = () => {
+export const TravelMap = ({ onLocationClick }: { onLocationClick?: (location: string) => void }) => {
     const [paths, setPaths] = useState<string[]>([]);
     const [hovered, setHovered] = useState<Chapter | null>(null);
 
@@ -144,8 +144,8 @@ export const TravelMap = () => {
                                 initial={{ pathLength: 0, opacity: 0 }}
                                 animate={{ pathLength: 1, opacity: 0.4 }}
                                 transition={{
-                                    duration: 2,
-                                    delay: i * 2,
+                                    duration: 1,
+                                    delay: i * 1,
                                     ease: "easeInOut"
                                 }}
                             />
@@ -156,10 +156,10 @@ export const TravelMap = () => {
                                     opacity: [0, 1, 1, 0]
                                 }}
                                 transition={{
-                                    duration: 2,
-                                    delay: i * 2,
+                                    duration: 1,
+                                    delay: i * 1,
                                     repeat: Infinity,
-                                    repeatDelay: (CHAPTERS.length - 1) * 2 - 2,
+                                    repeatDelay: (CHAPTERS.length - 1) * 1 - 1,
                                     ease: "easeInOut"
                                 }}
                             >
@@ -171,8 +171,8 @@ export const TravelMap = () => {
                                 >
                                     <animateMotion
                                         path={path.d}
-                                        dur="2s"
-                                        begin={`${i * 2}s`}
+                                        dur="1s"
+                                        begin={`${i * 1}s`}
                                         repeatCount="indefinite"
                                         rotate="auto"
                                     />
@@ -191,6 +191,7 @@ export const TravelMap = () => {
                                 transform={`translate(${x.toFixed(1)},${y.toFixed(1)})`}
                                 onMouseEnter={() => setHovered(ch)}
                                 onMouseLeave={() => setHovered(null)}
+                                onClick={() => onLocationClick?.(ch.name)}
                                 style={{ cursor: "pointer" }}
                             >
                                 {/* Subtle pulse — low opacity, small range */}

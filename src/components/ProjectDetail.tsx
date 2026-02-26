@@ -69,32 +69,32 @@ const ProjectHero = ({ project }: { project: ProjectMetadata }) => (
     animate={{ opacity: 1, y: 0 }}
     className="relative w-full aspect-video md:aspect-[21/9] overflow-hidden rounded-[2.5rem] shadow-2xl border border-white/5"
   >
-    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10"></div>
+    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent z-10"></div>
     <div className="absolute inset-0 data-grid-bg opacity-10 z-10"></div>
     <img
-      src={project.image}
+      src={project.img}
       alt={project.title}
       className="w-full h-full object-cover opacity-60 mix-blend-luminosity"
       referrerPolicy="no-referrer"
     />
-    <div className="absolute bottom-0 left-0 p-10 md:p-16 z-20 w-full">
-      <div className="flex items-center gap-4 mb-6">
-        <span className="bg-primary/20 text-primary border border-primary/30 text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-[0.3em]">
+    <div className="absolute bottom-0 left-0 p-6 sm:p-10 md:p-16 z-20 w-full">
+      <div className="flex items-center gap-4 mb-4 md:mb-6">
+        <span className="bg-primary/20 text-primary border border-primary/30 text-[8px] sm:text-[10px] font-bold px-3 py-1 md:px-4 md:py-1 rounded-full uppercase tracking-[0.2em] md:tracking-[0.3em]">
           {project.systemStatus}
         </span>
-        <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_var(--color-primary)]"></div>
+        <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_var(--color-primary)]"></div>
       </div>
-      <h1 className="text-5xl md:text-7xl font-bold text-white leading-[0.9] tracking-tighter">
+      <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white leading-tight md:leading-[0.9] tracking-tighter mix-blend-normal break-words">
         {project.title}
       </h1>
-      <div className="flex items-center gap-12 mt-10 border-t border-white/10 pt-8">
+      <div className="flex flex-wrap items-center gap-6 md:gap-12 mt-6 md:mt-10 border-t border-white/20 pt-6 md:pt-8 w-full">
         <div className="flex flex-col gap-1">
-          <span className="text-[10px] uppercase text-slate-500 font-bold tracking-[0.2em]">Category</span>
-          <span className="text-base text-primary font-bold">{project.category}</span>
+          <span className="text-[9px] md:text-[10px] uppercase text-slate-400 font-bold tracking-[0.2em]">Category</span>
+          <span className="text-sm md:text-base text-primary font-bold">{project.category}</span>
         </div>
         <div className="flex flex-col gap-1">
-          <span className="text-[10px] uppercase text-slate-500 font-bold tracking-[0.2em]">Status</span>
-          <span className="text-base text-emerald-500 font-bold">{project.status}</span>
+          <span className="text-[9px] md:text-[10px] uppercase text-slate-400 font-bold tracking-[0.2em]">Status</span>
+          <span className="text-sm md:text-base text-emerald-500 font-bold">{project.status}</span>
         </div>
       </div>
     </div>
@@ -618,12 +618,12 @@ const WeatherDashboard = ({ data }: { data: any[] }) => (
 
 export const ProjectDetail = ({ onBack }: ProjectDetailProps) => {
   const { projectId: projectIdParam } = useParams<{ projectId: string }>();
-  const projectId = projectIdParam ? parseInt(projectIdParam) : 8;
+  const projectId = projectIdParam ? parseInt(projectIdParam) : 1;
 
   const [data, setData] = useState(generateData());
   const [alerts, setAlerts] = useState<string[]>([]);
 
-  const project = PROJECTS_METADATA[projectId] || PROJECTS_METADATA[8];
+  const project = PROJECTS_METADATA[projectId] || PROJECTS_METADATA[1];
 
   useEffect(() => {
     if (project.type !== "iot" && project.type !== "weather" && project.type !== "network") return;
@@ -652,7 +652,7 @@ export const ProjectDetail = ({ onBack }: ProjectDetailProps) => {
       exit={{ opacity: 0 }}
       className="pb-40 space-y-16"
     >
-      <nav className="sticky top-0 z-50 glass border-b border-primary/10 -mx-6 px-6 h-20 flex items-center justify-between">
+      <nav className="sticky top-0 z-50 glass border-b border-primary/10 mb-8 rounded-b-3xl h-20 flex items-center justify-between px-6">
         <div className="flex items-center gap-6">
           <motion.button whileHover={{ scale: 1.1, x: -5 }} whileTap={{ scale: 0.9 }} onClick={onBack} className="p-3 hover:bg-primary/10 rounded-2xl transition-colors text-slate-600 dark:text-slate-300">
             <ArrowLeft size={24} />
@@ -672,10 +672,10 @@ export const ProjectDetail = ({ onBack }: ProjectDetailProps) => {
         {project.impact && <ImpactInsights impact={project.impact} insights={project.insights} />}
 
         {projectId === 8 && <IoTDashboard data={data} alerts={alerts} />}
-        {projectId === 3 && <MLDashboard />}
-        {projectId === 10 && <NetworkDashboard data={data} />}
-        {projectId === 14 && <GymDashboard />}
-        {projectId === 1 && <WeatherDashboard data={data} />}
+        {projectId === 1 && <MLDashboard />}
+        {projectId === 5 && <NetworkDashboard data={data} />}
+        {projectId === 2 && <GymDashboard />}
+        {projectId === 3 && <WeatherDashboard data={data} />}
 
         {/* Github Link */}
         <motion.div
