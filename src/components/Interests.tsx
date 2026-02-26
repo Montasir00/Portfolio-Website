@@ -159,10 +159,12 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
                     <img
                       src={place.img}
                       alt={place.name}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 filter saturate-50 contrast-110 group-hover:filter-none"
                     />
+                    {/* Blueprint overlay */}
+                    <div className="absolute inset-0 bg-primary/20 mix-blend-color pointer-events-none transition-opacity duration-700 group-hover:opacity-0" />
                     {/* Strong gradient — dark enough to guarantee contrast */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 z-0" />
                     {/* Zoom icon */}
                     <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-md text-white p-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
                       <ZoomIn size={14} />
@@ -212,11 +214,13 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
               </button>
 
               {/* Image Section */}
-              <div className="relative w-full md:w-1/2 lg:w-3/5 h-[35vh] md:h-auto overflow-hidden">
+              <div className="relative w-full md:w-1/2 lg:w-3/5 h-[35vh] md:h-auto overflow-hidden bg-slate-900">
+                {/* Subtle base filter for aesthetic conformity in lightbox */}
+                <div className="absolute inset-0 bg-primary/5 mix-blend-color pointer-events-none z-10" />
                 <img
                   src={lightboxImg.imgWide}
                   alt={lightboxImg.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover filter contrast-110 saturate-75"
                 />
                 {/* Mobile Close Button */}
                 <button
@@ -319,9 +323,11 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
               onClick={() => setSelectedBook(book)}
               className="group bg-white dark:bg-card-dark rounded-3xl overflow-hidden border border-slate-200 dark:border-white/5 shadow-lg flex flex-col cursor-pointer transition-all hover:border-primary/50"
             >
-              <div className="h-48 w-full overflow-hidden relative">
-                <img src={book.img} alt={book.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
-                <div className="absolute top-4 left-4">
+              <div className="h-48 w-full overflow-hidden relative bg-slate-900">
+                <img src={book.img} alt={book.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 filter saturate-50 contrast-110 group-hover:filter-none" referrerPolicy="no-referrer" />
+                {/* Blueprint overlay */}
+                <div className="absolute inset-0 bg-primary/20 mix-blend-color pointer-events-none transition-opacity duration-700 group-hover:opacity-0" />
+                <div className="absolute top-4 left-4 z-10">
                   <span className={`px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest ${book.status === "Reading" ? "bg-amber-500 text-white" : "bg-emerald-500 text-white"}`}>
                     {book.status}
                   </span>

@@ -29,13 +29,15 @@ const BookCard = ({ book, variants }: { book: Book; variants: any; key?: string 
     variants={variants}
     className="group bg-white dark:bg-card-dark rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-2xl flex flex-col sm:flex-row"
   >
-    <div className="w-full sm:w-48 h-72 sm:h-auto relative overflow-hidden">
+    <div className="w-full sm:w-48 h-72 sm:h-auto relative overflow-hidden bg-slate-900 group/bookimage">
       <img
         src={book.img}
         alt={book.title}
-        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+        className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 filter saturate-50 contrast-110 group-hover:filter-none"
         referrerPolicy="no-referrer"
       />
+      {/* Blueprint overlay */}
+      <div className="absolute inset-0 bg-primary/20 mix-blend-color pointer-events-none transition-opacity duration-700 group-hover:opacity-0" />
       <div className="absolute top-4 left-4">
         <span
           className={`px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-widest ${book.status === "Completed"

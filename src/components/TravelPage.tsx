@@ -172,13 +172,15 @@ export const TravelPage = ({ onBack }: TravelPageProps) => {
 
             <div className="relative group">
               <div className="absolute -inset-4 bg-emerald-500/10 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10">
+              <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 bg-slate-900 group/image">
                 <img
                   src={travel.img}
                   alt={travel.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                  className="w-full h-full object-cover group-hover/image:scale-105 transition-all duration-1000 filter saturate-50 contrast-110 group-hover/image:filter-none"
                   referrerPolicy="no-referrer"
                 />
+                {/* Blueprint overlay */}
+                <div className="absolute inset-0 bg-primary/20 mix-blend-color pointer-events-none transition-opacity duration-700 group-hover/image:opacity-0" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
                   <div className="flex items-center gap-2 text-white font-bold text-sm">
                     <Compass size={18} className="animate-spin-slow" />

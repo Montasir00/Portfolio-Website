@@ -91,19 +91,19 @@ export const PROJECTS_METADATA: Record<number, ProjectMetadata> = {
     4: {
         id: 4,
         title: "Bloom & Basket — E-Commerce",
-        desc: "Production-style PHP e-commerce platform for selling foods. Features secure authentication, role-based access control, and a fully containerized Docker environment.",
-        tags: ["PHP", "MYSQL", "DOCKER", "NGINX", "WEB DEV"],
+        desc: "Full-stack PHP e-commerce platform for fresh grocery produce. Features Telegram OTP MFA, CSRF protection, admin dashboard, and a fully Dockerized NGINX setup.",
+        tags: ["PHP", "MYSQL", "DOCKER", "NGINX", "TELEGRAM API"],
         category: "Web Dev",
         img: "assets/images/ecommerce.jpg",
         github: "https://github.com/Montasir00/Bloom-And-Basket",
         status: "Completed",
-        overview: "A robust full-stack e-commerce solution built with PHP, MySQL, and Docker. It delivers a complete shopping workflow alongside a protected administrative dashboard for inventory, users, and orders.",
-        problem: "Building a secure, scalable e-commerce solution with modern authentication and containerized deployment.",
-        problemDetail: "Implementing secure authentication, CSRF protection, session management, and ensuring full environment parity across development and production using Docker containers.",
+        overview: "A production-grade grocery e-commerce web application featuring a complete purchase funnel. It includes comprehensive user authentication, robust product and cart management, and a dedicated admin panel, all orchestrated securely behind an NGINX reverse proxy locally.",
+        problem: "Establishing a trusted, secure, and scalable digital storefront for fresh produce while keeping operating costs low.",
+        problemDetail: "The system required strict separation between public shopping flows and internal admin operations, alongside mandatory defense-in-depth security measures like CSRF synchronizer tokens, MFA, password resets, and HTTPS encryption to handle personal data securely.",
         type: "web",
-        impact: "Successfully implemented a defense-in-depth security model including PDO prepared statements, bcrypt hashing, and CSRF synchronizer tokens.",
-        insights: "Containerizing the LAMP stack (PHP, MySQL, phpMyAdmin) with Docker Compose ensured deterministic builds and eliminated 'works on my machine' issues.",
-        systemStatus: "Server: Production Ready"
+        impact: "Engineered a custom OTP microservice that delivers verification codes via a Telegram bot, providing free and highly reliable 2FA without the overhead of commercial SMS gateways.",
+        insights: "Containerizing the entire stack (PHP, NGINX, MySQL) via Docker Compose proved essential for environment parity, eliminating 'works on my machine' issues and preparing the architecture for seamless cloud deployment.",
+        systemStatus: "Server: MFA Secured"
     },
     5: {
         id: 5,

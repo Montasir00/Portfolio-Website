@@ -103,14 +103,17 @@ export const Projects = ({ onNavigate, onProjectSelect }: ProjectsProps) => {
               onClick={() => onProjectSelect(project.id)}
               className="group cursor-pointer bg-white dark:bg-card-dark rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-2xl transition-all"
             >
-              <div className="relative aspect-video overflow-hidden">
+              <div className="relative aspect-video overflow-hidden bg-slate-900 group/image">
                 <img
-                  src={project.img}
+                  src={`${import.meta.env.BASE_URL}${project.img}`}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                  className="w-full h-full object-cover group-hover/image:scale-110 transition-all duration-1000 filter saturate-50 contrast-110 group-hover/image:filter-none"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-6 right-6 bg-primary/90 text-slate-900 text-[10px] font-bold px-4 py-1.5 rounded-xl uppercase tracking-widest shadow-xl">
+                {/* Blueprint tinting layer */}
+                <div className="absolute inset-0 bg-primary/20 mix-blend-color pointer-events-none transition-opacity duration-700 group-hover/image:opacity-0" />
+
+                <div className="absolute top-6 right-6 bg-primary/90 text-slate-900 text-[10px] font-bold px-4 py-1.5 rounded-xl uppercase tracking-widest shadow-xl transition-transform group-hover:-translate-y-1">
                   {project.category}
                 </div>
               </div>
