@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   Code,
   Database,
@@ -22,7 +23,7 @@ interface HeroProps {
 
 const featuredProjects = [
   {
-    id: "energy",
+    id: 8,
     title: "Energy Management System",
     desc: "A real-time IoT data pipeline using Docker Compose and Python. Automated data ingestion, preprocessing, and anomaly detection for continuous sensor analytics.",
     tags: ["Python", "Docker", "MySQL"],
@@ -31,7 +32,7 @@ const featuredProjects = [
     color: "from-cyan-500/20 to-blue-500/10",
   },
   {
-    id: "blockchain",
+    id: 6,
     title: "Blockchain Transaction System",
     desc: "A crypto trading platform supporting on-chain ETH transactions via the Ganache test network, using PHP, Web3.php, and multi-factor authentication.",
     tags: ["PHP", "Ethereum", "Web3.php"],
@@ -40,7 +41,7 @@ const featuredProjects = [
     color: "from-purple-500/20 to-indigo-500/10",
   },
   {
-    id: "weather",
+    id: 1,
     title: "Weather & Air Quality Analysis",
     desc: "Analysed environmental time-series data from the Copernicus Climate Data Store for Milan, correlating temperature changes with pollutant concentration levels.",
     tags: ["Python", "Pandas", "Matplotlib"],
@@ -226,12 +227,12 @@ export const Home = ({ onNavigate }: HeroProps) => {
 
       {/* Technical Toolkit */}
       <section className="space-y-8">
-        <div className="flex items-center justify-between border-b border-primary/10 pb-4">
+        <div className="flex flex-col items-center border-b border-primary/10 pb-6">
           <h2 className="text-2xl font-bold tracking-tight font-mono uppercase italic text-primary">
             Tools I Use
           </h2>
-          <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
-            Core Tools
+          <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mt-2">
+            Core Technical Stack
           </span>
         </div>
 
@@ -259,15 +260,15 @@ export const Home = ({ onNavigate }: HeroProps) => {
 
       {/* Featured Projects Carousel */}
       <section className="space-y-8">
-        <div className="flex items-center justify-between border-b border-primary/10 pb-4">
+        <div className="flex flex-col items-center border-b border-primary/10 pb-6">
           <h2 className="text-2xl font-bold tracking-tight font-mono uppercase italic text-primary">
             Featured Projects
           </h2>
           <button
             onClick={() => onNavigate("projects")}
-            className="text-xs font-bold text-primary flex items-center gap-2 hover:underline group uppercase tracking-widest"
+            className="text-xs font-bold text-primary flex items-center gap-2 hover:underline group uppercase tracking-widest mt-2"
           >
-            View all{" "}
+            View all projects{" "}
             <ArrowRight
               size={14}
               className="group-hover:translate-x-1 transition-transform"
@@ -324,12 +325,12 @@ export const Home = ({ onNavigate }: HeroProps) => {
                   <span className="text-xs text-slate-400 font-bold uppercase tracking-widest">
                     {activeProject + 1} / {featuredProjects.length}
                   </span>
-                  <button
-                    onClick={() => onNavigate("project-detail")}
+                  <Link
+                    to={`/projects/${project.id}`}
                     className="text-primary font-bold text-sm hover:underline flex items-center gap-3 uppercase tracking-widest"
                   >
                     Case Study <ExternalLink size={18} />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>

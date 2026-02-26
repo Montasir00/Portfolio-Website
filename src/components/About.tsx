@@ -159,10 +159,10 @@ export const About = ({ onBack }: AboutProps) => {
       {/* Profile */}
       <motion.section
         variants={itemVariants}
-        className="flex flex-col items-center text-center space-y-8"
+        className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16"
       >
-        <div className="relative">
-          <div className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-primary/20 p-1.5 shadow-2xl">
+        <div className="relative flex-shrink-0">
+          <div className="w-40 h-40 md:w-56 md:h-56 rounded-full border-4 border-primary/20 p-1.5 shadow-2xl">
             <img
               src="https://picsum.photos/seed/professional-analyst/400/400"
               alt="Fazlur Rahman"
@@ -180,41 +180,43 @@ export const About = ({ onBack }: AboutProps) => {
           </motion.div>
         </div>
 
-        <div className="space-y-3">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">
-            Fazlur Rahman
-          </h1>
-          <p className="text-primary text-xl font-bold uppercase tracking-widest">
-            Data Analyst & Storyteller
-          </p>
-          <div className="flex items-center justify-center gap-2 text-slate-500 text-base font-medium">
-            <MapPin size={18} />
-            <span>Messina, Italy</span>
+        <div className="space-y-6 text-center md:text-left flex-1">
+          <div className="space-y-3">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
+              Fazlur Rahman
+            </h1>
+            <p className="text-primary text-xl md:text-2xl font-bold uppercase tracking-widest">
+              Data Analyst & Storyteller
+            </p>
+            <div className="flex items-center justify-center md:justify-start gap-2 text-slate-500 text-base font-medium">
+              <MapPin size={18} />
+              <span>Messina, Italy</span>
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <motion.a
-            href="/resume.pdf"
-            download="Fazlur_Rahman_Resume.pdf"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-primary hover:bg-primary-dark text-slate-900 font-bold py-5 px-10 rounded-2xl transition-all shadow-2xl shadow-primary/20 flex items-center justify-center gap-4 text-base"
-          >
-            <Download size={22} />
-            Download Resume
-          </motion.a>
-          <motion.a
-            href="https://www.linkedin.com/in/fazlur-rahman007/"
-            target="_blank"
-            rel="noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="border-2 border-primary text-primary hover:bg-primary hover:text-slate-900 font-bold py-5 px-10 rounded-2xl transition-all flex items-center justify-center gap-4 text-base"
-          >
-            <Linkedin size={22} />
-            LinkedIn Profile
-          </motion.a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <motion.a
+              href="/resume.pdf"
+              download="Fazlur_Rahman_Resume.pdf"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-primary hover:bg-primary-dark text-slate-900 font-bold py-5 px-10 rounded-2xl transition-all shadow-2xl shadow-primary/20 flex items-center justify-center gap-4 text-base"
+            >
+              <Download size={22} />
+              Download Resume
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/fazlur-rahman007/"
+              target="_blank"
+              rel="noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-slate-900 font-bold py-5 px-10 rounded-2xl transition-all flex items-center justify-center gap-4 text-base"
+            >
+              <Linkedin size={22} />
+              LinkedIn Profile
+            </motion.a>
+          </div>
         </div>
       </motion.section>
 

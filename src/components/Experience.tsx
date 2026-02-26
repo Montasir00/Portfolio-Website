@@ -135,24 +135,20 @@ export const Experience = ({ onBack }: ExperienceProps) => {
                     >
                         <div className="flex flex-col md:flex-row gap-8">
                             {/* Icon & Type */}
-                            <div className="flex-shrink-0 flex flex-row md:flex-col items-center gap-4">
+                            <div className="flex-shrink-0 flex items-center md:items-start">
                                 <div className="relative z-10 bg-slate-50 dark:bg-background-dark rounded-2xl">
                                     <div className={`w-16 h-16 rounded-2xl flex items-center justify-center border shadow-lg transition-transform group-hover:scale-110 ${exp.color}`}>
                                         {exp.icon}
                                     </div>
-                                </div>
-                                <div className="md:hidden flex flex-col">
-                                    <h3 className="text-xl font-bold tracking-tight">{exp.company}</h3>
-                                    <p className="text-primary text-sm font-bold">{exp.role}</p>
                                 </div>
                             </div>
 
                             {/* Content Card */}
                             <div className="flex-1 bg-white dark:bg-card-dark rounded-[2.5rem] p-8 md:p-10 border border-slate-200 dark:border-white/5 shadow-xl group-hover:border-primary/30 transition-all">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-                                    <div className="hidden md:block space-y-1">
-                                        <h3 className="text-3xl font-bold tracking-tight group-hover:text-primary transition-colors">{exp.company}</h3>
-                                        <p className="text-primary text-lg font-bold">{exp.role}</p>
+                                    <div className="space-y-1">
+                                        <h3 className="text-2xl md:text-3xl font-bold tracking-tight group-hover:text-primary transition-colors">{exp.company}</h3>
+                                        <p className="text-primary text-base md:text-lg font-bold">{exp.role}</p>
                                     </div>
 
                                     <div className="flex flex-col md:items-end gap-2">
@@ -209,6 +205,66 @@ export const Experience = ({ onBack }: ExperienceProps) => {
                     </motion.div>
                 ))}
             </div>
+
+            {/* Certificates Section */}
+            <motion.section variants={itemVariants} className="space-y-10">
+                <div className="space-y-4 border-l-4 border-amber-500 pl-6">
+                    <h2 className="text-4xl font-bold tracking-tight">Professional Certifications</h2>
+                    <p className="text-slate-500 text-lg">Specialized training and industry-recognized credentials.</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <motion.div
+                        whileHover={{ y: -5 }}
+                        className="bg-white dark:bg-card-dark rounded-[2.5rem] p-8 border border-slate-200 dark:border-white/5 shadow-xl flex flex-col sm:flex-row gap-8 items-center sm:items-start"
+                    >
+                        <div className="w-24 h-24 flex-shrink-0 bg-slate-50 dark:bg-white/5 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-white/10 p-4">
+                            <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"
+                                alt="IBM Logo"
+                                className="w-full h-auto dark:invert opacity-80"
+                                referrerPolicy="no-referrer"
+                            />
+                        </div>
+                        <div className="flex-1 space-y-4 text-center sm:text-left">
+                            <div className="space-y-1">
+                                <span className="text-[10px] font-bold text-amber-500 uppercase tracking-[0.2em]">Data Science</span>
+                                <h3 className="text-2xl font-bold tracking-tight">IBM Data Science Professional Certificate</h3>
+                                <p className="text-slate-400 text-sm font-bold uppercase tracking-widest">IBM — Issued via Coursera</p>
+                            </div>
+                            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                                Comprehensive 10-course program covering data science tools, Python, SQL, data analysis, visualization, and machine learning.
+                            </p>
+                            <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                                {["Machine Learning", "Python", "SQL", "Data Viz"].map(tag => (
+                                    <span key={tag} className="px-2 py-1 bg-slate-50 dark:bg-white/5 rounded-lg text-[9px] font-bold text-slate-400 uppercase tracking-widest border border-slate-100 dark:border-white/10">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                            <div className="pt-4">
+                                <a
+                                    href="#"
+                                    className="inline-flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest hover:underline"
+                                >
+                                    Verify Credential <ExternalLink size={14} />
+                                </a>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Placeholder for another certificate or just a decorative card */}
+                    <div className="bg-slate-50 dark:bg-white/5 rounded-[2.5rem] border border-dashed border-slate-300 dark:border-white/10 flex flex-col items-center justify-center p-8 text-center space-y-4">
+                        <div className="w-16 h-16 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center text-slate-400">
+                            <Calendar size={24} />
+                        </div>
+                        <div className="space-y-1">
+                            <h4 className="font-bold text-slate-500">More Coming Soon</h4>
+                            <p className="text-slate-400 text-xs">Currently pursuing advanced certifications in Cloud Computing and AI.</p>
+                        </div>
+                    </div>
+                </div>
+            </motion.section>
 
             {/* Featured Achievement */}
             <motion.section

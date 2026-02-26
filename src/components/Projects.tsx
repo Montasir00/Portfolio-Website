@@ -97,7 +97,7 @@ export const Projects = ({ onNavigate, onProjectSelect }: ProjectsProps) => {
     {
       id: 10,
       title: "AODV Routing Simulation",
-      desc: "Python simulation of the Ad-hoc On-Demand Distance Vector (AODV) routing protocol using NetworkX. Visualises dynamic route discovery, routing tables, and network topology changes in real time.",
+      desc: "Advanced Python simulation of the AODV protocol using NetworkX. Visualises dynamic route discovery, routing tables, and network topology resilience in real time.",
       tags: ["PYTHON", "NETWORKX", "GRAPH ALGORITHMS", "NETWORKING"],
       category: "Data Science",
       img: "https://picsum.photos/seed/network-topology/800/450",
@@ -132,12 +132,12 @@ export const Projects = ({ onNavigate, onProjectSelect }: ProjectsProps) => {
     },
     {
       id: 14,
-      title: "MindHack",
-      desc: "Python exploration project. A personal experimental repository used to prototype ideas and test concepts outside of structured coursework.",
-      tags: ["PYTHON"],
-      category: "Data Science",
-      img: "https://picsum.photos/seed/cyber-mind/800/450",
-      github: "https://github.com/Montasir00/MindHack",
+      title: "Gym Management System",
+      desc: "Full-stack management platform for fitness centers. Features member registration, subscription tracking, and automated payment reminders built with PHP and MySQL.",
+      tags: ["PHP", "MYSQL", "WEB DEV", "MANAGEMENT"],
+      category: "Web Dev",
+      img: "https://picsum.photos/seed/gym-management/800/450",
+      github: "https://github.com/Montasir00/Gym-Management-System",
     },
   ];
 
@@ -188,7 +188,7 @@ export const Projects = ({ onNavigate, onProjectSelect }: ProjectsProps) => {
           />
         </div>
 
-        <div className="flex gap-3 md:gap-4 overflow-x-auto pb-4 no-scrollbar">
+        <div className="flex gap-4 md:gap-6 overflow-x-auto pb-4 no-scrollbar -mx-6 px-6">
           {filters.map((filter) => (
             <motion.button
               key={filter}
