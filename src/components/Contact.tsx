@@ -44,13 +44,16 @@ export const Contact = () => {
         {/* Contact Info */}
         <motion.div variants={itemVariants} className="space-y-8">
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold tracking-tight">
-              Contact Information
+            <h3 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-800">
+              Let's Connect
             </h3>
-            <p className="text-slate-500 leading-relaxed">
-              I'm always open to discussing new projects, creative ideas or
-              opportunities to be part of your visions.
-            </p>
+            <div className="relative p-6 bg-gradient-to-br from-primary/10 to-transparent rounded-3xl border border-primary/20 shadow-lg group">
+              <p className="text-slate-700 dark:text-slate-300 font-medium leading-relaxed z-10 relative">
+                <span className="font-bold text-lg text-primary block mb-2">If you’ve made it this far, thanks for looking! ✨</span>
+                I’m always trying to level up, so if you spotted a bug, hated a UI choice, or actually liked something—whether it's my projects or my interests—I’d genuinely love to hear it.
+                <span className="block mt-4 text-slate-900 dark:text-white font-bold bg-primary/20 w-fit px-3 py-1.5 rounded-lg border border-primary/30">Slide into my DMs; I’m always down to chat shop.</span>
+              </p>
+            </div>
           </div>
 
           <div className="space-y-6">
