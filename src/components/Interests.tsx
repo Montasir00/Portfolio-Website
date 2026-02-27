@@ -303,7 +303,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
           <motion.button
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => onNavigate("books-all")}
+            onClick={() => onNavigate("interests/books")}
             className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs group"
           >
             See All{" "}

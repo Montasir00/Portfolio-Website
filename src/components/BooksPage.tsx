@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import React, { useState } from "react";
 import {
   ArrowLeft,
@@ -26,10 +26,14 @@ const ReadingStat = ({ label, value, icon }: { label: string; value: string; ico
 
 const BookCard = ({ book, variants }: { book: Book; variants: any; key?: string }) => (
   <motion.div
+    layout
     variants={variants}
-    className="group bg-white dark:bg-card-dark rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-2xl flex flex-col sm:flex-row"
+    initial="hidden"
+    animate="visible"
+    exit="hidden"
+    className="group bg-white dark:bg-card-dark rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-2xl flex flex-col sm:flex-row h-full"
   >
-    <div className="w-full sm:w-48 h-72 sm:h-auto relative overflow-hidden bg-slate-900 group/bookimage">
+    <div className="w-full sm:w-40 md:w-48 shrink-0 h-64 sm:h-auto relative overflow-hidden bg-slate-900 group/bookimage">
       <img
         src={book.img}
         alt={book.title}
@@ -74,7 +78,7 @@ const BookCard = ({ book, variants }: { book: Book; variants: any; key?: string 
             {book.author}
           </p>
         </div>
-        <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed line-clamp-3">
+        <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
           {book.desc}
         </p>
       </div>
@@ -141,14 +145,6 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
         </div>
       </header>
 
-      {/* Reading Stats */}
-      <div className="flex flex-wrap gap-4">
-        <ReadingStat label="Books Read" value="120+" icon={<Library size={18} />} />
-        <ReadingStat label="Current Reads" value="3" icon={<Clock size={18} />} />
-        <ReadingStat label="Favorites" value="15" icon={<Star size={18} />} />
-        <ReadingStat label="Wishlist" value="42" icon={<Bookmark size={18} />} />
-      </div>
-
       {/* Category Filter */}
       <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
         {BOOKS_CATEGORIES.map((cat) => (
@@ -166,11 +162,13 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
       </div>
 
       {/* Books Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {filteredBooks.map((book, i) => (
-          <BookCard key={book.title} book={book} variants={itemVariants} />
-        ))}
-      </div>
+      <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <AnimatePresence mode="popLayout">
+          {filteredBooks.map((book) => (
+            <BookCard key={book.title} book={book} variants={itemVariants} />
+          ))}
+        </AnimatePresence>
+      </motion.div>
 
       {/* Call to Action */}
       <motion.section
