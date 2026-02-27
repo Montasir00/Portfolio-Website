@@ -196,7 +196,7 @@ export const About = ({ onBack }: AboutProps) => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <motion.a
-              href="/assets/resume.pdf"
+              href={`${import.meta.env.BASE_URL}assets/resume.pdf`}
               download="Fazlur_Rahman_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

@@ -171,7 +171,7 @@ export const Home = ({ onNavigate }: HeroProps) => {
             className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center pt-4 md:pt-6"
           >
             <motion.a
-              href="/assets/resume.pdf"
+              href={`${import.meta.env.BASE_URL}assets/resume.pdf`}
               download="Fazlur_Rahman_Resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
