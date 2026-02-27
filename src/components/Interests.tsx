@@ -324,7 +324,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
               className="group bg-white dark:bg-card-dark rounded-3xl overflow-hidden border border-slate-200 dark:border-white/5 shadow-lg flex flex-col cursor-pointer transition-all hover:border-primary/50"
             >
               <div className="h-48 w-full overflow-hidden relative bg-slate-900">
-                <img src={book.img} alt={book.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 filter saturate-50 contrast-110 group-hover:filter-none" referrerPolicy="no-referrer" />
+                <img src={`${import.meta.env.BASE_URL}${book.img}`} alt={book.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 filter saturate-50 contrast-110 group-hover:filter-none" referrerPolicy="no-referrer" />
                 {/* Blueprint overlay */}
                 <div className="absolute inset-0 bg-primary/20 mix-blend-color pointer-events-none transition-opacity duration-700 group-hover:opacity-0" />
                 <div className="absolute top-4 left-4 z-10">

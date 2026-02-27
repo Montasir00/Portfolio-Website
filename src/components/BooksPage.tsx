@@ -35,7 +35,7 @@ const BookCard = ({ book, variants }: { book: Book; variants: any; key?: string 
   >
     <div className="w-full sm:w-40 md:w-48 shrink-0 h-64 sm:h-auto relative overflow-hidden bg-slate-900 group/bookimage">
       <img
-        src={book.img}
+        src={`${import.meta.env.BASE_URL}${book.img}`}
         alt={book.title}
         className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 filter saturate-50 contrast-110 group-hover:filter-none"
         referrerPolicy="no-referrer"
