@@ -28,6 +28,7 @@ import { Contact } from "./components/Contact";
 import { TravelPage } from "./components/TravelPage";
 import { BooksPage } from "./components/BooksPage";
 import { Experience } from "./components/Experience";
+import { Analytics } from "@vercel/analytics/react";
 
 // ScrollToTop component to handle scroll behavior
 function ScrollToTop() {
@@ -271,6 +272,7 @@ export default function App() {
           </motion.div>
         )}
       </AnimatePresence>
+      <Analytics />
     </div>
   );
 }
