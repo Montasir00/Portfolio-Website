@@ -26,7 +26,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Reading",
         desc: "The central religious text of Islam. I read it weekly for reflection and guidance.",
         quote: "So verily, with the hardship, there is relief.",
-        img: "assets/images/books/quran.jpg",
+        img: "assets/images/books/quran.webp",
     },
     {
         title: "Ami Topu",
@@ -36,7 +36,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "The very first book I read, that made me start to read books. A classic heart-touching story about a young boy named Topu.",
         quote: "Childhood memories and the innocence of early friendships shape who we become.",
-        img: "assets/images/books/amitopu.jpg",
+        img: "assets/images/books/amitopu.webp",
     },
     {
         title: "Can't Hurt Me",
@@ -46,7 +46,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "The first non-fiction book I read that helped me become mentally strong and defy the odds.",
         quote: "You are in danger of living a life so comfortable and soft, that you will die without ever realizing your true potential.",
-        img: "assets/images/books/goggins.jpg",
+        img: "assets/images/books/goggins.webp",
     },
     {
         title: "Meditations",
@@ -56,7 +56,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "My all-time favorite which I still follow. Reflections on stoicism, peace of mind, and inner strength.",
         quote: "The happiness of your life depends upon the quality of your thoughts.",
-        img: "assets/images/books/meditations.jpg",
+        img: "assets/images/books/meditations.webp",
     },
     {
         title: "The 7 Habits of Highly Effective People",
@@ -66,7 +66,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "A principle-centered approach for solving personal and professional problems.",
         quote: "Sow a thought, reap an action; sow an action, reap a habit; sow a habit, reap a character; sow a character, reap a destiny.",
-        img: "assets/images/books/7habits.jpg",
+        img: "assets/images/books/7habits.webp",
     },
     {
         title: "Rich Dad Poor Dad",
@@ -76,7 +76,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "What the rich teach their kids about money that the poor and middle class do not.",
         quote: "The single most powerful asset we all have is our mind. If it is trained well, it can create enormous wealth.",
-        img: "assets/images/books/richdad.jpg",
+        img: "assets/images/books/richdad.webp",
     },
     {
         title: "How to Win Friends and Influence People",
@@ -86,7 +86,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "Timeless advice on human psychology and communication.",
         quote: "You can make more friends in two months by becoming interested in other people than you can in two years by trying to get other people interested in you.",
-        img: "assets/images/books/dalecarnegie.jpg",
+        img: "assets/images/books/dalecarnegie.webp",
     },
     {
         title: "The Miracle Morning",
@@ -96,7 +96,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "The not-so-obvious secret guaranteed to transform your life (before 8AM).",
         quote: "Your level of success will rarely exceed your level of personal development.",
-        img: "assets/images/books/miraclemorning.jpg",
+        img: "assets/images/books/miraclemorning.webp",
     },
     {
         title: "Awaken the Giant Within",
@@ -106,7 +106,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "How to take immediate control of your mental, emotional, physical and financial destiny.",
         quote: "It is your decisions, and not your conditions, that determine your destiny.",
-        img: "assets/images/books/awaken.jpg",
+        img: "assets/images/books/awaken.webp",
     },
     {
         title: "Ikigai",
@@ -116,7 +116,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "The Japanese secret to a long and happy life.",
         quote: "Only staying active will make you want to live a hundred years.",
-        img: "assets/images/books/ikigai.jpg",
+        img: "assets/images/books/ikigai.webp",
     },
     {
         title: "Amar Bondhu Rashed",
@@ -126,7 +126,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "A poignant story set against the backdrop of the Bangladesh Liberation War.",
         quote: "True friendship stands the ultimate test of time and sacrifice.",
-        img: "assets/images/books/rashed.jpg",
+        img: "assets/images/books/rashed.webp",
     },
     {
         title: "Dipu Number Two",
@@ -136,7 +136,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "An adventurous tale of a teenage boy finding his place in a new town.",
         quote: "Adventure can be found in the most mundane of places if you look closely enough.",
-        img: "assets/images/books/dipu2.jpg",
+        img: "assets/images/books/dipu2.webp",
     },
     {
         title: "Tuntuni ar Chotaccu",
@@ -146,7 +146,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "A fun and engaging collection of adventures.",
         quote: "Curiosity is the engine of youth.",
-        img: "assets/images/books/tuntuni.jpg",
+        img: "assets/images/books/tuntuni.webp",
     },
     {
         title: "Feluda (Series)",
@@ -156,7 +156,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "The iconic detective series featuring Pradosh C. Mitter, offering thrilling mysteries and brilliant deductions.",
         quote: "Maganlal Meghraj is not a man to be trifled with.",
-        img: "assets/images/books/feluda.jpg",
+        img: "assets/images/books/feluda.webp",
     },
     {
         title: "Science Fiction Somogro (1-5)",
@@ -166,7 +166,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "A brilliant anthology of Bengali science fiction stories exploring space, time, and humanity.",
         quote: "The universe is far stranger than we can ever imagine.",
-        img: "assets/images/books/scifisomogro.jpg",
+        img: "assets/images/books/scifisomogro.webp",
     },
     {
         title: "Ikarus",
@@ -176,7 +176,7 @@ export const BOOKS_DATA: Book[] = [
         status: "Completed",
         desc: "An imaginative sci-fi journey with a unique twist.",
         quote: "Flying too close to the sun is dangerous, but the view is unparalleled.",
-        img: "assets/images/books/ikarus.jpg",
+        img: "assets/images/books/ikarus.webp",
     },
     {
         title: "Assorted Wattpad Stories",
@@ -186,6 +186,6 @@ export const BOOKS_DATA: Book[] = [
         status: "Reading",
         desc: "A mix of creative, community-driven stories from talented independent writers.",
         quote: "Everyone has a story to tell.",
-        img: "/assets/images/books/wattpad.jpg",
+        img: "assets/images/books/wattpad.webp",
     },
 ];

@@ -9,7 +9,6 @@ import {
   Gamepad2,
   Globe,
   X,
-  BookOpen,
   MapPin,
   ArrowRight,
   ZoomIn,
@@ -49,12 +48,19 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
+    hidden: { y: 15, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    },
   };
 
   return (
@@ -157,8 +163,9 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
                   >
                     {/* Photo */}
                     <img
-                      src={place.img}
+                      src={`${import.meta.env.BASE_URL}${place.img}`}
                       alt={place.name}
+                      loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-110 filter saturate-50 contrast-110 group-hover:filter-none"
                     />
                     {/* Blueprint overlay */}
@@ -198,10 +205,10 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
             onClick={() => setLightboxImg(null)}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 40 }}
+              initial={{ scale: 0.95, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 40 }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              exit={{ scale: 0.95, opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="bg-white/90 dark:bg-slate-900/80 backdrop-blur-3xl w-full max-w-6xl max-h-[85vh] md:max-h-[80vh] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.3)] border border-white/20 dark:border-white/10 flex flex-col md:flex-row relative"
               onClick={(e) => e.stopPropagation()}
             >
@@ -218,8 +225,9 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
                 {/* Subtle base filter for aesthetic conformity in lightbox */}
                 <div className="absolute inset-0 bg-primary/5 mix-blend-color pointer-events-none z-10" />
                 <img
-                  src={lightboxImg.imgWide}
+                  src={`${import.meta.env.BASE_URL}${lightboxImg.imgWide}`}
                   alt={lightboxImg.name}
+                  loading="lazy"
                   className="w-full h-full object-cover filter contrast-110 saturate-75"
                 />
                 {/* Mobile Close Button */}
@@ -324,7 +332,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
               className="group bg-white dark:bg-card-dark rounded-3xl overflow-hidden border border-slate-200 dark:border-white/5 shadow-lg flex flex-col cursor-pointer transition-all hover:border-primary/50"
             >
               <div className="h-48 w-full overflow-hidden relative bg-slate-900">
-                <img src={`${import.meta.env.BASE_URL}${book.img}`} alt={book.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 filter saturate-50 contrast-110 group-hover:filter-none" referrerPolicy="no-referrer" />
+                <img src={`${import.meta.env.BASE_URL}${book.img}`} alt={book.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 filter saturate-50 contrast-110 group-hover:filter-none" referrerPolicy="no-referrer" />
                 {/* Blueprint overlay */}
                 <div className="absolute inset-0 bg-primary/20 mix-blend-color pointer-events-none transition-opacity duration-700 group-hover:opacity-0" />
                 <div className="absolute top-4 left-4 z-10">
@@ -361,7 +369,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
             >
               <div className="flex justify-between items-start">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden bg-slate-100 flex items-center justify-center text-amber-500">
-                  <img src={selectedBook.img} alt={selectedBook.title} className="w-full h-full object-cover" />
+                  <img src={`${import.meta.env.BASE_URL}${selectedBook.img}`} alt={selectedBook.title} className="w-full h-full object-cover" />
                 </div>
                 <button
                   onClick={() => setSelectedBook(null)}

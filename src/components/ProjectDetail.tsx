@@ -69,8 +69,9 @@ const generateData = () => {
 
 const ProjectHero = ({ project }: { project: ProjectMetadata }) => (
   <motion.header
-    initial={{ opacity: 0, y: 20 }}
+    initial={{ opacity: 0, y: 15 }}
     animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     className="relative w-full aspect-video md:aspect-[21/9] overflow-hidden rounded-[2.5rem] shadow-2xl border border-white/5"
   >
     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent z-10"></div>
@@ -109,8 +110,10 @@ const ProjectHero = ({ project }: { project: ProjectMetadata }) => (
 
 const ProjectOverview = ({ overview }: { overview: string }) => (
   <motion.section
-    initial={{ opacity: 0, x: -20 }}
+    initial={{ opacity: 0, x: -15 }}
     whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     className="space-y-6 border-l-4 border-primary/30 pl-10"
   >
     <h2 className="text-primary font-bold uppercase tracking-widest text-xs">Overview</h2>
@@ -122,8 +125,10 @@ const ProjectOverview = ({ overview }: { overview: string }) => (
 
 const ProjectProblem = ({ problem, detail }: { problem: string; detail: string }) => (
   <motion.section
-    initial={{ opacity: 0, y: 20 }}
+    initial={{ opacity: 0, y: 15 }}
     whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     className="bg-slate-900 border border-white/5 rounded-[2.5rem] p-12 md:p-16 space-y-8 relative overflow-hidden shadow-2xl"
   >
     <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -mr-48 -mt-48"></div>

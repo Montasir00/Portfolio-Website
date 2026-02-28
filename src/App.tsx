@@ -28,6 +28,7 @@ import { Contact } from "./components/Contact";
 import { TravelPage } from "./components/TravelPage";
 import { BooksPage } from "./components/BooksPage";
 import { Experience } from "./components/Experience";
+import { NotFound } from "./components/NotFound";
 
 // ScrollToTop component to handle scroll behavior
 function ScrollToTop() {
@@ -134,14 +135,14 @@ export default function App() {
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           >
             <Routes location={location}>
               <Route path="/" element={<Home onNavigate={(page) => navigate(`/${page === 'home' ? '' : page}`)} />} />
-              <Route path="/projects" element={<Projects onNavigate={(page) => navigate(`/${page}`)} onProjectSelect={(id) => navigate(`/projects/${id}`)} />} />
+              <Route path="/projects" element={<Projects onProjectSelect={(id) => navigate(`/projects/${id}`)} />} />
               <Route path="/projects/:projectId" element={<ProjectDetail onBack={() => navigate("/projects")} />} />
               <Route path="/experience" element={<Experience onBack={() => navigate("/")} />} />
               <Route path="/interests" element={<Interests onNavigate={(page) => navigate(`/${page}`)} />} />
@@ -149,11 +150,47 @@ export default function App() {
               <Route path="/interests/books" element={<BooksPage onBack={() => navigate("/interests")} />} />
               <Route path="/about" element={<About onBack={() => navigate("/")} />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<Home onNavigate={(page) => navigate(`/${page === 'home' ? '' : page}`)} />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </motion.div>
         </AnimatePresence>
       </main>
+
+      {/* Footer */}
+      <footer className="hidden lg:block border-t border-primary/10 bg-white/50 dark:bg-card-dark/50 backdrop-blur-sm mt-auto">
+        <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-3">
+            <div className="bg-primary text-slate-900 p-1.5 rounded-xl">
+              <BarChart2 size={16} />
+            </div>
+            <span className="text-sm font-bold tracking-tighter font-mono italic text-slate-500 dark:text-slate-400">
+              FAZLUR RAHMAN
+            </span>
+          </div>
+          <div className="flex items-center gap-6">
+            {navItems.slice(0, 4).map((item) => (
+              <Link
+                key={`footer-${item.id}`}
+                to={item.path}
+                className="text-[10px] font-bold uppercase tracking-widest text-slate-400 hover:text-primary transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <div className="flex items-center gap-4">
+            <a href="https://github.com/Montasir00" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-primary transition-colors">
+              <Github size={16} />
+            </a>
+            <a href="mailto:fazlurrahaman365@gmail.com" className="text-slate-400 hover:text-primary transition-colors">
+              <Mail size={16} />
+            </a>
+            <span className="text-[10px] text-slate-400 font-medium">
+              © {new Date().getFullYear()}
+            </span>
+          </div>
+        </div>
+      </footer>
 
       {/* Bottom Navigation Bar (Mobile Only) */}
       <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 glass border-t border-primary/10 pb-6 pt-3 px-4">
@@ -168,7 +205,8 @@ export default function App() {
                 }`}
             >
               <motion.div
-                animate={activePage === item.id ? { y: -4, scale: 1.1 } : { y: 0, scale: 1 }}
+                animate={activePage === item.id ? { y: -4, scale: 1.12 } : { y: 0, scale: 1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 className={`flex h-8 w-8 items-center justify-center rounded-xl transition-colors ${activePage === item.id ? "bg-primary/10" : ""}`}
               >
                 {item.icon}

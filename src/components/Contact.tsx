@@ -2,7 +2,6 @@ import { motion } from "motion/react";
 import {
   Mail,
   Phone,
-  MapPin,
   Send,
   Github,
   Linkedin,
@@ -15,14 +14,21 @@ export const Contact = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
+    hidden: { y: 15, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    },
   };
 
   return (

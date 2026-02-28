@@ -4,11 +4,10 @@ import { useState } from "react";
 import { PROJECTS_METADATA } from "../constants/projects";
 
 interface ProjectsProps {
-  onNavigate: (page: string) => void;
   onProjectSelect: (projectId: number) => void;
 }
 
-export const Projects = ({ onNavigate, onProjectSelect }: ProjectsProps) => {
+export const Projects = ({ onProjectSelect }: ProjectsProps) => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -30,13 +29,21 @@ export const Projects = ({ onNavigate, onProjectSelect }: ProjectsProps) => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 },
+      transition: { staggerChildren: 0.08 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0.95, y: 20 },
-    visible: { opacity: 1, scale: 1, y: 0 },
+    hidden: { opacity: 0, scale: 0.98, y: 15 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    },
   };
 
   return (
@@ -99,7 +106,8 @@ export const Projects = ({ onNavigate, onProjectSelect }: ProjectsProps) => {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
               onClick={() => onProjectSelect(project.id)}
               className="group cursor-pointer bg-white dark:bg-card-dark rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-2xl transition-all"
             >
@@ -107,8 +115,8 @@ export const Projects = ({ onNavigate, onProjectSelect }: ProjectsProps) => {
                 <img
                   src={`${import.meta.env.BASE_URL}${project.img}`}
                   alt={project.title}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover/image:scale-110 transition-all duration-1000 filter saturate-50 contrast-110 group-hover/image:filter-none"
-                  referrerPolicy="no-referrer"
                 />
                 {/* Blueprint tinting layer */}
                 <div className="absolute inset-0 bg-primary/20 mix-blend-color pointer-events-none transition-opacity duration-700 group-hover/image:opacity-0" />

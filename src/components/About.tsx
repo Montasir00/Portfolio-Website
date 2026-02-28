@@ -164,10 +164,10 @@ export const About = ({ onBack }: AboutProps) => {
         <div className="relative flex-shrink-0">
           <div className="w-40 h-40 md:w-56 md:h-56 rounded-full border-4 border-primary/20 p-1.5 shadow-2xl">
             <img
-              src="https://picsum.photos/seed/professional-analyst/400/400"
-              alt="Fazlur Rahman"
+              src={`${import.meta.env.BASE_URL}assets/images/profile.svg`}
+              alt="Fazlur Rahman — Data Analyst"
               className="w-full h-full rounded-full object-cover"
-              referrerPolicy="no-referrer"
+              loading="lazy"
             />
           </div>
           <motion.div

@@ -1,13 +1,9 @@
 import { motion, AnimatePresence } from "motion/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   ArrowLeft,
-  BookOpen,
   Star,
-  Clock,
-  Bookmark,
   Quote,
-  Library,
   Book as BookIcon,
 } from "lucide-react";
 import { BOOKS_DATA, BOOKS_CATEGORIES, Book } from "../constants/books";
@@ -15,14 +11,6 @@ import { BOOKS_DATA, BOOKS_CATEGORIES, Book } from "../constants/books";
 interface BooksPageProps {
   onBack: () => void;
 }
-
-const ReadingStat = ({ label, value, icon }: { label: string; value: string; icon: React.ReactNode }) => (
-  <div className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-card-dark rounded-2xl border border-slate-200 dark:border-white/5 shadow-lg">
-    <div className="text-amber-500">{icon}</div>
-    <span className="font-bold text-slate-900 dark:text-white">{value}</span>
-    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{label}</span>
-  </div>
-);
 
 const BookCard = ({ book, variants }: { book: Book; variants: any; key?: string }) => (
   <motion.div
@@ -106,13 +94,20 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 },
+      transition: { staggerChildren: 0.08 },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
+    hidden: { y: 15, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    },
   };
 
   return (

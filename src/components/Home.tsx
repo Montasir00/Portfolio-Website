@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import {
   Code,
   Database,
-  BarChart3,
   Box,
   ArrowRight,
   Download,
@@ -16,6 +15,7 @@ import {
   Layers,
   FlaskConical,
 } from "lucide-react";
+import { PROJECTS_METADATA } from "../constants/projects";
 
 interface HeroProps {
   onNavigate: (page: string) => void;
@@ -24,58 +24,32 @@ interface HeroProps {
 const featuredProjects = [
   {
     id: 10,
-    title: "Energy Management System",
-    desc: "A real-time IoT data pipeline using Docker Compose and Python. Automated data ingestion, preprocessing, and anomaly detection for continuous sensor analytics.",
+    title: PROJECTS_METADATA[10].title,
+    desc: PROJECTS_METADATA[10].desc,
     tags: ["Python", "Docker", "MySQL"],
     metric: "40% reduction in manual data tasks",
-    img: "https://picsum.photos/seed/smart-energy/1200/800",
+    img: PROJECTS_METADATA[10].img,
     color: "from-cyan-500/20 to-blue-500/10",
   },
   {
     id: 9,
-    title: "Blockchain Transaction System",
-    desc: "A crypto trading platform supporting on-chain ETH transactions via the Ganache test network, using PHP, Web3.php, and multi-factor authentication.",
+    title: PROJECTS_METADATA[9].title,
+    desc: PROJECTS_METADATA[9].desc,
     tags: ["PHP", "Ethereum", "Web3.php"],
     metric: "Secure on-chain transactions with MFA",
-    img: "https://picsum.photos/seed/crypto-blockchain/1200/800",
+    img: PROJECTS_METADATA[9].img,
     color: "from-purple-500/20 to-indigo-500/10",
   },
   {
     id: 3,
-    title: "Weather & Air Quality Analysis",
-    desc: "Analysed environmental time-series data from the Copernicus Climate Data Store for Milan, correlating temperature changes with pollutant concentration levels.",
+    title: PROJECTS_METADATA[3].title,
+    desc: PROJECTS_METADATA[3].desc,
     tags: ["Python", "Pandas", "Matplotlib"],
     metric: "94% accuracy on pollution trend forecasting",
-    img: "https://picsum.photos/seed/weather-forecast/1200/800",
+    img: PROJECTS_METADATA[3].img,
     color: "from-emerald-500/20 to-teal-500/10",
   },
 ];
-
-const Typewriter = ({ text, delay = 100 }: { text: string; delay?: number }) => {
-  const [displayText, setDisplayText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText((prev) => prev + text[currentIndex]);
-        setCurrentIndex((prev) => prev + 1);
-      }, delay);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, delay, text]);
-
-  return (
-    <span className="relative">
-      {displayText}
-      <motion.span
-        animate={{ opacity: [1, 0] }}
-        transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-        className="inline-block w-[2px] h-[0.8em] bg-primary ml-1 align-middle"
-      />
-    </span>
-  );
-};
 
 export const Home = ({ onNavigate }: HeroProps) => {
   const [activeProject, setActiveProject] = useState(0);
@@ -95,14 +69,21 @@ export const Home = ({ onNavigate }: HeroProps) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
+    hidden: { y: 15, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    },
   };
 
   // Auto-rotate carousel every 4 seconds
@@ -173,16 +154,18 @@ export const Home = ({ onNavigate }: HeroProps) => {
             <motion.a
               href={`${import.meta.env.BASE_URL}assets/resume.pdf`}
               download="Fazlur_Rahman_Resume.pdf"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
               className="bg-primary hover:bg-primary-dark text-slate-900 font-bold py-4 md:py-5 px-8 md:px-10 rounded-2xl transition-all shadow-xl shadow-primary/20 text-xs md:text-sm flex items-center justify-center gap-3"
             >
               <Download size={18} className="md:w-5 md:h-5" />
               Download Resume
             </motion.a>
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
               onClick={() => onNavigate("contact")}
               className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-primary/50 text-white font-bold py-4 md:py-5 px-8 md:px-10 rounded-2xl transition-all text-xs md:text-sm flex items-center justify-center gap-3"
             >
@@ -280,10 +263,10 @@ export const Home = ({ onNavigate }: HeroProps) => {
           <AnimatePresence mode="wait">
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, x: 20, scale: 0.98 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: -20, scale: 0.98 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="group relative overflow-hidden bg-white dark:bg-card-dark rounded-[2.5rem] border border-slate-200 dark:border-white/5 shadow-2xl"
             >
               <div className="h-64 md:h-80 w-full bg-slate-900 relative overflow-hidden">
@@ -293,9 +276,9 @@ export const Home = ({ onNavigate }: HeroProps) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10"></div>
                 <img
                   className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60 group-hover:scale-110 transition-transform duration-1000"
-                  src={project.img}
+                  src={`${import.meta.env.BASE_URL}${project.img}`}
                   alt={project.title}
-                  referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
                 <div className="absolute bottom-8 left-8 z-20 flex flex-wrap gap-3">
                   {project.tags.map((tag) => (

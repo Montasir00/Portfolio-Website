@@ -8,54 +8,23 @@ import {
   Globe,
   Compass,
 } from "lucide-react";
+import { travelChapters } from "../constants/travel";
 
 interface TravelPageProps {
   onBack: () => void;
 }
 
 export const TravelPage = ({ onBack }: TravelPageProps) => {
-  const travels = [
-    {
-      name: "Messina, Italy",
-      date: "Current Residence",
-      img: "https://picsum.photos/seed/messina-harbor/1200/600",
-      desc: "The gateway to Sicily, known for its sickle-shaped harbor and the world's largest astronomical clock.",
-      highlights: [
-        "Piazza del Duomo",
-        "Strait of Messina",
-        "Regional Museum of Messina",
-      ],
-      story:
-        "Living in Messina has been a transformative experience. The city's unique position between the Tyrrhenian and Ionian seas creates a microclimate and a visual landscape that is constantly changing. The daily sight of the ferries crossing the strait is a reminder of the city's historical importance as a Mediterranean hub.",
-    },
-    {
-      name: "Taormina, Italy",
-      date: "Visited June 2024",
-      img: "https://picsum.photos/seed/taormina-theater/1200/600",
-      desc: "A stunning hilltop town on the east coast of Sicily, sitting near Mount Etna.",
-      highlights: ["Teatro Antico di Taormina", "Isola Bella", "Corso Umberto"],
-      story:
-        "Taormina is where history meets luxury. Standing in the ancient Greek theater with Mount Etna smoking in the background is a moment I'll never forget. The contrast between the ancient stone and the deep blue sea is a photographer's dream.",
-    },
-    {
-      name: "Mount Etna, Italy",
-      date: "Visited August 2024",
-      img: "https://picsum.photos/seed/etna-crater/1200/600",
-      desc: "One of the world's most active volcanoes and the highest peak in Italy south of the Alps.",
-      highlights: ["Silvestri Craters", "Lava Tunnels", "Rifugio Sapienza"],
-      story:
-        "Hiking Etna felt like walking on the moon. The black volcanic sand and the silence at the higher altitudes are hauntingly beautiful. It's a powerful reminder of nature's raw energy and the geological forces that shaped the Mediterranean.",
-    },
-    {
-      name: "Palermo, Italy",
-      date: "Visited October 2024",
-      img: "https://picsum.photos/seed/palermo-cathedral/1200/600",
-      desc: "The vibrant capital of Sicily, famous for its architecture, culture, and street food.",
-      highlights: ["Palermo Cathedral", "Teatro Massimo", "Ballarò Market"],
-      story:
-        "Palermo is a sensory overload in the best way possible. The mix of Arab-Norman architecture and the bustling energy of the markets creates a unique atmosphere that you won't find anywhere else in Europe.",
-    },
-  ];
+  // Use data from travelChapters instead of hardcoded placeholder URLs
+  const travels = travelChapters.map(chapter => ({
+    name: chapter.chapter,
+    date: chapter.year,
+    // Use the first place's image as the chapter cover
+    img: chapter.places[0]?.imgWide || chapter.places[0]?.img || "",
+    desc: chapter.intro,
+    highlights: chapter.places.map(p => p.name),
+    story: chapter.places.map(p => p.details).join(" ")
+  })).reverse(); // Reverse to show latest travels first
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -104,10 +73,10 @@ export const TravelPage = ({ onBack }: TravelPageProps) => {
       {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {[
-          { label: "Countries", value: "12", icon: <Globe size={20} /> },
-          { label: "Cities", value: "45", icon: <MapPin size={20} /> },
-          { label: "Photos Taken", value: "12k+", icon: <Camera size={20} /> },
-          { label: "Miles Traveled", value: "25k+", icon: <Plane size={20} /> },
+          { label: "Countries", value: "6", icon: <Globe size={20} /> },
+          { label: "Cities", value: "25+", icon: <MapPin size={20} /> },
+          { label: "Photos Taken", value: "2k+", icon: <Camera size={20} /> },
+          { label: "Miles Traveled", value: "15k+", icon: <Plane size={20} /> },
         ].map((stat, i) => (
           <motion.div
             key={i}
@@ -165,7 +134,7 @@ export const TravelPage = ({ onBack }: TravelPageProps) => {
                 </div>
               </div>
 
-              <div className="p-8 bg-slate-50 dark:bg-white/5 rounded-[2rem] border border-slate-100 dark:border-white/5 italic text-slate-500 dark:text-slate-400 leading-relaxed">
+              <div className="p-8 bg-slate-50 dark:bg-white/5 rounded-[2rem] border border-slate-100 dark:border-white/5 italic text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-6">
                 "{travel.story}"
               </div>
             </div>
@@ -174,7 +143,7 @@ export const TravelPage = ({ onBack }: TravelPageProps) => {
               <div className="absolute -inset-4 bg-emerald-500/10 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 bg-slate-900 group/image">
                 <img
-                  src={travel.img}
+                  src={`${import.meta.env.BASE_URL}${travel.img}`}
                   alt={travel.name}
                   className="w-full h-full object-cover group-hover/image:scale-105 transition-all duration-1000 filter saturate-50 contrast-110 group-hover/image:filter-none"
                   referrerPolicy="no-referrer"

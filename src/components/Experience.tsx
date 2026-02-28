@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
-import { ArrowLeft, Briefcase, Calendar, MapPin, ExternalLink, ChevronRight, Building2, FlaskConical, Code2, Database } from "lucide-react";
+import { ArrowLeft, Calendar, MapPin, ExternalLink, ChevronRight, Building2, FlaskConical, Code2, Database } from "lucide-react";
 
 interface ExperienceProps {
     onBack: () => void;
@@ -77,13 +77,20 @@ export const Experience = ({ onBack }: ExperienceProps) => {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.1 }
+            transition: { staggerChildren: 0.08 }
         }
     };
 
     const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: { y: 0, opacity: 1 }
+        hidden: { y: 15, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1]
+            }
+        }
     };
 
     return (
