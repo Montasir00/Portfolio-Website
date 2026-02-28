@@ -1,6 +1,3 @@
-import {
-    Github
-} from "lucide-react";
 export interface ProjectMetadata {
     id: number;
     title: string;
