@@ -28,22 +28,10 @@ import {
   Lightbulb,
   BarChart,
   Users,
-  CreditCard,
-  Calendar,
-  Network,
-  ShieldCheck,
-  Server,
-  CloudRain,
-  Wind,
-  Thermometer,
-  ShieldAlert,
-  Fingerprint,
-  Lock,
   ShoppingCart,
   Edit,
   Newspaper,
   TerminalSquare,
-  Mail,
 } from "lucide-react";
 import { PROJECTS_METADATA, ProjectMetadata } from "../constants/projects";
 

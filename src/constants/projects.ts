@@ -1,19 +1,4 @@
 import {
-    BarChart2,
-    Cloud,
-    Code as CodeIcon,
-    Database as DbIcon,
-    Cpu,
-    Activity,
-    Terminal,
-    FileCode,
-    Server,
-    Zap,
-    Bell,
-    TrendingUp,
-    Lightbulb,
-    AlertCircle,
-    Gauge,
     Github
 } from "lucide-react";
 export interface ProjectMetadata {
