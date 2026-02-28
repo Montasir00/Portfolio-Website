@@ -16,8 +16,6 @@ import {
     Gauge,
     Github
 } from "lucide-react";
-import React from "react";
-
 export interface ProjectMetadata {
     id: number;
     title: string;

@@ -44,14 +44,8 @@ import {
   Newspaper,
   TerminalSquare,
   Mail,
-  Eye,
-  Radio,
-  RefreshCcw,
-  List,
 } from "lucide-react";
 import { PROJECTS_METADATA, ProjectMetadata } from "../constants/projects";
-
-import iotDashboardImg from "../assets/iot_dashboard.png";
 
 interface ProjectDetailProps {
   onBack: () => void;
