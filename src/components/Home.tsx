@@ -112,7 +112,7 @@ export const Home = ({ onNavigate }: HeroProps) => {
       className="space-y-16 pb-32"
     >
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 border border-primary/20 p-6 md:p-16 text-center shadow-2xl">
+      <section className="relative overflow-hidden rounded-2xl md:rounded-[2.5rem] bg-slate-900 border border-primary/20 p-6 md:p-16 text-center shadow-2xl">
         <div className="absolute inset-0 opacity-10 pointer-events-none data-grid-bg"></div>
         <div className="absolute top-0 left-0 w-full scanner-line opacity-20"></div>
 
@@ -267,7 +267,7 @@ export const Home = ({ onNavigate }: HeroProps) => {
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: -20, scale: 0.98 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative overflow-hidden bg-white dark:bg-card-dark rounded-[2.5rem] border border-slate-200 dark:border-white/5 shadow-2xl"
+              className="group relative overflow-hidden bg-white dark:bg-card-dark rounded-2xl md:rounded-[2.5rem] border border-slate-200 dark:border-white/5 shadow-2xl"
             >
               <div className="h-64 md:h-80 w-full bg-slate-900 relative overflow-hidden">
                 <div

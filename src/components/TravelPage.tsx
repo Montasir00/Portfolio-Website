@@ -134,14 +134,14 @@ export const TravelPage = ({ onBack }: TravelPageProps) => {
                 </div>
               </div>
 
-              <div className="p-8 bg-slate-50 dark:bg-white/5 rounded-[2rem] border border-slate-100 dark:border-white/5 italic text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-6">
+              <div className="p-8 bg-slate-50 dark:bg-white/5 rounded-xl md:rounded-[2rem] border border-slate-100 dark:border-white/5 italic text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-6">
                 "{travel.story}"
               </div>
             </div>
 
             <div className="relative group">
               <div className="absolute -inset-4 bg-emerald-500/10 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 bg-slate-900 group/image">
+              <div className="relative aspect-[4/3] rounded-2xl md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 bg-slate-900 group/image">
                 <img
                   src={`${import.meta.env.BASE_URL}${travel.img}`}
                   alt={travel.name}

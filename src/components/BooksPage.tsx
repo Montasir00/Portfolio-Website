@@ -19,7 +19,7 @@ const BookCard = ({ book, variants }: { book: Book; variants: any; key?: string 
     initial="hidden"
     animate="visible"
     exit="hidden"
-    className="group bg-white dark:bg-card-dark rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-2xl flex flex-col sm:flex-row h-full"
+    className="group bg-white dark:bg-card-dark rounded-2xl md:rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-2xl flex flex-col sm:flex-row h-full"
   >
     <div className="w-full sm:w-40 md:w-48 shrink-0 h-64 sm:h-auto relative overflow-hidden bg-slate-900 group/bookimage">
       <img
@@ -130,7 +130,7 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
         </motion.button>
 
         <div className="space-y-4 border-l-4 border-amber-500 pl-6">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter">
+          <h1 className="text-3xl md:text-7xl font-bold tracking-tighter">
             Library & Learning
           </h1>
           <p className="text-slate-500 text-xl max-w-2xl leading-relaxed">
@@ -168,7 +168,7 @@ export const BooksPage = ({ onBack }: BooksPageProps) => {
       {/* Call to Action */}
       <motion.section
         variants={itemVariants}
-        className="bg-amber-500 rounded-[2.5rem] p-12 text-center space-y-6 shadow-2xl shadow-amber-500/20"
+        className="bg-amber-500 rounded-2xl md:rounded-[2.5rem] p-12 text-center space-y-6 shadow-2xl shadow-amber-500/20"
       >
         <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto text-white">
           <BookIcon size={32} />

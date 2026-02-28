@@ -150,7 +150,7 @@ export const Experience = ({ onBack }: ExperienceProps) => {
                             </div>
 
                             {/* Content Card */}
-                            <div className="flex-1 bg-white dark:bg-card-dark rounded-[2.5rem] p-8 md:p-10 border border-slate-200 dark:border-white/5 shadow-xl group-hover:border-primary/30 transition-all">
+                            <div className="flex-1 bg-white dark:bg-card-dark rounded-2xl md:rounded-[2.5rem] p-8 md:p-10 border border-slate-200 dark:border-white/5 shadow-xl group-hover:border-primary/30 transition-all">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                                     <div className="space-y-1">
                                         <h3 className="text-2xl md:text-3xl font-bold tracking-tight group-hover:text-primary transition-colors">{exp.company}</h3>
@@ -222,7 +222,7 @@ export const Experience = ({ onBack }: ExperienceProps) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <motion.div
                         whileHover={{ y: -5 }}
-                        className="bg-white dark:bg-card-dark rounded-[2.5rem] p-8 border border-slate-200 dark:border-white/5 shadow-xl flex flex-col sm:flex-row gap-8 items-center sm:items-start"
+                        className="bg-white dark:bg-card-dark rounded-2xl md:rounded-[2.5rem] p-8 border border-slate-200 dark:border-white/5 shadow-xl flex flex-col sm:flex-row gap-8 items-center sm:items-start"
                     >
                         <div className="w-24 h-24 flex-shrink-0 bg-slate-50 dark:bg-white/5 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-white/10 p-4">
                             <img
@@ -260,7 +260,7 @@ export const Experience = ({ onBack }: ExperienceProps) => {
                     </motion.div>
 
                     {/* Placeholder for another certificate or just a decorative card */}
-                    <div className="bg-slate-50 dark:bg-white/5 rounded-[2.5rem] border border-dashed border-slate-300 dark:border-white/10 flex flex-col items-center justify-center p-8 text-center space-y-4">
+                    <div className="bg-slate-50 dark:bg-white/5 rounded-2xl md:rounded-[2.5rem] border border-dashed border-slate-300 dark:border-white/10 flex flex-col items-center justify-center p-8 text-center space-y-4">
                         <div className="w-16 h-16 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center text-slate-400">
                             <Calendar size={24} />
                         </div>
@@ -275,7 +275,7 @@ export const Experience = ({ onBack }: ExperienceProps) => {
             {/* Featured Achievement */}
             <motion.section
                 variants={itemVariants}
-                className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 border border-primary/20 p-12 md:p-16 text-center shadow-2xl"
+                className="relative overflow-hidden rounded-2xl md:rounded-[2.5rem] bg-slate-900 border border-primary/20 p-12 md:p-16 text-center shadow-2xl"
             >
                 <div className="absolute inset-0 opacity-10 pointer-events-none data-grid-bg"></div>
                 <div className="relative z-10 space-y-6">

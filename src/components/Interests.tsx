@@ -209,7 +209,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 30 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-white/90 dark:bg-slate-900/80 backdrop-blur-3xl w-full max-w-6xl max-h-[85vh] md:max-h-[80vh] rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.3)] border border-white/20 dark:border-white/10 flex flex-col md:flex-row relative"
+              className="bg-white/90 dark:bg-slate-900/80 backdrop-blur-3xl w-full max-w-6xl max-h-[85vh] md:max-h-[80vh] rounded-2xl md:rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.3)] border border-white/20 dark:border-white/10 flex flex-col md:flex-row relative"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button (Desktop - Floating) */}
@@ -364,7 +364,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="bg-white/90 dark:bg-slate-900/80 backdrop-blur-3xl w-full max-w-lg rounded-[2.5rem] p-10 shadow-2xl border border-white/20 dark:border-white/10 space-y-8"
+              className="bg-white/90 dark:bg-slate-900/80 backdrop-blur-3xl w-full max-w-lg rounded-2xl md:rounded-[2.5rem] p-10 shadow-2xl border border-white/20 dark:border-white/10 space-y-8"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-start">
@@ -406,7 +406,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
             key={i}
             variants={itemVariants}
             whileHover={{ y: -10, scale: 1.02 }}
-            className="p-10 bg-white dark:bg-card-dark rounded-[2.5rem] border border-slate-200 dark:border-white/5 shadow-xl transition-all group"
+            className="p-10 bg-white dark:bg-card-dark rounded-2xl md:rounded-[2.5rem] border border-slate-200 dark:border-white/5 shadow-xl transition-all group"
           >
             <div
               className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-colors ${item.color} group-hover:bg-opacity-20`}
@@ -426,7 +426,7 @@ export const Interests = ({ onNavigate }: InterestsProps) => {
       {/* Featured Interest */}
       <motion.section
         variants={itemVariants}
-        className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 border border-primary/20 p-12 md:p-16 text-center shadow-2xl"
+        className="relative overflow-hidden rounded-2xl md:rounded-[2.5rem] bg-slate-900 border border-primary/20 p-12 md:p-16 text-center shadow-2xl"
       >
         <div className="absolute inset-0 opacity-10 pointer-events-none data-grid-bg"></div>
         <div className="relative z-10 space-y-6">

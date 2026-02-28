@@ -289,7 +289,7 @@ export const About = ({ onBack }: AboutProps) => {
       {/* Currently Learning */}
       <motion.section
         variants={itemVariants}
-        className="bg-slate-900 border border-white/5 rounded-[2.5rem] p-10 md:p-12 space-y-8 shadow-2xl"
+        className="bg-slate-900 border border-white/5 rounded-2xl md:rounded-[2.5rem] p-10 md:p-12 space-y-8 shadow-2xl"
       >
         <h3 className="text-2xl font-bold text-white tracking-tight flex items-center gap-4">
           <FlaskConical className="text-primary" />
@@ -347,7 +347,7 @@ export const About = ({ onBack }: AboutProps) => {
       {/* Education */}
       <motion.section
         variants={itemVariants}
-        className="bg-slate-900 border border-white/5 rounded-[2.5rem] p-8 md:p-12 space-y-8 shadow-2xl"
+        className="bg-slate-900 border border-white/5 rounded-2xl md:rounded-[2.5rem] p-8 md:p-12 space-y-8 shadow-2xl"
       >
         <h3 className="text-2xl md:text-3xl font-bold flex items-center gap-4 text-white tracking-tight">
           <GraduationCap className="text-primary" />

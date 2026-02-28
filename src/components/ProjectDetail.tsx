@@ -72,7 +72,7 @@ const ProjectHero = ({ project }: { project: ProjectMetadata }) => (
     initial={{ opacity: 0, y: 15 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-    className="relative w-full aspect-video md:aspect-[21/9] overflow-hidden rounded-[2.5rem] shadow-2xl border border-white/5"
+    className="relative w-full aspect-video md:aspect-[21/9] overflow-hidden rounded-2xl md:rounded-[2.5rem] shadow-2xl border border-white/5"
   >
     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent z-10"></div>
     <div className="absolute inset-0 data-grid-bg opacity-10 z-10"></div>
@@ -114,10 +114,10 @@ const ProjectOverview = ({ overview }: { overview: string }) => (
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-    className="space-y-6 border-l-4 border-primary/30 pl-10"
+    className="space-y-6 border-l-4 border-primary/30 pl-6 md:pl-10"
   >
     <h2 className="text-primary font-bold uppercase tracking-widest text-xs">Overview</h2>
-    <div className="space-y-8 text-2xl leading-relaxed text-slate-600 dark:text-slate-300 font-medium tracking-tight">
+    <div className="space-y-8 text-base md:text-2xl leading-relaxed text-slate-600 dark:text-slate-300 font-medium tracking-tight">
       <p>{overview}</p>
     </div>
   </motion.section>
@@ -129,7 +129,7 @@ const ProjectProblem = ({ problem, detail }: { problem: string; detail: string }
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-    className="bg-slate-900 border border-white/5 rounded-[2.5rem] p-12 md:p-16 space-y-8 relative overflow-hidden shadow-2xl"
+    className="bg-slate-900 border border-white/5 rounded-2xl md:rounded-[2.5rem] p-6 md:p-16 space-y-8 relative overflow-hidden shadow-2xl"
   >
     <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -mr-48 -mt-48"></div>
     <div className="flex flex-col md:flex-row items-start gap-10 relative z-10">
@@ -137,8 +137,8 @@ const ProjectProblem = ({ problem, detail }: { problem: string; detail: string }
         <AlertCircle className="text-primary" size={40} />
       </div>
       <div className="space-y-8">
-        <h2 className="text-4xl font-bold text-white tracking-tight">The Problem</h2>
-        <blockquote className="border-l-4 border-primary pl-8 italic text-slate-300 text-2xl leading-relaxed font-medium">
+        <h2 className="text-2xl md:text-4xl font-bold text-white tracking-tight">The Problem</h2>
+        <blockquote className="border-l-4 border-primary pl-6 md:pl-8 italic text-slate-300 text-lg md:text-2xl leading-relaxed font-medium">
           "{problem}"
         </blockquote>
         <p className="text-slate-400 leading-relaxed text-lg">{detail}</p>
@@ -153,7 +153,7 @@ const ImpactInsights = ({ impact, insights }: { impact: string; insights: string
     whileInView={{ opacity: 1, y: 0 }}
     className="grid grid-cols-1 md:grid-cols-2 gap-8"
   >
-    <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-[2.5rem] p-10 space-y-6">
+    <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-2xl md:rounded-[2.5rem] p-6 md:p-10 space-y-6">
       <div className="flex items-center gap-4">
         <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-500">
           <TrendingUp size={24} />
@@ -162,7 +162,7 @@ const ImpactInsights = ({ impact, insights }: { impact: string; insights: string
       </div>
       <p className="text-slate-400 text-lg leading-relaxed">{impact}</p>
     </div>
-    <div className="bg-amber-500/5 border border-amber-500/10 rounded-[2.5rem] p-10 space-y-6">
+    <div className="bg-amber-500/5 border border-amber-500/10 rounded-2xl md:rounded-[2.5rem] p-6 md:p-10 space-y-6">
       <div className="flex items-center gap-4">
         <div className="w-12 h-12 rounded-2xl bg-amber-500/20 flex items-center justify-center text-amber-500">
           <Lightbulb size={24} />

@@ -123,7 +123,7 @@ export const Contact = () => {
         {/* Contact CTA */}
         <motion.div
           variants={itemVariants}
-          className="bg-primary/5 p-10 rounded-[2.5rem] border border-primary/20 shadow-2xl flex flex-col justify-center items-center text-center space-y-8"
+          className="bg-primary/5 p-10 rounded-2xl md:rounded-[2.5rem] border border-primary/20 shadow-2xl flex flex-col justify-center items-center text-center space-y-8"
         >
           <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center text-primary mb-2">
             <Mail size={32} />

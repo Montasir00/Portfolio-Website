@@ -73,7 +73,7 @@ export const Projects = ({ onProjectSelect }: ProjectsProps) => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search projects or tools..."
-            className="w-full pl-14 pr-6 py-5 bg-white dark:bg-card-dark border border-slate-200 dark:border-white/5 rounded-[2rem] focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all shadow-xl"
+            className="w-full pl-14 pr-6 py-5 bg-white dark:bg-card-dark border border-slate-200 dark:border-white/5 rounded-xl md:rounded-[2rem] focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all shadow-xl"
           />
         </div>
 
@@ -109,7 +109,7 @@ export const Projects = ({ onProjectSelect }: ProjectsProps) => {
               whileHover={{ y: -6 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
               onClick={() => onProjectSelect(project.id)}
-              className="group cursor-pointer bg-white dark:bg-card-dark rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-2xl transition-all"
+              className="group cursor-pointer bg-white dark:bg-card-dark rounded-2xl md:rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-white/5 shadow-2xl transition-all"
             >
               <div className="relative aspect-video overflow-hidden bg-slate-900 group/image">
                 <img
