@@ -3,12 +3,52 @@
 
 <head>
   <meta charset="UTF-8" />
+  <!-- GitHub Pages SPA redirect receiver -->
+  <script>
+    (function (l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function (s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fazlur Rahman</title>
+  <title>Fazlur Rahman — Data Analyst & ML Engineer</title>
+  <meta name="description"
+    content="Portfolio of Fazlur Rahman — Data Analyst and ML Engineer based in Messina, Italy. Explore projects in Machine Learning, Data Science, IoT, and Web Development." />
+  <meta name="author" content="Fazlur Rahman" />
+  <meta name="keywords"
+    content="Data Analyst, Machine Learning, Portfolio, Python, React, Data Science, Fazlur Rahman" />
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Fazlur Rahman — Data Analyst & ML Engineer" />
+  <meta property="og:description"
+    content="Explore projects in Machine Learning, Data Science, IoT, and Web Development." />
+  <meta property="og:url" content="https://Montasir00.github.io/Portfolio-Website/" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fazlur Rahman — Data Analyst & ML Engineer" />
+  <meta name="twitter:description"
+    content="Explore projects in Machine Learning, Data Science, IoT, and Web Development." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2311b4d4'/%3E%3Crect x='5' y='16' width='5' height='12' rx='1.5' fill='%230a0f1d'/%3E%3Crect x='13.5' y='10' width='5' height='18' rx='1.5' fill='%230a0f1d'/%3E%3Crect x='22' y='4' width='5' height='24' rx='1.5' fill='%230a0f1d'/%3E%3C/svg%3E" />
-  <script type="module" crossorigin src="/Portfolio-Website/assets/index-CwqnXJKC.js"></script>
-  <link rel="stylesheet" crossorigin href="/Portfolio-Website/assets/index-Do_lKUEi.css">
+  <script type="module" crossorigin src="/Portfolio-Website/assets/index-DgjI89Mp.js"></script>
+  <link rel="stylesheet" crossorigin href="/Portfolio-Website/assets/index-DU7nwivO.css">
 </head>
 
 <body>
