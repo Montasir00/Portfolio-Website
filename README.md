@@ -1,64 +1,61 @@
 # Fazlur Rahman - Personal Portfolio
 
-![Portfolio Preview Showcase](https://raw.githubusercontent.com/Montasir00/Portfolio-Website/main/public/assets/images/ml.jpg)
+![Portfolio Preview Showcase](public/assets/images/ml.jpg)
 
-Welcome to the source code of my personal interactive portfolio! This modern web application was built to beautifully showcase my software engineering projects, professional experience, hobbies, reading lists, and international travel explorations. 
+Source code for an interactive personal portfolio. This application serves as a comprehensive showcase of software engineering projects, professional experience, interests, and academic technical work.
 
-It is designed with extremely sleek UI/UX principles, featuring fully custom Framer Motion animations, deeply customized Tailwind CSS, and highly responsive interactive components.
+The project emphasizes performance and clean architectural principles, utilizing a modern tech stack focused on responsiveness and smooth user experience.
 
-## 🚀 Built With
+## Technical Stack
 
-*   **Framework:** [React 19](https://react.dev/)
-*   **Build Tool:** [Vite](https://vitejs.dev/)
-*   **Styling:** [Tailwind CSS 3](https://tailwindcss.com/)
-*   **Motion & Animations:** [Framer Motion (motion/react)](https://motion.dev/)
-*   **Icons:** [Lucide React](https://lucide.dev/)
-*   **Routing:** [React Router v7](https://reactrouter.com/)
+*   **Core:** React 19, Vite
+*   **Styling:** Tailwind CSS
+*   **Animations:** Framer Motion
+*   **Icons:** Lucide React
+*   **Navigation:** React Router v7
 
-## ✨ Key Features
+## Key Features
 
-*   **Interactive Project Gallery:** A meticulously designed dynamic gallery that pulls structured metadata from constant configurations and displays highly-aesthetic individual project dashboards (including custom architecture diagrams for IoT Pipelines and E-commerce structures).
-*   **Travel Exploration Map:** An interactive, animated world map pinpointing international travel experiences. Fully linked to an aesthetically pleasing chronological travelogue.
-*   **Curated Digital Library:** A fully categorized and filterable showcase of my favorite and current book reads (ranging from Non-Fiction strategy to Bengali youth fiction and Sci-Fi anthologies).
-*   **Dynamic UI Scaling:** Perfectly responsive mobile-first architecture utilizing native blur events, scroll-spying mobile navbars, and deeply integrated dark-mode compatibility.
-*   **Smooth Page Transitions:** Seamless page transitions, spatial component mounting, and interactive hover states using physics-based spring animations.
+*   **Project Gallery:** A dynamic, metadata-driven gallery featuring detailed project pages with architectural overviews.
+*   **Global Travel Log:** An interactive, animated world map visualizing international travel history, linked to a chronological travelogue.
+*   **Digital Library:** A categorized and filterable display of professional and leisure reading materials.
+*   **Responsive Motion Design:** Mobile-first architecture with smooth transitions and physics-based spring animations.
+*   **Automated Asset Management:** Custom scripts for fetching external resources such as book covers and metadata.
 
-## 🛠️ Local Development
+## Local Development
 
-To run this portfolio locally on your machine, simply follow these steps:
+To run this portfolio locally:
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Montasir00/Portfolio-Website.git
-   cd Portfolio-Website
-   ```
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/Montasir00/Portfolio-Website.git
+    cd Portfolio-Website
+    ```
 
-2. **Install the dependencies:**
-   ```bash
-   npm install
-   ```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-3. **Start the Vite development server:**
-   ```bash
-   npm run dev
-   ```
+3.  **Run development server:**
+    ```bash
+    npm run dev
+    ```
 
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
+4.  **Production build:**
+    ```bash
+    npm run build
+    ```
 
-## 📂 Project Structure Overview
+## Directory Structure
 
-*   `/src/components/` - The core building blocks of the UI (Home, Projects, Interests, BookPage, etc.)
-*   `/src/constants/` - The central data source of truth (`books.ts`, `projects.ts`, `travel.ts`) which powers the dynamic views.
-*   `/src/hooks/` - Custom React hooks for media queries and browser interactions.
-*   `/scripts/` - Node.js helper scripts (like the interactive Open Library book cover fetcher).
-*   `/public/assets/` - Static assets including project showcase screenshots and downloaded book covers.
+*   `/src/components/` - UI components (Home, Projects, Map, etc.).
+*   `/src/constants/` - Central data configurations for projects, books, and travel.
+*   `/scripts/` - Node.js maintenance and automation scripts.
+*   `/public/assets/` - Static assets including project screenshots and media.
 
-## 🤝 Contact
+## Contact
 
-Feel free to reach out to me!
 **Fazlur Rahman**
-📧 Email: fazlurrahaman365@gmail.com
-💻 GitHub: [@Montasir00](https://github.com/Montasir00)
+Email: fazlurrahaman365@gmail.com
+GitHub: [Montasir00](https://github.com/Montasir00)
